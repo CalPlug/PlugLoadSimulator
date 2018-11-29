@@ -1,0 +1,12 @@
+sample_rate:1800
+xbox,off,0001100000
+xbox,standby,1110000000
+xbox,on,0000001111
+xbox,menu,0000010000
+television,off,0001110000
+television,standby,0000000000
+television,on,1110001111
+surround sound,off,0001110000
+surround sound,standby,1110000000
+surround sound,on,0000001110
+surround sound,mute,0000000001

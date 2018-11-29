@@ -1,0 +1,15 @@
+sample_rate:1
+Microsoft Xbox One,off,1
+Microsoft Xbox One,menu,0
+Microsoft Xbox One,game,0
+Microsoft Xbox One,standby,0
+LG LED HiDef TV,off,1
+LG LED HiDef TV,on,0
+LG LED HiDef TV,standby,0
+Microsoft Xbox One (1),off,0
+Microsoft Xbox One (1),menu,0
+Microsoft Xbox One (1),game,0
+Microsoft Xbox One (1),standby,1
+Dolby Surround Sound,off,1
+Dolby Surround Sound,on,0
+Dolby Surround Sound,standby,0

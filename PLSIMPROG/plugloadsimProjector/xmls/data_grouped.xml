@@ -1,0 +1,163 @@
+<data>
+<device-class name="AV">
+	<device-type name="projector">
+		<device-brand name="Hitachi">
+			<device-category name="CP">
+				<device-model name="X2530WN">
+					<state name="on" power="330" />
+					<state name="off" power="0"/>
+					<state name="stand by" power="0.5" />
+				</device-model>
+			</device-category>
+		</device-brand>
+		<device-brand name="Epson">
+			<device-category name="Powerlite">
+				<device-model name="97">
+					<state name="on" power="294"></state>
+					<state name="off" power="0"/>
+					<state name="stand by" power="2.9"></state>
+					</device-model>
+				<device-model name="98">
+					<state name="on" power="294"></state>
+					<state name="off" power="0"/>
+					<state name="stand by" power="2.9"></state>
+				</device-model>
+				<device-model name="X17">
+					<state name="on" power="283"></state>
+					<state name="off" power="0"/>
+					<state name="stand by" power="2.9"></state></device-model></device-category></device-brand>
+		<device-brand name="Viewsonic">
+			<device-model name="PJD5134"> 
+				<state name="on" power="250"/>
+				<state name="off" power="0"/>
+				<state name="stand by" power="1"/>
+			</device-model>
+		</device-brand>
+	</device-type>
+	<device-type name="sound system">
+		<device-brand name="Panasonic">
+			<device-model name="Surround Sound">
+				<state name="on" power="75" power_factor="0.26" thd="0.15" />
+				<state name="off" power="0" power_factor="0.43" thd="0.21" />
+				<state name="standby" power="25" power_factor="0.33" thd="0.03" />
+			</device-model>
+		</device-brand>
+		<device-brand name="Dolby">
+			<device-model name="Surround Sound">
+				<state name="on" power="70" power_factor="0.01" thd="0.33" />
+				<state name="off" power="0" power_factor="0.32" thd="0.09" />
+				<state name="standby" power="30" power_factor="0.07" thd="0.27" />
+			</device-model>
+		</device-brand>
+	</device-type>
+	<device-type name="television">
+		<device-brand name="Samsung">
+			<device-model name="LCD SD TV">
+				<state name="on" power="150" power_factor="0.19" thd="0.11" />
+				<state name="off" power="0" power_factor="0.12" thd="0.32" />
+				<state name="standby" power="50" power_factor="0.34" thd="0.45" />
+			</device-model>
+		</device-brand>
+		<device-brand name="LG">
+			<device-model name="LED HiDef TV">
+				<state name="on" power="150" power_factor="0.05" thd="0.36" />
+				<state name="off" power="0" power_factor="0.39" thd="0.24" />
+				<state name="standby" power="50" power_factor="0.32" thd="0.17" />
+			</device-model>
+			<device-model name="LCD SD TV">
+				<state name="on" power="100" power_factor="0.03" thd="0.29" />
+				<state name="off" power="0" power_factor="0.17" thd="0.16" />
+				<state name="standby" power="50" power_factor="0.07" thd="0.03" />
+			</device-model>
+		</device-brand>
+	</device-type>
+	<device-type name="Video Game System">
+		<device-brand name="Microsoft">
+			<device-model name="Xbox One">
+				<state name="game" power="350" power_factor="0.05" thd="0.12" />
+				<state name="off" power="0" power_factor="0.02" thd="0.0" />
+				<state name="standby" power="75" power_factor="0.46" thd="0.07" />
+				<state name="menu" power="150" power_factor="0.42" thd="0.25" />
+			</device-model>
+			<device-model name="Xbox 360">
+				<state name="game" power="300" power_factor="0.11" thd="0.07" />
+				<state name="off" power="0" power_factor="0.2" thd="0.47" />
+				<state name="standby" power="75" power_factor="0.07" thd="0.46" />
+				<state name="menu" power="100" power_factor="0.37" thd="0.17" />
+			</device-model>
+		</device-brand>
+		<device-brand name="Sony">
+			<device-model name="PlayStation 4">
+				<state name="game" power="375" power_factor="0.2" thd="0.35" />
+				<state name="off" power="0" power_factor="0.46" thd="0.4" />
+				<state name="standby" power="70" power_factor="0.42" thd="0.03" />
+				<state name="menu" power="150" power_factor="0.01" thd="0.1" />
+			</device-model>
+			<device-model name="PlayStation 3">
+				<state name="game" power="275" power_factor="0.23" thd="0.05" />
+				<state name="off" power="0" power_factor="0.21" thd="0.16" />
+				<state name="standby" power="65" power_factor="0.4" thd="0.36" />
+				<state name="menu" power="125" power_factor="0.43" thd="0.15" />
+			</device-model>
+		</device-brand>
+	</device-type>
+</device-class>
+<device-class name="AV2"> 
+	<device-type name="television">
+		<device-brand name="Samsung">
+			<device-model name="LED HiDef TV">
+				<state name="on" power="200" power_factor="0.01" thd="0.08" />
+				<state name="off" power="0" power_factor="0.06" thd="0.33" />
+				<state name="standby" power="50" power_factor="0.21" thd="0.17" />
+			</device-model>
+			<device-model name="LCD SD TV">
+				<state name="on" power="150" power_factor="0.3" thd="0.36" />
+				<state name="off" power="0" power_factor="0.21" thd="0.41" />
+				<state name="standby" power="50" power_factor="0.46" thd="0.3" />
+			</device-model>
+		</device-brand>
+		<device-brand name="LG">
+			<device-model name="LED HiDef TV">
+				<state name="on" power="250" power_factor="0.08" thd="0.26" />
+				<state name="off" power="0" power_factor="0.41" thd="0.29" />
+				<state name="standby" power="50" power_factor="0.21" thd="0.29" />
+			</device-model>
+			<device-model name="LCD SD TV">
+				<state name="on" power="100" power_factor="0.01" thd="0.31" />
+				<state name="off" power="0" power_factor="0.12" thd="0.26" />
+				<state name="standby" power="50" power_factor="0.22" thd="0.29" />
+			</device-model>
+		</device-brand>
+	</device-type>
+	<device-type name="Video Game System">
+		<device-brand name="Microsoft">
+			<device-model name="Xbox One">
+				<state name="game" power="350" power_factor="0.21" thd="0.43" />
+				<state name="off" power="0" power_factor="0.32" thd="0.05" />
+				<state name="standby" power="75" power_factor="0.14" thd="0.31" />
+				<state name="menu" power="150" power_factor="0.18" thd="0.42" />
+			</device-model>
+			<device-model name="Xbox 360">
+				<state name="game" power="300" power_factor="0.07" thd="0.1" />
+				<state name="off" power="0" power_factor="0.28" thd="0.19" />
+				<state name="standby" power="75" power_factor="0.35" thd="0.49" />
+				<state name="menu" power="100" power_factor="0.26" thd="0.24" />
+			</device-model>
+		</device-brand>
+		<device-brand name="Sony">
+			<device-model name="PlayStation 4">
+				<state name="game" power="375" power_factor="0.17" thd="0.49" />
+				<state name="off" power="0" power_factor="0.01" thd="0.48" />
+				<state name="standby" power="70" power_factor="0.39" thd="0.49" />
+				<state name="menu" power="150" power_factor="0.11" thd="0.18" />
+			</device-model>
+			<device-model name="PlayStation 3">
+				<state name="game" power="275" power_factor="0.21" thd="0.5" />
+				<state name="off" power="0" power_factor="0.48" thd="0.15" />
+				<state name="standby" power="65" power_factor="0.04" thd="0.04" />
+				<state name="menu" power="125" power_factor="0.09" thd="0.24" />
+			</device-model>
+		</device-brand>
+	</device-type>
+</device-class>
+</data>

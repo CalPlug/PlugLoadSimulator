@@ -1,0 +1,38 @@
+-- VERSION_5
+-- START DISKCACHE_2
+C:\pythonworkspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sqlreadpower\com.python.pydev.analysis\v2_indexcache
+statescript|1536031406413304000|C:\pythonworkspace\sqlreadpower\statescript.py
+main|1536092065133284000|C:\pythonworkspace\sqlreadpower\main.py
+__init__|1535696353137648000|C:\pythonworkspace\sqlreadpower\__init__.py
+-- END DISKCACHE
+-- START DICTIONARY
+4
+1=C:\pythonworkspace\sqlreadpower\main.py
+4=statescript
+2=main
+3=C:\pythonworkspace\sqlreadpower\statescript.py
+-- END DICTIONARY
+-- START TREE 1
+18
+cal|0|
+cur|2|cursor!1^26#1*19@cursor!3^21#1*35@
+dat|4|datetallylist!1^51#1*19@daterow!1^46#1*19@daterow!3^43#1*35@datetallylist!3^48#1*35@
+db|2|db!1^24#1*19@db!3^19#1*35@
+dev|4|devicename!3^38#1*35@devicemfgr!3^37#1*35@devicemfgr!1^40#1*19@devicename!1^41#1*19@
+i|2|i!1^134#5*19@i!3^102#5*35@
+las|1|lastdate!1^92#1*19@
+len|4|lengthinstate!3^104#9*35@lengthinstate!1^136#9*19@lengthnotinstate!3^105#9*35@lengthnotinstate!1^137#9*19@
+log|1|logicerrorflag!1^91#1*19@
+per|4|periodlength!1^42#1*19@periodstartcolumn!3^41#1*35@periodlength!3^39#1*35@periodstartcolumn!1^44#1*19@
+pls|2|plsimcompliant!1^17#1*19@plsimsupressdate!1^18#1*19@
+pri|0|
+que|5|query!1^29#1*19@query!3^24#1*35@query_modifications!1^32#1*19@query_modifications!3^29#1*35@queryreturn!1^35#1*19@
+sam|4|sample_rate_distinguisher!1^38#1*19@sample_rate_distinguisher!3^35#1*35@sample_rate!3^36#1*35@sample_rate!1^39#1*19@
+sta|5|statetallylist!3^47#1*35@statetallylist!1^50#1*19@stateinfo!3^32#1*35@stateposition!3^42#1*35@stateposition!1^45#1*19@
+tim|1|timeholder!1^112#9*19@
+tot|2|totalperiods!3^40#1*35@totalperiods!1^43#1*19@
+uni|2|uniqueinlist!3^55#5*34@uniqueinlist!1^58#5*18@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE
