@@ -1,0 +1,79 @@
+<data>
+<device-class name="Information Technology">
+	<device-type name="PC Desktop Computer">
+		<device-brand name="Dell">
+			<device-model name="Model 1">
+				<state name="HardOff" power="0" power_factor="0" thd="0" comments="State defined by turning off physical power off switch in back of computer case" />
+				<state name="SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+			<device-model name="Model 2">
+				<state name="HardOff" power="0" power_factor="0" thd="0" />
+				<state name="SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+			<device-model name="Model 3">
+				<state name="HardOff" power="0" power_factor="0" thd="0" />
+				<state name="SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+		</device-brand>
+		<device-brand name="Generic AMD A10">
+			<device-model name="Model 1">
+				<state name="HardOff" power="0" power_factor="0" thd="0" />
+				<state name="SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+		</device-brand>
+		<device-brand name="Generic Intel i5">
+			<device-model name="Model 1">
+				<state name="HardOff" power="0" power_factor="0" thd="0" />
+				<state name="SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+			</device-brand>
+		<device-brand name="Generic AMD P2 x4">
+			<device-model name="Model 1">
+				<state name="HardOff" power="0" power_factor="0" thd="0" />
+				<state name="SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+		</device-brand>
+	</device-type>
+	<device-type name="PC Laptop Computer">
+		<device-brand name="HP">
+			<device-model name="Model 1">
+				<state name="Charger" power="0" power_factor="0" thd="0" />
+				<state name="Charging:SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Charging:Standby" power="0" power_factor="0" thd="0" />
+				<state name="Charging:Active" power="0" power_factor="0" thd="0" />
+				<state name="Charged:SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Charged:Standby" power="0" power_factor="0" thd="0" />
+				<state name="Charged:Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+		</device-brand>
+		</device-type>
+	<device-type name="Mac Laptop Computer">
+		<device-brand name="Apple">
+			<device-model name="Model 1">
+				<state name="Charger" power="0" power_factor="0" thd="0" />
+				<state name="Charging:SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Charging:Standby" power="0" power_factor="0" thd="0" />
+				<state name="Charging:Active" power="0" power_factor="0" thd="0" />
+				<state name="Charged:SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Charged:Standby" power="0" power_factor="0" thd="0" />
+				<state name="Charged:Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+			<device-model name="Model 2">
+				<state name="Charger" power="0" power_factor="0" thd="0" />
+				<state name="Charging:SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Charging:Standby" power="0" power_factor="0" thd="0" />
+				<state name="Charging:Active" power="0" power_factor="0" thd="0" />
+				<state name="Charged:SoftOff" power="0" power_factor="0" thd="0" />
+				<state name="Charged:Standby" power="0" power_factor="0" thd="0" />
+				<state name="Charged:Active" power="0" power_factor="0" thd="0" />
+			</device-model>
+		</device-brand>
+	</device-type>
+</device-class>
+</data>
