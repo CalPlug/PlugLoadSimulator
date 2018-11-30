@@ -1,4 +1,4 @@
-# PLUG LOAD SIMULATOR FOR LINKED DEVICES (PLSim) ![build passing](https://raw.githubusercontent.com/dwyl/repo-badges/master/highresPNGs/build-passing.png)
+# PLUG LOAD SIMULATOR FOR LINKED DEVICES (PLSim) ![build passing](https://img.shields.io/circleci/project/github/badges/shields/master.svg)
 
 ## California Plug Load Research Center (CalPlug)
 
