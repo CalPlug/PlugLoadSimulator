@@ -24,16 +24,16 @@ New updated version of the program can be found in folder PLSim_1.1. This versio
 This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
 This version introduces object pickling, allowing for seperation of the simulator into two programs:  
 	(1) **Scheduler.py**  
-		- (a) Run this program first   
-		- (b) Takes information from database in xml and allows for user to configure devices to be simulated  
+		  - (a) Run this program first   
+		  - (b) Takes information from database in xml and allows for user to configure devices to be simulated  
 	(2) **CalculationEngine.py**  
-		(a) After Scheduler.py has completed, run this program   
-		(b) Calculates and displays the simulation information  
+		  - (a) After Scheduler.py has completed, run this program   
+		  - (b) Calculates and displays the simulation information  
   
 ## INSTALLATION DETAILS  
 (1) Download the package manager/installer Conda from http://conda.pydata.org/miniconda.html   
-		(a) Choose the Python 3.5 installer  
-		(b) Download and run the installer, follow all the instructions in the installer  
+	- (a) Choose the Python 3.5 installer  
+    - (b) Download and run the installer, follow all the instructions in the installer  
 
 (2) In the command line, issue the following command  
 		(a) conda install matplotlib (it will automatically install all the dependencies)- for reference: http://conda.pydata.org/docs/using/pkgs.html  
