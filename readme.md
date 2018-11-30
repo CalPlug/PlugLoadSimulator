@@ -9,7 +9,7 @@ Copyright The Regents of the University of California, 2016 (v.1)
 Developed with support from Southern California Edison / Edison International  
 Built with open source software and released into the public domain under GNU License for permissive use.  
 
-### V1.1 (2/28/2018)  
+### Version 1.1 (2/28/2018)  
 This is a program that simulates how different sets of devices operating in different states consume energy.  It can be used to quickly tabulate energy use for multiple schedules of operation.  Additionally linked devices can be simulated.
 
 In the current functional level, this program is run from Eclipse IDE.  One must install all dependancies to make it function as described below.
@@ -19,7 +19,7 @@ For example, in a living room, there may be a TV, but a TV can be in an off, on,
 consumes different amounts of energy. With multiple devices, each of which have four to five states at any given
 time, the energy usage can be hard to analyse and calculate. This command-line program helps solve this problem.
 
-### V1.2 (11/27/18) Current Release  
+### Version 1.2 (11/27/18) Current Release  
 New updated version of the program can be found in folder PLSim_1.1. This version is built using plugloadsimDefault from Version 1.1 and is developed in the same Eclipse IDE setup.
 This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
 This version introduces object pickling, allowing for seperation of the simulator into two programs:  
