@@ -23,9 +23,9 @@ time, the energy usage can be hard to analyse and calculate. This command-line p
 New updated version of the program can be found in folder PLSim_1.1. This version is built using plugloadsimDefault from Version 1.1 and is developed in the same Eclipse IDE setup.
 This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
 This version introduces object pickling, allowing for seperation of the simulator into two programs:  
-	(1) **Scheduler.py** 
-		(a) Run this program first   
-		(b) Takes information from database in xml and allows for user to configure devices to be simulated  
+	(1) **Scheduler.py**  
+		- (a) Run this program first   
+		- (b) Takes information from database in xml and allows for user to configure devices to be simulated  
 	(2) **CalculationEngine.py**  
 		(a) After Scheduler.py has completed, run this program   
 		(b) Calculates and displays the simulation information  
@@ -79,14 +79,14 @@ This version introduces object pickling, allowing for seperation of the simulato
 	it will ask which state is the device in. If no it will assume the device is off and consuming no energy.  
 6)	To end the simulation enter 0.  
   
-OUTPUTS:  
+## OUTPUTS:  
 1)	First output is the energy used in W*hrs (may be changeable to kWhrs)  
 2)	The second output is two graphs:  
 		(a) the first one is the graph of Power vs. Time   
 		(b) the second graph is Energy Used vs. Time  
 3) 	Also in the outputs folder is the a csv that contains all the information from the graph  
 
-NOTES ON IMPLEMENTATION:  
+## NOTES ON IMPLEMENTATION:  
 1)	Data about documented devices is stored in an xml file, which is organized hierarchically like so:  
 							(a)	device-class  
 							   (b) device-type   
