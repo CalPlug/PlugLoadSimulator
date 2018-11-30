@@ -24,11 +24,11 @@ New updated version of the program can be found in folder PLSim_1.1. This versio
 This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
 This version introduces object pickling, allowing for seperation of the simulator into two programs:  
 	1) **Scheduler.py**  
-		a) Run this program first   
-		b) Takes information from database in xml and allows for user to configure devices to be simulated  
+		 - a) Run this program first   
+		 - b) Takes information from database in xml and allows for user to configure devices to be simulated  
 	2) **CalculationEngine.py**  
-		a) After Scheduler.py has completed, run this program   
-		b) Calculates and displays the simulation information  
+		 - a) After Scheduler.py has completed, run this program   
+		 - b) Calculates and displays the simulation information  
   
 ## INSTALLATION DETAILS  
 1) Download the package manager/installer Conda from http://conda.pydata.org/miniconda.html   
@@ -48,10 +48,10 @@ This version introduces object pickling, allowing for seperation of the simulato
 5) Open Eclipse with your desired workspace directory  
 
 6) Click Window->Preferences->Pydev->Interpreters->Python Interpreters  
-  	a) Click New...
-  	b) In the "Interpreter Executable" field copy paste the directory of the Python Interpreter in MiniConda3  
-  		ie: C:\Users\[user_name]\Miniconda3\python.exe  
-		or C:\ProgramData\Miniconda3\python.exe  
+  	a) Click New...  
+  	b) In the "Interpreter Executable" field copy paste the directory of the Python Interpreter in MiniConda3
+        ie: C:\Users\[user_name]\Miniconda3\python.exe 
+	    or C:\ProgramData\Miniconda3\python.exe  
   	c) A new screen will pop up check mark all the radio boxes and click OK, make sure to add requested environmental variables.  
   	
 7) Open or Create a new Project (the PLSIMPROG directory is an eclipse workspace with three projects inside) and put in all the files assuming you have them all in a zip  
@@ -63,7 +63,8 @@ This version introduces object pickling, allowing for seperation of the simulato
 ## INSTRUCTIONS FOR USE  
 1) 	Run the program  
 2) 	The menu contains commands for us to manipulate the simulation environment  
-	a: adds a device, first it selects the a) kind of class of device to add,  
+	a: adds a device, first it selects the  
+                                           a) kind of class of device to add,  
 										   b) then the type of device,   
 										   c) then the brand,  
 										   d) then finally the model  
