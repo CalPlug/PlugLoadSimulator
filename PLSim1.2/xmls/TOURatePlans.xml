@@ -1,5 +1,5 @@
 <data>
-	<touplan-class name="General TOU Pricing Plans" currentversion = "1.3">
+	<touplan-class name="TOU Pricing Plans" currentversion = "1.3">
 		<!--Generic name for this type of format file-->
 		<!-- NO SPECIAL CHARACTER INSIDE UTILITY -->
 		<utility name = "SDGE"> <!--Utility name-->
@@ -180,8 +180,7 @@
                             <rate designator="rate1" name="Super Off Peak" tier1_costperkwh="0.19" weekendstart1="00:00" weekendend1="13:59" weekdaystart1="00:00" weekdayend1="05:59" weekdaystart2="10:00" weekdayend2="13:59" totalweekdayperiods = "2" totalweekendperiods = "1" comments="One periods in a day on the weekends, two during weekdays" />
                             <rate designator="rate2" name="Off Peak" tier2_costperkwh="0.23" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
                             <rate designator="rate3" name="Mid Peak" tier1_costperkwh="0.38" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"  comments="One periods in a day on the weekends, One during weekdays" />
-                            <rate designator="rate4" name="On Peak" tier2_costperkwh="0.42" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"
-                        </season-model>
+                            <rate designator="rate4" name="On Peak" tier2_costperkwh="0.42" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
                         <season-model designator = "season2" name = "Winter" startdate= "10-01 00:00:00" enddate= "05-31 23:59:59" totalweeklyperiods = "2" totalrates = "4">
                             <!--TOU Plan name-->
                             <!--Friendly name for this season-->
@@ -192,8 +191,10 @@
                             <rate designator="rate1" name="Super Off Peak" tier1_costperkwh="0.18" weekendstart1="00:00" weekendend1="13:59" weekdaystart1="00:00" weekdayend1="05:59" weekdaystart2="10:00" weekdayend2="13:59" totalweekdayperiods = "2" totalweekendperiods = "1" comments="One periods in a day on the weekends, two during weekdays" />
                             <rate designator="rate2" name="Off Peak" tier2_costperkwh="0.22" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
                             <rate designator="rate3" name="Mid Peak" tier1_costperkwh="0.26" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"  comments="One periods in a day on the weekends, One during weekdays" />
-                            <rate designator="rate4" name="On Peak" tier2_costperkwh="0.30" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"                        </season-model>
+                            <rate designator="rate4" name="On Peak" tier2_costperkwh="0.30" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"/>
+                        </season-model>
                         <!--Treat holidays, no matter what day of the week as weekends for pricing - listed by date within the valid period on a year, by year basis-->
+                        </season-model>
                         <plan-holiday year = "2018" day= "01-01" dayname= "New Years Day" />
                         <plan-holiday year = "2018" day= "12-25" dayname= "Christmas" />
                         <plan-holiday year = "2019" day= "01-01" dayname= "New Years Day" />
@@ -213,7 +214,7 @@
                             <!--Two weekly periods, weekdays and weekends-->
                             <rate designator="rate1" name="Off Peak" costperkwh="0.22" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
                             <rate designator="rate2" name="Mid Peak" costperkwh="0.27" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"  comments="One periods in a day on the weekends, One during weekdays" />
-                            <rate designator="rate3" name="On Peak" costperkwh="0.44" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"
+                            <rate designator="rate3" name="On Peak" costperkwh="0.44" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
                                 </season-model>
                         <season-model designator = "season2" name = "Winter" startdate= "10-01 00:00:00" enddate= "05-31 23:59:59" totalweeklyperiods = "2" totalrates = "4">
                             <!--TOU Plan name-->
@@ -224,7 +225,8 @@
                             <!--Super Off Peak and On Peak order reversed, Helping comparing with season 1-->
                             <rate designator="rate1" name="Super Off Peak" costperkwh="0.17" weekendstart1="00:00" weekendend1="13:59" weekdaystart1="00:00" weekdayend1="05:59" weekdaystart2="10:00" weekdayend2="13:59" totalweekdayperiods = "2" totalweekendperiods = "1" comments="One periods in a day on the weekends, two during weekdays" />
                             <rate designator="rate2" name="Off Peak" costperkwh="0.28" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
-                            <rate designator="rate3" name="On Peak" costperkwh="0.29" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"                        </season-model>
+                            <rate designator="rate3" name="On Peak" costperkwh="0.29" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
+                        </season-model>
                         <!--Treat holidays, no matter what day of the week as weekends for pricing - listed by date within the valid period on a year, by year basis-->
                         <plan-holiday year = "2018" day= "01-01" dayname= "New Years Day" />
                         <plan-holiday year = "2018" day= "12-25" dayname= "Christmas" />
@@ -232,6 +234,7 @@
                         <plan-holiday year = "2019" day= "12-25" dayname= "Christmas" />
                         <plan-holiday year = "2020" day= "01-01" dayname= "New Years Day" />
                         <plan-holiday year = "2020" day= "12-25" dayname= "Christmas" />
+                        </plan>
                     <plan name = "TOU-D-4-9PM" totalseasons = "2" validstart = "2018-06-01 00:00:00" validend = "2019-06-01 23:59:59">
                         <!--General TOU Plan name-->
                         <!--Mimic Time for arbitrary days-->
@@ -244,7 +247,7 @@
                             <!--Two weekly periods, weekdays and weekends-->
                             <rate designator="rate1" name="Off Peak" costperkwh="0.22" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
                             <rate designator="rate2" name="Mid Peak" costperkwh="0.27" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"  comments="One periods in a day on the weekends, One during weekdays" />
-                            <rate designator="rate3" name="On Peak" costperkwh="0.44" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"
+                            <rate designator="rate3" name="On Peak" costperkwh="0.44" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
                             </season-model>
                         <season-model designator = "season2" name = "Winter" startdate= "10-01 00:00:00" enddate= "05-31 23:59:59" totalweeklyperiods = "2" totalrates = "4">
                             <!--TOU Plan name-->
@@ -255,7 +258,8 @@
                             <!--Super Off Peak and On Peak order reversed, Helping comparing with season 1-->
                             <rate designator="rate1" name="Super Off Peak" costperkwh="0.17" weekendstart1="00:00" weekendend1="13:59" weekdaystart1="00:00" weekdayend1="05:59" weekdaystart2="10:00" weekdayend2="13:59" totalweekdayperiods = "2" totalweekendperiods = "1" comments="One periods in a day on the weekends, two during weekdays" />
                             <rate designator="rate2" name="Off Peak" costperkwh="0.28" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
-                            <rate designator="rate3" name="On Peak" costperkwh="0.29" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"                        </season-model>
+                            <rate designator="rate3" name="On Peak" costperkwh="0.29" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
+                        </season-model>
                             <!--Treat holidays, no matter what day of the week as weekends for pricing - listed by date within the valid period on a year, by year basis-->
                             <plan-holiday year = "2018" day= "01-01" dayname= "New Years Day" />
                             <plan-holiday year = "2018" day= "12-25" dayname= "Christmas" />
@@ -263,6 +267,7 @@
                             <plan-holiday year = "2019" day= "12-25" dayname= "Christmas" />
                             <plan-holiday year = "2020" day= "01-01" dayname= "New Years Day" />
                             <plan-holiday year = "2020" day= "12-25" dayname= "Christmas" />
+                            </plan>
                             <plan name = "TOU-D-5-8PM" totalseasons = "2" validstart = "2018-06-01 00:00:00" validend = "2019-06-01 23:59:59">
                                 <!--General TOU Plan name-->
                                 <!--Mimic Time for arbitrary days-->
@@ -275,7 +280,7 @@
                                     <!--Two weekly periods, weekdays and weekends-->
                                     <rate designator="rate1" name="Off Peak" costperkwh="0.23" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
                                     <rate designator="rate2" name="Mid Peak" costperkwh="0.29" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"  comments="One periods in a day on the weekends, One during weekdays" />
-                                    <rate designator="rate3" name="On Peak" costperkwh="0.49" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"
+                                    <rate designator="rate3" name="On Peak" costperkwh="0.49" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
                                         </season-model>
                                         <season-model designator = "season2" name = "Winter" startdate= "10-01 00:00:00" enddate= "05-31 23:59:59" totalweeklyperiods = "2" totalrates = "4">
                                             <!--TOU Plan name-->
@@ -286,7 +291,8 @@
                                             <!--Super Off Peak and On Peak order reversed, Helping comparing with season 1-->
                                             <rate designator="rate1" name="Super Off Peak" costperkwh="0.17" weekendstart1="00:00" weekendend1="13:59" weekdaystart1="00:00" weekdayend1="05:59" weekdaystart2="10:00" weekdayend2="13:59" totalweekdayperiods = "2" totalweekendperiods = "1" comments="One periods in a day on the weekends, two during weekdays" />
                                             <rate designator="rate2" name="Off Peak" costperkwh="0.29" weekendstart1="14:00" weekendend1="15:59" weekendstart2="21:00" weekendend2="23:59" weekdaystart1="06:00" weekdayend1="9:59" weekdaystart2 = "14:00" weekdayend2="15:59" weekdaystart3 = "21:00" weekdayend3="23:59" totalweekdayperiods = "3" totalweekendperiods = "2"  comments="Two periods in a day on the weekends, three during weekdays" />
-                                            <rate designator="rate3" name="Mid Peak" costperkwh="0.30" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1"                        </season-model>
+                                            <rate designator="rate3" name="Mid Peak" costperkwh="0.30" weekdaystart1="16:00" weekdayend1="20:59" weekendstart1="16:00" weekendend1="20:59" totalweekdayperiods = "1" totalweekendperiods = "1" />
+                                        </season-model>
                                                 <!--Treat holidays, no matter what day of the week as weekends for pricing - listed by date within the valid period on a year, by year basis-->
                                                 <plan-holiday year = "2018" day= "01-01" dayname= "New Years Day" />
                                                 <plan-holiday year = "2018" day= "12-25" dayname= "Christmas" />
@@ -295,8 +301,8 @@
                                                 <plan-holiday year = "2020" day= "01-01" dayname= "New Years Day" />
                                                 <plan-holiday year = "2020" day= "12-25" dayname= "Christmas" />
 
-            </plan>
-			</utility>
+                                    </plan>
+                            </utility>
                                         <utility name = "PGE"> <!--Utility name-->
                                             <plan name = "EV-A" totalseasons = "2" validstart = "2018-06-01 00:00:00" validend = "2019-06-01 23:59:59">
                                                 <!--General TOU Plan name-->
@@ -394,8 +400,7 @@
                                                 <plan-holiday year = "2020" day= "01-01" dayname= "New Years Day" />
                                                 <plan-holiday year = "2020" day= "12-25" dayname= "Christmas" />
                         </plan>
-                        <utility>
-
+                </utility>
 	</touplan-class>
 	<tierplan-class name="General Tier Pricing Plans" currentversion = "1.2">
 		<!--Generic name for this type of format file-->
