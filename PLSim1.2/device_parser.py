@@ -98,7 +98,7 @@ def build_device(tree: ET, device_name_n = '', override = False):
     device_states = {}
     for child in tree:
         #device_states[child.get('name')] = int(child.text)
-        device_states[child.get('name')] = int(child.get('power'))  
+        device_states[child.get('name')] = float(child.get('power'))  
     return (device_name, device_states)
 
 def build_device_simple(tree: ET, device_name_n = '', override = False):

@@ -1,0 +1,34 @@
+<data>
+	<device-class name="Entertainment Electronics">
+		<device-type name="Televisions(4K)">
+			<device-brand name="Samsung">
+				<device-model name="Model UN 50JU6500F" configuration="default" comments="4K Smart TV, 37 inch">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="DVD Player">
+			<device-brand name="Samsung">
+				<device-model name="Model XXXXXXXXX" configuration="default" comments="DVD Player">
+					<state name="SoftOff" type="static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="DVD in SoftOff state (lowest power state)" />
+					<state name="Active" type="static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="DVD immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Telecommunications">
+		<device-type name="Mesh Router">
+			<device-brand name="Google">
+				<device-model name="Google WiFi AC1200" configuration="primary" comments="Dual band, Mesh Router, White, in the primary use configuration">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="PLACEHOLDER COMMENT" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="PLACEHOLDER COMMENT" />
+				</device-model>
+				<device-model name="Google WiFi AC1200" configuration="secondary" comments="Dual band, Mesh Router, White, in the seconda use configuration">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="PLACEHOLDER COMMENT" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="PLACEHOLDER COMMENT" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+</data>
