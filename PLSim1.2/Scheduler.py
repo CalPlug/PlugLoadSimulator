@@ -143,4 +143,5 @@ def main():
         if inp == 'q':
             return
 
-main()
+if __name__ == '__main__':
+    main()
