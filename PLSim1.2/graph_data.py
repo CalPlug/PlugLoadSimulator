@@ -20,7 +20,7 @@ def make_graph(input_data: list, int_period, x_label, y_label, title, sub=111)->
         time = time[:min(len(time), len(data))]
         
     plt.figure(1)
-    plt.ylim([0, max(data)+30])
+    #plt.ylim([0, max(data)+30])
     plt.subplot(sub)
     plt.plot(time, data, 'k')
     

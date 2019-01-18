@@ -4,7 +4,7 @@ from device_sim import write_to_ifile, write_to_peramfile, read_from_peramfile, 
 import pickle
 import device_parser
 
-# TODO
+# TODO FUTURE
 # -start setting up that way we can simulate multiple environments and make comparisons
 #    + make it so that way one can rename a device (maybe do this automatically if there are multiple devices with the same model)
 #    + start by creating a class to represent a simulation this contains the associated CSV, and device map
@@ -58,7 +58,7 @@ def input_device_model(devices_data: {dict}, p_string: str)->list:
 
     
 def input_at_interval(ig_list: ['InputGenerator'], time_interval: int):
-    '''helper function for running the simulation'''
+    '''helper function for runniang the simulation'''
     for inp_gen in ig_list:
         inp = input_str('Are you using the {} [yes/no]: '.format(inp_gen.dev_name), {'yes', 'y', 'no', 'n'})
         if inp.lower() in ['yes', 'y']:
@@ -84,7 +84,6 @@ def run_sim(integration_period: int, input_generators: list):
         time_interval = input_int('How long is this time interval (in minutes)[enter 0 to end the simulation]: ')
         if time_interval == 0:
             break
-        
         num_periods_interval = int(convert_time(time_interval, integration_period))
         input_at_interval(input_generators, num_periods_interval)
 
@@ -95,6 +94,8 @@ def main():
 #    NewDevices.xml use to test backwards compatibility
 #     tree = device_parser.parse_data('xmls/NewDevices.xml')
     devices_data = device_parser.parse_groupings(tree)
+
+    print(devices_data)
     
     while True:
         inp = input_str(MENU_STR, valid={'a', 'p', 'r', 'q', 'd','g'})
@@ -112,7 +113,9 @@ def main():
                 print('There are no devices to delete\n')
         if inp == 'p':
             print(set(device_map.keys()))
+            print(device_map)
         if inp == 'r':
+            # TODO: This is where the script takes in DEVICE_MAP {device1:{'softOff': power_value,...}, device2 ...}
             input_generators = make_input_generators(device_map)
             integration_period = input_int('Enter integration period: ')
             run_sim(integration_period, input_generators)
@@ -143,5 +146,4 @@ def main():
         if inp == 'q':
             return
 
-if __name__ == '__main__':
-    main()
+main()

@@ -4,7 +4,7 @@ from device_sim import write_to_ifile, write_to_peramfile, read_from_peramfile, 
 
 import device_parser
 
-# TODO
+# TODO MAIN IS NOT USED
 # -start setting up that way we can simulate multiple environments and make comparisons
 #    + make it so that way one can rename a device (maybe do this automatically if there are multiple devices with the same model)
 #    + start by creating a class to represent a simulation this contains the associated CSV, and device map

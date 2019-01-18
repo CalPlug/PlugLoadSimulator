@@ -11,6 +11,7 @@ with intervals designated in a csv file that follows the format
 '''
 #from test.test_wsgiref import IntegrationTests #This line is potentially extraneous
 import csv
+import numpy as np
 
 
 def write_to_ifile(file_name: str, integration_period:int, input_generators: list):
@@ -34,7 +35,7 @@ def make_integral_array(power_array: list, integration_period: int):
         to_return.append(energy_used(power_array[i:i+2], integration_period) + to_return[-1])
     return to_return
 
-def write_to_csv(file_name, power_array: list, integral_array: list, integration_time):
+def write_to_csv(file_name, power_array: list, integral_array: list, integration_time,power_factor_array,thdI_array):
     time_array = list(range(0, len(power_array)*integration_time, integration_time))
     with open(file_name, 'w+', newline='') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',',
@@ -45,19 +46,31 @@ def write_to_csv(file_name, power_array: list, integral_array: list, integration
         csv_writer.writerow(power_array)
         csv_file.write('energy,')
         csv_writer.writerow(integral_array)
+        csv_file.write('power_factor,')
+        csv_writer.writerow(power_factor_array)
+        csv_file.write('thdI,')
+        csv_writer.writerow(thdI_array)
     
         csv_file.close()
         
 def analyze_data(file_name: str, integration_period: int, device_map: dict):
-    power_map = parse_inputfile(file_name, device_map)
-    power_matrix = list(power_map.values())       
-    power_array = flatten_cols(power_matrix)
+    cate_map = parse_inputfile(file_name, device_map)
+    power_array = cate_map['power']
+    power_factor_array = cate_map['power_factor']
+    thdI_array = cate_map['thdI']
+
     integral_array = make_integral_array(power_array, integration_period)
+    print('integral',integral_array)
     
     print('\nEnergy Used: ', integral_array[-1], 'Watt-hours')
-    make_graph(power_array, integration_period,'', 'Power (W)', 'Power Consumed',sub=211)
-    make_graph(integral_array, integration_period, 'Time (hr)', 'Energy (W*hr)', 'Energy Used',sub=212)
-    write_to_csv('outputs/graph_file.csv', power_array, integral_array, integration_period)
+
+    # TODO: DRAW MORE GRAPHS HERE, just input arrays and change '211' into 'x1y', x:total number of graphs, y:position of the graph
+    make_graph(power_array, integration_period,'', 'Power (W)', 'Power Consumed',sub=321)
+    make_graph(integral_array, integration_period, 'Time (hr)', 'Energy (W*hr)', 'Energy Used',sub=322)
+    make_graph(power_factor_array, integration_period, '', 'Power Factor', 'Power Factor Graph', sub=325)
+    make_graph(thdI_array, integration_period, '', 'thdI', 'thdI Graph', sub=326)
+
+    write_to_csv('outputs/graph_file.csv', power_array, integral_array, integration_period,power_factor_array,thdI_array)
     show_graph()
     
 def analyze_data_nograph(file_name: str, integration_period: int, device_map: dict):
@@ -151,12 +164,19 @@ def parse_inputfile(file, device_map)-> dict:
             else:
                 info = line.rstrip().split(',')
                 device, state, i_string = info[0], info[1], info[2]
-                
-                if(not device in to_return):
-                    to_return[device] = make_int_array(len(i_string))
-                
-                parse_inputstring(device, state, device_map, i_string, to_return[device])
-    
+
+                # add up all values
+                state_np = np.array(list(i_string), dtype=float)
+                if not to_return:
+                    for i in device_map:
+                        for j in device_map[i]:
+                            for cate in list(device_map[i][j].keys()):
+                                to_return[cate] = np.zeros_like(state_np)
+                            break
+                        break
+                for cate in device_map[device][state]:
+                    to_return[cate] += state_np*device_map[device][state][cate]
+
     return to_return
 
 def mapval_to_matrix(map: dict)->list:

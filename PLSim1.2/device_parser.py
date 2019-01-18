@@ -98,7 +98,12 @@ def build_device(tree: ET, device_name_n = '', override = False):
     device_states = {}
     for child in tree:
         #device_states[child.get('name')] = int(child.text)
-        device_states[child.get('name')] = float(child.get('power'))  
+        # TODO: Make it a list because simulator is detecting 'name' as stats like SoftOff or Active
+        #device_states[child.get('name')] = float(child.get('power'))
+        device_states[child.get('name')] = {'power':float(child.get('power')),\
+                                             'power_factor':float(child.get('power_factor')),\
+                                              'thdI':float((child.get('thdI')))}
+
     return (device_name, device_states)
 
 def build_device_simple(tree: ET, device_name_n = '', override = False):
@@ -122,9 +127,9 @@ def build_device_map(tree: ET)->dict:
 
 
 if __name__ == '__main__':
-    to_parse = parse_data('data_grouped.xml')
+    to_parse = parse_data('xmls/PLSim2Format.xml')
     pg = parse_groupings(to_parse)
-    d = search_data(to_parse, ['AV', 'television', 'Samsung', 'LCD SD TV'])
+    d = search_data(to_parse, ['Entertainment Electronics','DVD Player', 'Samsung', 'Model XXXXXXXXX'])
     print(pg)
     print(d)
 #     adjust_data(to_parse)

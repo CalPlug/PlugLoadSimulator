@@ -3,78 +3,78 @@
 		<device-type name="PC Desktop Computer">
 			<device-brand name="Dell">
 				<device-model name="Model 1">
-					<state name="HardOff" type= "static" power="0" power_factor="0" thdI="0" comments="State defined by turning off physical power off switch in back of computer case" />
-					<state name="SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="HardOff" type= "static" power="0" power_factor="0" thd="0" comments="State defined by turning off physical power off switch in back of computer case" />
+					<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 				<device-model name="Model 2">
-					<state name="HardOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="HardOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 				<device-model name="Model 3">
-					<state name="HardOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="HardOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 			</device-brand>
 			<device-brand name="Generic AMD A10">
 				<device-model name="Model 1">
-					<state name="HardOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="HardOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 			</device-brand>
 			<device-brand name="Generic Intel i5">
 				<device-model name="Model 1">
-					<state name="HardOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="HardOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 				</device-brand>
 			<device-brand name="Generic AMD P2 x4">
 				<device-model name="Model 1">
-					<state name="HardOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="HardOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 			</device-brand>
 		</device-type>
 		<device-type name="PC Laptop Computer">
 			<device-brand name="HP">
 				<device-model name="Model 1">
-					<state name="Charger"  type= "static" power="0" power_factor="0" thdI="0" /> <!--PLSIM1 parses this line and ignores the next one-->
+					<state name="Charger"  type= "static" power="0" power_factor="0" thd="0" /> <!--PLSIM1 parses this line and ignores the next one-->
 					<state name="Charger"  type= "dynamicloadstate" loadunits = "watts" loadperiods = "1" loadrangemin_period1 = "0" loadrangemax_period1 = "130" preloadrangemin_period1 = "0" postloadrangemin_period1 = "x" powerasafunctionofload_period1 = "(2*EXP(x))+1" power_factorasafunctionofload_period1 = "(0.2*x)-1" factorasafunctionofload_period1="0" /> <!--PLSIM2 parses this line only andignores the previous one-->
 					<state name="Charging" type= "dynamiccombinationalstate" dynamic_configurations = "2" dynamic_configurationstate_1 = "OEM Charger" dynamic_configurationstate_2 = "OEM Battery 1800 mAh" dynamic_timeunits = "minutes" dynamic_totalfiguresofmerit = "1" dynamic_figureofmeritname_1 = "State of Charge" dynamic_figureofmeritunits_1 = "percent" dynamic_periods = "2" figureofmerit_period1_initialvalueatzerotime_1= "0" period1_initialvalidtime= "0" period1_finalvalidtime= "20" figureofmeritpre_period1_1 = "0" figureofmeritpost_period1_1 = "continued" figureofmeritasafunctionoftime_period1_1="t+1" powerasafunctionoftimepre_period1 = "0" powerasafunctionoftimepost_period1 = "continued" powerasfunctionoftime_period1="2*(0.001*t)-1" power_factorasafunctionoftimepre_period1 = "0" power_factorasafunctionoftimepost_period1 = "continued" power_factorasfunctionoftime_period1="(0.001*t)-1" thdasafunctionoftimepre_period1 = "0" thdasafunctionoftimepost_period1 = "continued" thdasfunctionoftime_period1="0.001*t" figureofmerit_period2_initialvalueatzerotime_1= "continued" period2_initialvalidtime= "20" period2_finalvalidtime= "300" figureofmeritpre_period2_1 = "continued" figureofmeritpost_period2_1 = "0" figureofmeritasafunctionoftime_period2_1="t+0.1" powerasafunctionoftimepre_period2 = "continued" powerasafunctionoftimepost_period2 = "lastvalue" powerasfunctionoftime_period2="2*(0.01*t)-5" power_factorasafunctionoftimepre_period2 = "0" power_factorasafunctionoftimepost_period2 = "lastvalue" thdasafunctionoftimepre_period2 = "continued" thdasafunctionoftimepost_period2 = "lastvalue" thdasfunctionoftime_period2="0.001*t"/> <!--Be careful of singularity points between periods!-->
 					<state name="NotCharging:Standby" type= "dynamiccombinationalstate" dynamic_configurations = "2" dynamic_configurationstate_1 = "OEM Charger" dynamic_configurationstate_2 = "OEM Battery 1800 mAh" dynamic_timeunits = "minutes" dynamic_totalfiguresofmerit = "1" dynamic_figureofmeritname_1 = "State of Charge" dynamic_figureofmeritunits_1 = "percent" dynamic_periods = "2" figureofmerit_period1_initialvalueatzerotime_1= "0" period1_initialvalidtime= "0" period1_finalvalidtime= "100" figureofmeritpre_period1_1 = "0" figureofmeritpost_period1_1 = "continued" figureofmeritasafunctionoftime_period1_1="(-0.01*t)+1" powerasafunctionoftimepre_period1 = "0" powerasafunctionoftimepost_period1 = "continued" powerasfunctionoftime_period1="2*(0.001*t)-1" power_factorasafunctionoftimepre_period1 = "0" power_factorasafunctionoftimepost_period1 = "continued" power_factorasfunctionoftime_period1="(0.001*t)-1" thdasafunctionoftimepre_period1 = "0" thdasafunctionoftimepost_period1 = "continued" thdasfunctionoftime_period1="0.001*t" figureofmerit_period2_initialvalueatzerotime_1= "continued" period2_initialvalidtime= "100" period2_finalvalidtime= "10000" figureofmeritpre_period2_1 = "continued" figureofmeritpost_period2_1 = "0" figureofmeritasafunctionoftime_period2_1="-t+0.1" powerasafunctionoftimepre_period2 = "continued" powerasafunctionoftimepost_period2 = "lastvalue" powerasfunctionoftime_period2="0" power_factorasafunctionoftimepre_period2 = "0" power_factorasafunctionoftimepost_period2 = "lastvalue" thdasafunctionoftimepre_period2 = "continued" thdasafunctionoftimepost_period2 = "lastvalue" thdasfunctionoftime_period2="0"/>
 					 <!--Be careful of singularity points between periods!-->
 					<state name="NotCharging:SoftOff" type= "dynamiccombinationalstate" dynamic_configurations = "2" dynamic_configurationstate_1 = "OEM Charger" dynamic_configurationstate_2 = "OEM Battery 1800 mAh" dynamic_timeunits = "minutes" dynamic_totalfiguresofmerit = "1" dynamic_figureofmeritname_1 = "State of Charge" dynamic_figureofmeritunits_1 = "percent" dynamic_periods = "2" figureofmerit_period1_initialvalueatzerotime_1= "0" period1_initialvalidtime= "0" period1_finalvalidtime= "100" figureofmeritpre_period1_1 = "0" figureofmeritpost_period1_1 = "continued" figureofmeritasafunctionoftime_period1_1="(-0.01*t)+1" powerasafunctionoftimepre_period1 = "0" powerasafunctionoftimepost_period1 = "continued" powerasfunctionoftime_period1="2*(0.001*t)-1" power_factorasafunctionoftimepre_period1 = "0" power_factorasafunctionoftimepost_period1 = "continued" power_factorasfunctionoftime_period1="(0.001*t)-1" thdasafunctionoftimepre_period1 = "0" thdasafunctionoftimepost_period1 = "continued" thdasfunctionoftime_period1="0.001*t" figureofmerit_period2_initialvalueatzerotime_1= "continued" period2_initialvalidtime= "100" period2_finalvalidtime= "10000" figureofmeritpre_period2_1 = "continued" figureofmeritpost_period2_1 = "0" figureofmeritasafunctionoftime_period2_1="-t+0.1" powerasafunctionoftimepre_period2 = "continued" powerasafunctionoftimepost_period2 = "lastvalue" powerasfunctionoftime_period2="0" power_factorasafunctionoftimepre_period2 = "0" power_factorasafunctionoftimepost_period2 = "lastvalue" thdasafunctionoftimepre_period2 = "continued" thdasafunctionoftimepost_period2 = "lastvalue" thdasfunctionoftime_period2="0"/> 
 					<!--Be careful of singularity points between periods!-->
-					<state name="Charged:SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:Standby"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="Charged:SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:Standby"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 			</device-brand>
 			</device-type>
 		<device-type name="Mac Laptop Computer">
 			<device-brand name="Apple">
 				<device-model name="Model 1">
-					<state name="Charger"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charging:SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charging:Standby"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charging:Active"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:Standby"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="Charger"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charging:SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charging:Standby"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charging:Active"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:Standby"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 				<device-model name="Model 2">
-					<state name="Charger" power="0"  type= "static" power_factor="0" thdI="0" />
-					<state name="Charging:SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charging:Standby"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charging:Active"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:SoftOff"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:Standby"  type= "static" power="0" power_factor="0" thdI="0" />
-					<state name="Charged:Active"  type= "static" power="0" power_factor="0" thdI="0" />
+					<state name="Charger" power="0"  type= "static" power_factor="0" thd="0" />
+					<state name="Charging:SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charging:Standby"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charging:Active"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:SoftOff"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:Standby"  type= "static" power="0" power_factor="0" thd="0" />
+					<state name="Charged:Active"  type= "static" power="0" power_factor="0" thd="0" />
 				</device-model>
 			</device-brand>
 		</device-type>
