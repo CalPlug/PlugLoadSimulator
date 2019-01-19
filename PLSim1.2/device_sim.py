@@ -174,8 +174,17 @@ def parse_inputfile(file, device_map)-> dict:
                                 to_return[cate] = np.zeros_like(state_np)
                             break
                         break
+                
+                # Total number of devices in simulation
+                num_device = len(list(device_map.keys()))
+
+                # Puts item in array to output
                 for cate in device_map[device][state]:
                     to_return[cate] += state_np*device_map[device][state][cate]
+
+                # Averages the item values using number of devices
+                for item_to_output in to_return.keys():
+                    to_return[item_to_output] = to_return[item_to_output] / num_device
 
     return to_return
 
