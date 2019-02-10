@@ -3,7 +3,17 @@ from schedulerlib.write import write_to_ifile, write_to_peramfile
 from schedulerlib.parser import parse_data,parse_groupings,search_data
 from pprint import pprint
 import pickle
+import sys
+from pathlib import Path
 
+
+# input files
+INPUT_XML = "xmls/PLSim2Format.xml"
+
+# output files
+OUTPUT_PICKLE = 'run_params'
+OUTPUT_CONFIG = 'csvs/run_perams.cfg'
+OUTPUT_CSV = 'csvs/test_group.csv'
 
 MENU_STR = '''MENU:
 a: Add a device
@@ -77,9 +87,24 @@ if "__main__" == __name__:
     name_gen = NameGenerator()
     # key -> name of device "type brand model", value -> its data
     device_map = {}
-
-    # Parse xml
-    tree = parse_data('xmls/PLSim2Format.xml')
+    
+    #Error Handling: File Exist
+    file_location = INPUT_XML
+    exist_flag = Path(file_location)
+    if exist_flag.exists() == False :
+        print("Error: File does not exist")
+        print("Program Quit")
+        sys.exit(1)
+    
+    #Error Handling: File Parsing
+    try:
+        # Parse xml
+        tree = parse_data(file_location)
+    except:
+        print("Error: Unable to parse XML file")
+        print("Program Quit")
+        sys.exit(1);
+    
     # All labels {class,type,brand,model} without any data
     devices_data = parse_groupings(tree)
 
@@ -110,13 +135,13 @@ if "__main__" == __name__:
             run_sim(integration_period, input_generators)
 
             # pickle run_perams
-            with open('run_params','wb') as fd:
+            with open(OUTPUT_PICKLE,'wb') as fd:
                 pickle.dump({'integeration_period':integration_period,'device_map':device_map}, fd)
 
             # write info file
-            write_to_ifile('csvs/test_group.csv', integration_period, input_generators)
+            write_to_ifile(OUTPUT_CSV, integration_period, input_generators)
             # write copy of the pickle file
-            write_to_peramfile('csvs/run_perams.cfg', integration_period, device_map)
+            write_to_peramfile(OUTPUT_CONFIG, integration_period, device_map)
             
             print ("CSV File Input Gen:")
             print(input_generators)

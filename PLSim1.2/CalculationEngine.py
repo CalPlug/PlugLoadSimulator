@@ -1,7 +1,17 @@
-from enginelib.graph import make_graph,show_graph
+from enginelib.graph import make_graph,make_power_graph,show_graph
+from enginelib.write import write_to_csv
 import csv
 import pickle
 import numpy as np
+import sys
+from pathlib import Path
+
+# input files
+INPUT_CSV = 'csvs/test_group.csv'
+INPUT_PARAM = 'run_params'
+
+# output files
+OUTPUT_CSV = 'outputs/graph_file_test.csv'
 
 # TODO: FAKE EXTENSION to coordinate with CONFIG FILE WHICH WILL BE PROVIDED TO TURN OR OFF FEATURES
 ENABLED_LIST = ['power_factor','thdI']
@@ -9,8 +19,22 @@ ENABLED_LIST = ['power_factor','thdI']
 
 def analyze_data(file_name: str, integration_period: int, device_map: dict):
 
-    # {device_name:{cate:[np array of value]}}
-    device_cate_map = parse_inputfile(file_name, device_map)
+    #Error Handling: File Exist
+    file_location = file_name
+    exist_flag = Path(file_location)
+    if exist_flag.exists() == False :
+        print("Error: CSV File does not exist")
+        print("Program Quit")
+        sys.exit(1)
+    
+    #Error Handling: File Parsing
+    try:
+        # {device_name:{cate:[np array of value]}}
+        device_cate_map = parse_inputfile(file_name, device_map)
+    except:
+        print("Error: Unable to parse CSV file")
+        print("Program Quit")
+        sys.exit(1);
 
     # Total Power Array
     total_power_array = None
@@ -37,13 +61,22 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
             counter += 1
             # to make sure only bottom graph has x label
             if counter <= int(graph_row)*int(graph_col)-len(device_cate_map):
-                make_graph(device_cate_map[device_name][util],\
-                            integration_period,\
-                            '',\
-                            util,\
-                            f'{device_name} {util} Graph',\
-                            2,\
-                            sub=int(graph_row+graph_col+f'{counter}'))
+                if util == 'power':
+                    make_power_graph(device_cate_map[device_name][util], \
+                               integration_period, \
+                               '', \
+                               util, \
+                               f'{device_name} {util} Graph', \
+                               2, \
+                               sub=int(graph_row + graph_col + f'{counter}'))
+                else:
+                    make_graph(device_cate_map[device_name][util],\
+                                integration_period,\
+                                '',\
+                                util,\
+                                f'{device_name} {util} Graph',\
+                                2,\
+                                sub=int(graph_row+graph_col+f'{counter}'))
             else:
                 make_graph(device_cate_map[device_name][util], \
                             integration_period, \
@@ -53,9 +86,8 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
                             2, \
                             sub=int(graph_row + graph_col + f'{counter}'))
 
-
-    # TODO: CHANGE IT TO A NEWER FORMAT
-    #write_to_csv('outputs/graph_file.csv', power_array, integral_array, integration_period, power_factor_array,thdI_array)
+    # write to csv
+    write_to_csv(OUTPUT_CSV,integration_period,device_cate_map)
 
     print('\nEnergy Used: ', integral_array[-1], 'Watt-hours')
 
@@ -105,27 +137,26 @@ def energy_used(power_array, int_period: int):
     '''trapezoidal riemman sum estimate of the amount of power used'''
     return (sum(power_array[1:])/3600*int_period + sum(power_array[:len(power_array)-1])/3600*int_period)/2
 
-def write_to_csv(file_name, power_array: list, integral_array: list, integration_time, power_factor_array, thdI_array):
-    time_array = list(range(0, len(power_array) * integration_time, integration_time))
-    with open(file_name, 'w+', newline='') as csv_file:
-        csv_writer = csv.writer(csv_file, delimiter=',',
-                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        csv_file.write('time,')
-        csv_writer.writerow(time_array)
-        csv_file.write('power,')
-        csv_writer.writerow(power_array)
-        csv_file.write('energy,')
-        csv_writer.writerow(integral_array)
-        csv_file.write('power_factor,')
-        csv_writer.writerow(power_factor_array)
-        csv_file.write('thdI,')
-        csv_writer.writerow(thdI_array)
-        csv_file.close()
-
 
 if __name__ == '__main__':
 
-    # open pickle file to get parameters
-    with open('run_params', 'rb') as param_fd:
-        params = pickle.load(param_fd)
-        analyze_data('csvs/test_group.csv', params['integeration_period'], params['device_map'])
+    #Error Handling: File Exist
+    file_location = INPUT_PARAM
+    exist_flag = Path(file_location)
+    if exist_flag.exists() == False :
+        print("Error: Param File does not exist")
+        print("Program Quit")
+        sys.exit(1)
+
+    #Error Handling: File Parsing
+    try:
+        # open pickle file to get parameters
+        with open(INPUT_PARAM, 'rb') as param_fd:
+            params = pickle.load(param_fd)
+    except:
+        print("Error: Unable to pickle objects")
+        print("Program Quit") 
+        sys.exit(1);
+        
+    analyze_data(INPUT_CSV, params['integeration_period'], params['device_map'])
+        
