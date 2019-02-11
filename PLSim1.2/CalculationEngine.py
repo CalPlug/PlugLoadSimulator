@@ -137,6 +137,22 @@ def energy_used(power_array, int_period: int):
     '''trapezoidal riemman sum estimate of the amount of power used'''
     return (sum(power_array[1:])/3600*int_period + sum(power_array[:len(power_array)-1])/3600*int_period)/2
 
+def configAttributesCheck(ENABLED_LIST, device_map):
+    for a, deviceClass in enumerate(tree):
+        for b, deviceType in enumerate(deviceClass):
+            for c, deviceBrand in enumerate(deviceType):
+                for d, deviceModel in enumerate(deviceBrand):
+                    indexesToDelete = []
+                    for e, state in enumerate(deviceModel):
+                        for enabled in ENABLED_LIST:
+                            if enabled not in state.attrib:
+                                print(enabled + ' not found in ' + deviceModel + ' of ' + deviceBrand + ', ' + deviceType + ', ' + deviceClass)
+                        if 'type' in state.attrib:
+                            if state.get('type') != 'static':
+                                indexesToDelete.append(e)
+                    for index in reversed(indexesToDelete):
+                        del tree[a][b][c][d][index]
+
 
 if __name__ == '__main__':
 
