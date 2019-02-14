@@ -14,7 +14,7 @@ INPUT_PARAM = 'run_params'
 OUTPUT_CSV = 'outputs/graph_file_test.csv'
 
 # TODO: FAKE EXTENSION to coordinate with CONFIG FILE WHICH WILL BE PROVIDED TO TURN OR OFF FEATURES
-ENABLED_LIST = ['power_factor','thdI']
+ENABLED_LIST = ['power_factor','thdI', 'test']
 
 
 def analyze_data(file_name: str, integration_period: int, device_map: dict):
@@ -139,18 +139,18 @@ def energy_used(power_array, int_period: int):
 
 def AttributesCheck(ENABLED_LIST, device_map):
     LIST_RETURN = []
-    for a, deviceClass in enumerate(device_map):
-        for b, deviceType in enumerate(deviceClass):
-            for c, deviceBrand in enumerate(deviceType):
-                for d, deviceModel in enumerate(deviceBrand):
-                    indexesToDelete = []
-                    for e, state in enumerate(deviceModel):
-                        for enabled in ENABLED_LIST:
-                            if enabled not in state.attrib:
-                                print(enabled + ' not found in ' + deviceModel + ' of ' + deviceBrand + ', ' + deviceType + ', ' + deviceClass)
-                            else:
-                                LIST_RETURN.appen(enabled)
-    reutrn LIST_RETURN
+    for a, device in enumerate(device_map):
+        # print(device)
+        for b, state in enumerate(device_map[device]):
+            # print(state)
+            for enabled in ENABLED_LIST:
+                if enabled not in device_map[device][state]:
+                    print(enabled + ' not found in ' + device + ' for ' + state + ' state')
+                elif enabled not in LIST_RETURN:
+                    LIST_RETURN.append(enabled)
+            # for c, attributes in enumerate(state):
+                
+    return LIST_RETURN
 
 
 if __name__ == '__main__':
@@ -172,6 +172,10 @@ if __name__ == '__main__':
         print("Error: Unable to pickle objects")
         print("Program Quit") 
         sys.exit(1);
-        
+
+
+    ENABLED_LIST = AttributesCheck(ENABLED_LIST, params['device_map'])
+    
+    
     analyze_data(INPUT_CSV, params['integeration_period'], params['device_map'])
         
