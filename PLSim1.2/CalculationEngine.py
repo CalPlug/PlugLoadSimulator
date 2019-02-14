@@ -139,17 +139,15 @@ def energy_used(power_array, int_period: int):
 
 def AttributesCheck(ENABLED_LIST, device_map):
     LIST_RETURN = []
+    
     for a, device in enumerate(device_map):
-        # print(device)
         for b, state in enumerate(device_map[device]):
-            # print(state)
             for enabled in ENABLED_LIST:
                 if enabled not in device_map[device][state]:
                     print(enabled + ' not found in ' + device + ' for ' + state + ' state')
                 elif enabled not in LIST_RETURN:
                     LIST_RETURN.append(enabled)
-            # for c, attributes in enumerate(state):
-                
+
     return LIST_RETURN
 
 
