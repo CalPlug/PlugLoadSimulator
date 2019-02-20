@@ -6,6 +6,7 @@ import pickle
 import sys
 from pathlib import Path
 
+# ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project ***
 
 # input files
 INPUT_XML = "xmls/PLSim2Format.xml"
@@ -15,12 +16,12 @@ OUTPUT_PICKLE = 'run_params'
 OUTPUT_CONFIG = 'csvs/run_perams.cfg'
 OUTPUT_CSV = 'csvs/test_group.csv'
 
-MENU_STR = '''MENU:
-a: Add a device
-d: delete a device
-p: print the devices you have
-r: Run the simulation and Quit
-q: Quit
+MENU_STR = '''Simulation Builder/Scheduler Main Menu:
+a: Add a device to simulation
+d: Delete a from simulation
+p: Print current devices in simulation
+r: Run scheduler on selected devices, display output, Quit
+q: Quit simulation
 '''
 
 def input_device_model(devices_data: {dict}, p_string: str)->list:
@@ -92,7 +93,7 @@ if "__main__" == __name__:
     file_location = INPUT_XML
     exist_flag = Path(file_location)
     if exist_flag.exists() == False :
-        print("Error: File does not exist")
+        print("Error: XML file does not exist")
         print("Program Quit")
         sys.exit(1)
     
@@ -130,7 +131,7 @@ if "__main__" == __name__:
         elif inp == 'r':
             input_generators = make_input_generators(device_map)
             # Get Integration Period
-            integration_period = input_int('Enter integration period: ')
+            integration_period = input_int('Enter integration period for simulation calculation framework (whole seconds): ')
             # Get Periods
             run_sim(integration_period, input_generators)
 
