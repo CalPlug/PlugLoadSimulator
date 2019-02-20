@@ -6,6 +6,8 @@ import numpy as np
 import sys
 from pathlib import Path
 
+# ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project ***
+
 # input files
 INPUT_CSV = 'csvs/test_group.csv'
 INPUT_PARAM = 'run_params'
