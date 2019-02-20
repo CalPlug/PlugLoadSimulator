@@ -1,6 +1,5 @@
-from enginelib.graph import make_graph,make_power_graph,show_graph
+from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph
 from enginelib.write import write_to_csv
-import csv
 import pickle
 import numpy as np
 import sys
@@ -8,15 +7,15 @@ from pathlib import Path
 
 # ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project ***
 
-# input files
+# Input files
 INPUT_CSV = 'csvs/test_group.csv'
 INPUT_PARAM = 'run_params'
 
-# output files
+# Output files
 OUTPUT_CSV = 'outputs/graph_file_test.csv'
 
-# TODO: FAKE EXTENSION to coordinate with CONFIG FILE WHICH WILL BE PROVIDED TO TURN OR OFF FEATURES
-ENABLED_LIST = ['power_factor','thdI', 'test']
+# List of Enabled Graphs
+ENABLED_LIST = ['power_factor','thdI','test']
 
 
 def analyze_data(file_name: str, integration_period: int, device_map: dict):
@@ -28,7 +27,7 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
         print("Error: CSV File does not exist")
         print("Program Quit")
         sys.exit(1)
-    
+
     #Error Handling: File Parsing
     try:
         # {device_name:{cate:[np array of value]}}
@@ -50,8 +49,8 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
     print('integral', integral_array)
 
     # Total Power and Total Energy
-    make_graph(total_power_array, integration_period, 'Time (hr)', 'Power (W)', 'Total Power Consumed',1, sub=int(121))
-    make_graph(integral_array, integration_period, 'Time (hr)', 'Energy (W*hr)', 'Total Energy Used',1, sub=int(122))
+    make_power_graph(total_power_array, integration_period, 'Time (hr)', 'Power (W)', 'Total Power Consumed','power',1, sub=(1,2,1))
+    make_power_graph(integral_array, integration_period, 'Time (hr)', 'Energy (W*hr)', 'Total Energy Used','Energy',1, sub=(1,2,2))
 
     # add up default power array
     graph_row = f'{1+len(ENABLED_LIST)}'
@@ -68,25 +67,26 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
                                integration_period, \
                                '', \
                                util, \
-                               f'{device_name} {util} Graph', \
+                               f'{device_name}', \
+                               'power',\
                                2, \
-                               sub=int(graph_row + graph_col + f'{counter}'))
+                               sub=(graph_row,graph_col,int(f'{counter}')))
                 else:
                     make_graph(device_cate_map[device_name][util],\
                                 integration_period,\
                                 '',\
                                 util,\
-                                f'{device_name} {util} Graph',\
+                                '',\
                                 2,\
-                                sub=int(graph_row+graph_col+f'{counter}'))
+                                sub=(graph_row,graph_col,int(f'{counter}')))
             else:
                 make_graph(device_cate_map[device_name][util], \
                             integration_period, \
                             'Time (hr)', \
                             util, \
-                            f'{device_name} {util} Graph', \
+                            '', \
                             2, \
-                            sub=int(graph_row + graph_col + f'{counter}'))
+                            sub=(graph_row,graph_col,int(f'{counter}')))
 
     # write to csv
     write_to_csv(OUTPUT_CSV,integration_period,device_cate_map)
@@ -104,10 +104,18 @@ def parse_inputfile(file, device_map) -> dict:
 
     # initialize to_return
     to_return = {}
-    categories = [cate for cate in device_map[list(device_map.keys())[0]][list(device_map[list(device_map.keys())[0]].keys())[0]]]
+
+    # Minimal list of Categories
+    categories = set([cate for cate in device_map[list(device_map.keys())[0]][list(device_map[list(device_map.keys())[0]].keys())[0]]])
+    for device in device_map:
+        for state in device_map[device]:
+            categories = categories.intersection(set(device_map[device][state]))
+    categories = list(categories)
+
     devices = [device for device in list(device_map.keys())]
     for device in devices:
         to_return[device] = {}
+
     for device in to_return:
         for cate in categories:
             to_return[device][cate] = None
@@ -122,30 +130,23 @@ def parse_inputfile(file, device_map) -> dict:
 
             # assign value based on value of Category and Sequence
             state_np = np.array(list(i_string), dtype=float)
-            for cate in device_map[device][state]:
+            for cate in categories:
                 to_return[device][cate] = state_np * device_map[device][state][cate] \
                     if to_return[device][cate] is None \
                     else to_return[device][cate] + state_np * device_map[device][state][cate]
 
     return to_return
 
-def make_integral_array(power_array: list, integration_period: int):
-    to_return = [0]
-    for i in range(len(power_array)-1):
-        to_return.append(energy_used(power_array[i:i+2], integration_period) + to_return[-1])
-    return to_return
 
-def energy_used(power_array, int_period: int):
-    '''trapezoidal riemman sum estimate of the amount of power used'''
-    return (sum(power_array[1:])/3600*int_period + sum(power_array[:len(power_array)-1])/3600*int_period)/2
 
-def AttributesCheck(ENABLED_LIST, device_map):
+def AttributesCheck(ENABLED_LIST, device_cate_map):
+
     LIST_RETURN = []
-    
-    for a, device in enumerate(device_map):
-        for b, state in enumerate(device_map[device]):
+
+    for a, device in enumerate(device_cate_map):
+        for b, state in enumerate(device_cate_map[device]):
             for enabled in ENABLED_LIST:
-                if enabled not in device_map[device][state]:
+                if enabled not in device_cate_map[device][state]:
                     print(enabled + ' not found in ' + device + ' for ' + state + ' state')
                 elif enabled not in LIST_RETURN:
                     LIST_RETURN.append(enabled)
@@ -172,7 +173,6 @@ if __name__ == '__main__':
         print("Error: Unable to pickle objects")
         print("Program Quit") 
         sys.exit(1);
-
 
     ENABLED_LIST = AttributesCheck(ENABLED_LIST, params['device_map'])
     

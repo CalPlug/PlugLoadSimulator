@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="858a7ac8-6583-45e1-b68f-ec3c8716c782" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enginelib/write.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CalculationEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/CalculationEngine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scheduler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/csvs/run_perams.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/csvs/run_perams.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/csvs/test_group.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvs/test_group.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enginelib/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/enginelib/graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enginelib/write.py" beforeDir="false" afterPath="$PROJECT_DIR$/enginelib/write.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/graph_file_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/graph_file_test.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_params" beforeDir="false" afterPath="$PROJECT_DIR$/run_params" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +21,44 @@
     <SUITE FILE_PATH="coverage/PLSim1_2_Marked_with_TODO$CalculationEngine.coverage" NAME="CalculationEngine Coverage Results" MODIFIED="1547614388772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scheduler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#0#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CalculationEngine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enginelib/graph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,18 +72,28 @@
       <find>power</find>
       <find>parse_groupings</find>
       <find>xml</find>
-      <find>parse_inputfile</find>
       <find>search_data</find>
       <find>adjust_data</find>
       <find>build_device</find>
       <find>make_input_generators</find>
       <find>run_sim</find>
-      <find>write_to_peramfile</find>
       <find>groupings</find>
       <find>parse_data</find>
-      <find>make_integral_array</find>
       <find>energy</find>
       <find>device_parser</find>
+      <find>write_to_peramfile</find>
+      <find>OUTPUT_CONFIG</find>
+      <find>OUTPUT_PICKLE</find>
+      <find>INPUT_XML</find>
+      <find>r</find>
+      <find>OUTPUT_CSV</find>
+      <find>write_to_ifile</find>
+      <find>write_to_csv</find>
+      <find>PC Laptop Computer</find>
+      <find>pprint</find>
+      <find>parse_inputfile</find>
+      <find>make_integral_array</find>
+      <find>energy_used</find>
     </findStrings>
     <replaceStrings>
       <replace>thdI</replace>
@@ -72,15 +118,15 @@
         <option value="$PROJECT_DIR$/schedulerlib/input.py" />
         <option value="$PROJECT_DIR$/schedulerlib/parser.py" />
         <option value="$PROJECT_DIR$/xmls/PLSim2Format.xml" />
-        <option value="$PROJECT_DIR$/enginelib/graph.py" />
-        <option value="$PROJECT_DIR$/CalculationEngine.py" />
         <option value="$PROJECT_DIR$/enginelib/write.py" />
         <option value="$PROJECT_DIR$/Scheduler.py" />
+        <option value="$PROJECT_DIR$/CalculationEngine.py" />
+        <option value="$PROJECT_DIR$/enginelib/graph.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="84" />
+    <option name="x" value="83" />
     <option name="y" value="60" />
     <option name="width" value="1554" />
     <option name="height" value="896" />
@@ -91,6 +137,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,31 +145,10 @@
               <item name="PLSim1.2" type="b2602c69:ProjectViewProjectNode" />
               <item name="PLSim1.2" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="PLSim1.2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PLSim1.2" type="462c0819:PsiDirectoryNode" />
-              <item name="csvs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PLSim1.2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PLSim1.2" type="462c0819:PsiDirectoryNode" />
-              <item name="enginelib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PLSim1.2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PLSim1.2" type="462c0819:PsiDirectoryNode" />
-              <item name="outputs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PLSim1.2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PLSim1.2" type="462c0819:PsiDirectoryNode" />
-              <item name="schedulerlib" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -142,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CalculationEngine">
+  <component name="RunManager" selected="Python.Scheduler">
     <configuration name="CalculationEngine" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PLSim1.2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -253,8 +279,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.CalculationEngine" />
         <item itemvalue="Python.Scheduler" />
+        <item itemvalue="Python.CalculationEngine" />
         <item itemvalue="Python.device_sim" />
         <item itemvalue="Python.inputstr_generator" />
         <item itemvalue="Python.device_parser" />
@@ -289,18 +315,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="84" y="60" width="1554" height="896" extended-state="0" />
+    <frame x="83" y="60" width="1554" height="896" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26288325" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26288325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32902467" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49967384" weight="0.35696518" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49967384" visible="true" weight="0.3146766" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.426557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32902467" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3283582" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.2972973" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50032616" side_tool="true" weight="0.32961586" />
@@ -383,7 +410,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sim_test.py" />
-    <entry file="file://$PROJECT_DIR$/device_sim.py" />
     <entry file="file://$PROJECT_DIR$/math_util.py" />
     <entry file="file://$PROJECT_DIR$/stopwatch.py" />
     <entry file="file://$PROJECT_DIR$/randtest_input_generator.py" />
@@ -418,42 +444,38 @@
     <entry file="file://$PROJECT_DIR$/run_params">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/schedulerlib/parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="97" column="22" lean-forward="true" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schedulerlib/write.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xmls/PLSim2Format.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csvs/test_group.csv">
-      <provider editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/outputs/graph_file.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
       <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="50" lean-forward="true" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="770" />
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device_sim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-547">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/schedulerlib/input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="690">
           <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schedulerlib/parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="97" column="22" lean-forward="true" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+          <folding>
+            <element signature="e#320#354#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -464,31 +486,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enginelib/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputs/graph_file.csv">
-      <provider editor-type-id="text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enginelib/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        <state relative-caret-position="105">
+          <caret line="7" column="53" lean-forward="true" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xmls/PLSim2Format.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="44" column="45" lean-forward="true" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -502,17 +510,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scheduler.py">
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/matplotlib/axes/_subplots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="174">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/schedulerlib/write.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csvs/test_group.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/CalculationEngine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="135">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enginelib/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
