@@ -5,14 +5,16 @@ import numpy as np
 import sys
 from pathlib import Path
 
-# ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project ***
+#***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project. 
+#            Accordingly if this is run in a new project each input and output file may need to have 
+#            a modified file path corresponding to this new file structure ***
 
 # Input files
-INPUT_CSV = 'csvs/test_group.csv'
-INPUT_PARAM = 'run_params'
+INPUT_CSV = 'simulationfiles/scheduleobjects/csvs/test_group.csv' #This is the input CSV file generated from scheduler input
+INPUT_PARAM = 'run_params' #this is the pickled object file passed as input into the calculation engine
 
 # Output files
-OUTPUT_CSV = 'outputs/graph_file_test.csv'
+OUTPUT_CSV = 'simulationfiles/calculationoutputs/graph_file_test.csv' #This is the generated device operation calculation outputs 
 
 # List of Enabled Graphs
 ENABLED_LIST = ['power_factor','thdI','test']
