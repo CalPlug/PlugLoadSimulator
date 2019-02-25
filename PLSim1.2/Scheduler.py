@@ -6,15 +6,17 @@ import pickle
 import sys
 from pathlib import Path
 
-# ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project ***
+#***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project. 
+#            Accordingly if this is run in a new project each input and output file may need to have 
+#            a modified file path corresponding to this new file structure ***
 
 # input files
-INPUT_XML = "xmls/PLSim2Format.xml"
+INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
 
 # output files
-OUTPUT_PICKLE = 'run_params'
-OUTPUT_CONFIG = 'csvs/run_perams.cfg'
-OUTPUT_CSV = 'csvs/test_group.csv'
+OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the selected device list onto the calculation engine
+OUTPUT_CONFIG = 'simulationfiles/scheduleobjects/csvs/run_perams.cfg' #This is the list of parameters for the scheduler run, similar in content to the PICKLE file.
+OUTPUT_CSV = 'simulationfiles/scheduleobjects/csvs/test_group.csv' #This is the generated schedule for device operation
 
 MENU_STR = '''Simulation Builder/Scheduler Main Menu:
 a: Add a device to simulation
