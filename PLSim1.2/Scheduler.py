@@ -14,7 +14,7 @@ from pathlib import Path
 INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
 
 # output files
-OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the selected device list onto the calculation engine
+OUTPUT_PICKLE = 'simulationfiles/scheduleobjects/run_params' #this is the pickled object file passed with the selected device list onto the calculation engine
 OUTPUT_CONFIG = 'simulationfiles/scheduleobjects/csvs/run_perams.cfg' #This is the list of parameters for the scheduler run, similar in content to the PICKLE file.
 OUTPUT_CSV = 'simulationfiles/scheduleobjects/csvs/test_group.csv' #This is the generated schedule for device operation
 

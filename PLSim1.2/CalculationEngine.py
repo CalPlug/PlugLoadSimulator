@@ -11,13 +11,13 @@ from pathlib import Path
 
 # Input files
 INPUT_CSV = 'simulationfiles/scheduleobjects/csvs/test_group.csv' #This is the input CSV file generated from scheduler input
-INPUT_PARAM = 'run_params' #this is the pickled object file passed as input into the calculation engine
+INPUT_PARAM = 'simulationfiles/scheduleobjects/run_params' #this is the pickled object file passed as input into the calculation engine
 
 # Output files
 OUTPUT_CSV = 'simulationfiles/calculationoutputs/graph_file_test.csv' #This is the generated device operation calculation outputs 
 
 # List of Enabled Graphs
-ENABLED_LIST = ['power_factor','thdI','test']
+ENABLED_LIST = ['power_factor','thdI']
 
 
 def analyze_data(file_name: str, integration_period: int, device_map: dict):
@@ -48,7 +48,6 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
 
     # Integral Array, Energy Consumption Array
     integral_array = make_integral_array(total_power_array, integration_period)
-    print('integral', integral_array)
 
     # Total Power and Total Energy
     make_power_graph(total_power_array, integration_period, 'Time (hr)', 'Power (W)', 'Total Power Consumed','power',1, sub=(1,2,1))
@@ -92,10 +91,34 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
 
     # write to csv
     write_to_csv(OUTPUT_CSV,integration_period,device_cate_map)
+    # print to console
+    print_to_console(file_name, device_map, integral_array, integration_period, device_cate_map)
+    # show graphs
+    #show_graph()
 
-    print('\nEnergy Used: ', integral_array[-1], 'Watt-hours')
-
-    show_graph()
+def print_to_console(file_name, device_map, integral_array,integration_period,device_cate_map):
+    # Each Device and state
+    print("\nDevice Info:")
+    with open(file_name, 'r') as i_file:
+        # ignore sample rate line
+        i_file.readline()
+        # parse device_name,state,sequence
+        for line in i_file:
+            info = line.rstrip().split(',')
+            device, state, i_string = info[0], info[1], info[2]
+            state_np = np.array(list(i_string), dtype=float)
+            # total entered period and the whole day
+            day_p = sum(state_np)/86400*100
+            enter_p = sum(state_np)/len(state_np)*100
+            energy = make_integral_array((state_np*device_map[device][state]['power']),integration_period)[-1]
+            print(f'Device Name: {device:<50s}\t\tState: {state:<20s} Taken Entered Period: {enter_p:>7.3f}%\tTaken Whole Day Period: {day_p:>7.3f}%\tDaily Usage: {energy:>8.2f} Wh')
+    # Total Usage
+    print('\nDaily Energy Usage:')
+    for device_name in device_cate_map:
+        power = make_integral_array(device_cate_map[device_name]['power'], integration_period)
+        print(f"Device:\t\t{device_name:<50s} {power[-1]:>8.3f} Wh")
+    # Output total energy used per device
+    print(f'Total : {integral_array[-1]:>63.3f} Wh')
 
 def parse_inputfile(file, device_map) -> dict:
     '''parses the device input file which is a csv file with format
