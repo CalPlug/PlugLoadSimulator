@@ -9,6 +9,33 @@ Copyright The Regents of the University of California, 2016 (v.1)
 Developed with support from Southern California Edison / Edison International  
 Built with open source software and released into the public domain under GNU License for permissive use.  
 
+### Version 1.3 (2/20/19) Current Release
+Changes in this version:  
+	1) Reconfiguration of structure of codebase  
+	2) New features in Calculation Engine  
+	3) Easier usability for general users  
+	4) Easier way to develop for developers   
+# ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project, accordingly if this is run in a new project each input and output file may need to have a modified file path corresponding to this new file structure ***
+
+# Input Files
+INPUT_XML = "xmls/PLSim2Format.xml"  #This is the input power usage "database" format
+
+# Output Files
+OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the selected device list onto the calculation engine  
+OUTPUT_CONFIG = 'csvs/run_perams.cfg' #This is the list of parameters for the scheduler run, similar in content to the PICKLE file.  
+OUTPUT_CSV = 'csvs/test_group.csv'  #This is the generated schedule for device operation  
+  
+### Version 1.2 (11/27/18) Current Release  
+This version of the program can be found in folder PLSim_1.1. This version is built using plugloadsimDefault from Version 1.1 and is developed in the same Eclipse IDE setup.
+This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
+This version introduces object pickling, allowing for seperation of the simulator into two programs:  
+	1) **Scheduler.py**  
+		 - a) Run this program first   
+		 - b) Takes information from database in xml and allows for user to configure devices to be simulated  
+	2) **CalculationEngine.py**  
+		 - a) After Scheduler.py has completed, run this program   
+		 - b) Calculates and displays the simulation information  
+
 ### Version 1.1 (2/28/2018)  
 This is a program that simulates how different sets of devices operating in different states consume energy.  It can be used to quickly tabulate energy use for multiple schedules of operation.  Additionally linked devices can be simulated.
 
@@ -19,18 +46,14 @@ For example, in a living room, there may be a TV, but a TV can be in an off, on,
 consumes different amounts of energy. With multiple devices, each of which have four to five states at any given
 time, the energy usage can be hard to analyse and calculate. This command-line program helps solve this problem.
 
-### Version 1.2 (11/27/18) Current Release  
-New updated version of the program can be found in folder PLSim_1.1. This version is built using plugloadsimDefault from Version 1.1 and is developed in the same Eclipse IDE setup.
-This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
-This version introduces object pickling, allowing for seperation of the simulator into two programs:  
-	1) **Scheduler.py**  
-		 - a) Run this program first   
-		 - b) Takes information from database in xml and allows for user to configure devices to be simulated  
-	2) **CalculationEngine.py**  
-		 - a) After Scheduler.py has completed, run this program   
-		 - b) Calculates and displays the simulation information  
+
   
-## INSTALLATION DETAILS  
+## INSTALLATION DETAILS
+### Option 0 (For general users / non-developers)  
+Double click on Installer.sh to run installation.  
+### Option 1
+
+### Option 2
 1) Download the package manager/installer Conda from http://conda.pydata.org/miniconda.html   
 	a) Choose the Python 3.5 installer  
     b) Download and run the installer, follow all the instructions in the installer  
