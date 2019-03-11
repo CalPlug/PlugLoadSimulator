@@ -11,6 +11,8 @@ def input_str(prompt: str, valid={}) -> str:
         inp = ''
         while not inp in valid:
             inp = input(prompt)
+            if inp == '0':
+                return '0'
             if not inp in valid:
                 print('Only the following inputs are allowed {}'.format(valid))
         return inp

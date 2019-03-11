@@ -59,7 +59,7 @@ def input_device_model(devices_data: {dict}, p_string: str)->list:
         return to_return
 
 def input_at_interval(ig_list: ['InputGenerator'], time_interval: int):
-    '''helper function for runniang the simulation'''
+    '''helper function for running the simulation'''
     for inp_gen in ig_list:
         rlen = range(1, len(inp_gen.states())+1)
         str_rlen = set(str(x) for x in rlen)
@@ -82,6 +82,25 @@ def run_sim(integration_period: int, input_generators: list):
             return
         num_periods_interval = int(60 / integration_period * time_interval)
         input_at_interval(input_generators, num_periods_interval)
+
+def run_sim_state(integration_period: int, input_generators: list):
+    while True:
+        for inp_gen in input_generators:
+            rlen = range(1, len(inp_gen.states())+1)
+            str_rlen = set(str(x) for x in rlen)
+            state = input_str('Which of the following states is \"{}\" in {}[enter 0 to end the simulation]: '.format(inp_gen.dev_name,\
+                                sorted(zip(rlen, inp_gen.states()))), valid=inp_gen.states().union(str_rlen))
+            if state == '0':
+                return
+            input_dict = dict(zip(rlen, inp_gen.states()))
+            if not state in inp_gen.states():
+                state = input_dict[int(state)]
+            time_interval = input_int('How long is this time interval (in minutes)[enter 0 to end the simulation]: ')
+            if time_interval == 0:
+                return
+            num_periods_interval = int(60 / integration_period * time_interval)
+            inp_gen.write_on_state(state, num_periods_interval)
+
 
 
 if "__main__" == __name__:
@@ -135,7 +154,8 @@ if "__main__" == __name__:
             # Get Integration Period
             integration_period = input_int('Enter integration period for simulation calculation framework (whole seconds): ')
             # Get Periods
-            run_sim(integration_period, input_generators)
+            run_sim_state(integration_period, input_generators)
+            # run_sim(integration_period, input_generators)
 
             # pickle run_perams
             with open(OUTPUT_PICKLE,'wb') as fd:
