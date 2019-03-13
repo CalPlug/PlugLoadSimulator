@@ -94,7 +94,7 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
     # print to console
     print_to_console(file_name, device_map, integral_array, integration_period, device_cate_map)
     # show graphs
-    #show_graph()
+    show_graph()
 
 def print_to_console(file_name, device_map, integral_array,integration_period,device_cate_map):
     # Each Device and state
