@@ -1,0 +1,732 @@
+<data>
+	<!--Calit2/CalPlug generated Tested Device State Database, format compatible with CalPlug PLSIM 1.2 Utility -->
+	<!--California Plug Load Research Center(CalPlug) -  Project Administrators - Michael Klopfer, Ph.D. / Prof. G.P. Li and Joy Pixley, Ph.D. -->
+	<!--Project sponsored by Southern California Edison (SCE) - 2019-->
+	<!--Version 0.21 (Pre-Release), Feb. 23, 2019-->
+	<device-class name="Entertainment Electronics"> <!--General Device Type Category-->
+		<device-type name="Televisions(4K)">  <!--General Type-->
+			<device-brand name="Samsung">  <!--Brand-->
+				<device-model name="Model UN 50JU6500F" comments="4K Smart TV, 37 inch">  <!--Model with basic typical specifications as a comment-->
+					<!--Each state of device operation including an identifier name, a type (type is a forward-facing distinguisher, only "static" is currently used, energy usage and noise parameters, and comments that describe the state or the behavior of the state-->
+					<state name="SoftOff" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="InitialBootup" type= "static" power="63.2" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active-BlankScreen" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-ExtraBright" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-BrightBlueScreen" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-StaticImage" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-DynamicSetting4KVideo" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-StandardSMPTEColorBarsHD" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-ShuttingDowntoStandby" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Visio">
+				<device-model name="Model PQ65-F" comments="4K HDR LED LCD Smart TV, 65 inch">
+					<state name="SoftOff - InitialBootupFromPlugintoSoftOff" type= "static" power="70.23" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past bootup in On state, black screen, no content" />
+					<state name="SoftOff" type= "static" power="0.48" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active - Bootup" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active-StaticImage" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active-CalibratedImageMode" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Set Top Boxes">
+			<device-brand name="DirecTV/AT&amp;T"> <!--Note format for ampersand character-->
+				<device-model name="Model HR54" comments="Satellite STB with DVR">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+				    <state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+
+				</device-model>
+			</device-brand>
+		</device-type>
+
+		<device-type name="Sound Bar">
+			<device-brand name="Samsung">
+				<device-model name="Model HW-JW35/2A" comments="Surround sound sound bar - interfaced in testing setup with samsing 4K TV via optical link. Has bluetooth capability">
+					<state name="SoftOff" type="static" power="0.31" power_stdev="0.22" power_median="0.34" power_factor="0.55" power_factor_stdev="0.31" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Blu-ray in SoftOff state (lowest power state) - HOLDER: UPDATE DB RECORD" />
+					<state name="Active" type="static" power="10.21" power_stdev="1.94" power_median="11.20" power_factor="0.72" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Blu-ray immediatly past bootup in On state, black screen, no content - HOLDER: UPDATE DB RECORD" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="AV System">
+			<device-brand name="Sony">
+				<device-model name="Model STR-K670P" comments="Surround sound system with 5.1 audio">
+					<state name="SoftOff" type="static" power="0.31" power_stdev="0.22" power_median="0.34" power_factor="0.55" power_factor_stdev="0.31" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Blu-ray in SoftOff state (lowest power state) - HOLDER: UPDATE DB RECORD" />
+					<state name="Active" type="static" power="10.21" power_stdev="1.94" power_median="11.20" power_factor="0.72" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Blu-ray immediatly past bootup in On state, black screen, no content - HOLDER: UPDATE DB RECORD" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Blu-ray Player">
+			<device-brand name="Samsung">
+				<device-model name="Model BD-JS900" comments="Blu-ray Player with streaming capability">
+					<state name="SoftOff" type="static" power="0.31" power_stdev="0.22" power_median="0.34" power_factor="0.55" power_factor_stdev="0.31" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Blu-ray in SoftOff state (lowest power state) - HOLDER: UPDATE DB RECORD" />
+					<state name="Active" type="static" power="10.21" power_stdev="1.94" power_median="11.20" power_factor="0.72" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Blu-ray immediatly past bootup in On state, black screen, no content - HOLDER: UPDATE DB RECORD" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Video Game Console">
+			<device-brand name="Sony">
+				<device-model name="PlayStation 4 Model: CUH-1215A" comments="Sony PS4">
+					<state name="Active-ShuttingDown" type="static" power="77.179" power_stdev="14.42753" power_median="78.9615" power_factor="0.951442" power_factor_stdev="0.0151959" power_factor_median="0.95676" thdI="15.36555" thdI_stdev="1.66464" thdI_median="14.799" comments="PS4 in menu in prep to enter standby mode" />
+					<state name="Active-PhysicalDiscGameMenu" type="static" power="84.906932" power_stdev="1.7504482" power_median="85.4405" power_factor="0.9626331" power_factor_stdev="0.00151852" power_factor_median="0.9631" thdI="13.57833" thd_stdevI="0.32964" thd_medianI="13.4795" comments="PS4 in physical game menu after 2 minutes of entering" />
+					<state name="Standby-RestMode" type="static" power="10.70963" power_stdev="0.0310567" power_median="10.710" power_factor="0.482507" power_factor_stdev="0.000867" power_factor_median="0.48252" thdI="28.8286" thd_stdevI="0.21967" thd_medianI="28.752" comments="PS4 in rest mode in steady state after 2 minutes of entering this state" />
+					<state name="Active-Bootup" type="static" power="64.576632" power_stdev="12.92433" power_median="67.679" power_factor="0.915639" power_factor_stdev="0.1230361668" power_factor_median="0.94279" thdI="15.36555" thdI_stdev="3.3674021" thdI_median="17.3490" comments="PS4 boot-up measured from start of boot-up sequence for 2 minutes - by this time it was fully booted and power usage stabilized to Active menu usage" />
+					<state name="Active-GamePlay" type="static" power="69.47506" power_stdev="0.96126" power_median="69.419" power_factor="0.94555" power_factor_stdev="0.00133" power_factor_median="0.94546" thdI="17.0504" thdI_stdev="0.19604" thdI_median="17.079" comments="PS4 operating in game usage - likely not spinning physical media during test period" />
+					<state name="Active-MainSystemMenu" type="static" power="63.7444" power_stdev="0.32513" power_median="63.603" power_factor="0.93765" power_factor_stdev="0.00038741" power_factor_median="0.93749" thdI="17.66904" thdI_stdev="0.05699" thdI_median="17.6695" comments="PS4 operating and sitting at main menu" />
+					
+				</device-model>
+			</device-brand>
+			<device-brand name="Microsoft">
+				<device-model name="XBOX360 Model: XXXXXXX" comments="Blu-ray Player with streaming capability">
+					<state name="SoftOff" type="static" power="0.31" power_stdev="0.22" power_median="0.34" power_factor="0.55" power_factor_stdev="0.31" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Blu-ray in SoftOff state (lowest power state) - HOLDER: UPDATE DB RECORD" />
+					<state name="Active" type="static" power="10.21" power_stdev="1.94" power_median="11.20" power_factor="0.72" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Blu-ray immediatly past bootup in On state, black screen, no content - HOLDER: UPDATE DB RECORD" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Streaming Devices">
+			<device-brand name="Apple">
+				<device-model name="AppleTV-4K(16GB)" comments="4K network streaming content player">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.35" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+
+			<device-brand name="Apple">
+				<device-model name="AppleTV-4K(16GB)" comments="4K network streaming content player">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+				</device-model>
+				<device-model name="AppleTV" comments="HD network streaming content player">
+					<state name="SoftOff" type= "static" power="1.064071" power_stdev="0.008725" power_median="1.0636" power_factor="0.04421" power_factor_stdev="0.0442" power_factor_median="0.044" thdI="108.88" thdI_stdev="5.75" thdI_median="108.81" comments="SoftOff steady state" />
+					<state name="SoftOff - BootupintoSoftOff" type= "static" power="2.287487" power_stdev="1.4502" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="127.5936" thd_stdevI="19.2425" thd_medianI="128.100" comments="First minute of bootup into SoftOff" />
+					<state name="Active - AtMenu" type= "static" power="2.3159" power_stdev="0.866817" power_median="2.13625" power_factor="0.092946" power_factor_stdev="0.030659" power_factor_median="0.087168" thdI="138.1193" thd_stdevI="8.453707" thd_medianI="137.32" comments="Menu after the bootup process" />
+					<state name="Active - RunApp" type= "static" power="2.534641" power_stdev="0.703679" power_median="2.27475" power_factor="0.102269" power_factor_stdev="0.030659" power_factor_median="0.087168" thdI="138.1193" thd_stdevI="8.453707" thd_medianI="137.32" comments="Menu after the boot-up process" />
+
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Smart Speakers">
+			<device-brand name="Amazon">
+				<device-model name="Echo" comments="Amazon Echo (Alexa) Smart Speaker">
+					<state name="Standby" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Google">
+				<device-model name="Google Home" comments="Google large format Smart Speaker">
+					<state name="Standby" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Sonos">
+				<device-model name="Google Home" comments="Google large format Smart Speaker">
+					<state name="Standby" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Kitchen Appliance">
+		<device-type name="Pod Coffee Maker">
+			<device-brand name="Keurig">
+				<device-model name="K40" comments="Button controlled, no screen">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+				<device-model name="B60" comments="Button controlled, with screen">
+					<state name="SoftOff" type= "static" power="3.62" power_stdev="0.19" power_median="3.58" power_factor="0.54" power_factor_stdev="0.06" power_factor_median="0.56" comments="Machine in lowest possible power state, soft off.TV in SoftOff state (lowest power state) - STATE FULLY UPDATED" />
+					<state name="HotStandby" type= "static" power="4.197" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Drip Coffee Maker">
+			<device-brand name="Cuisinart">
+				<device-model name="DCC-4500BK" comments="4 cup drip coffee maker, small form factor, staninless steel carafe">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Hot Pot Water Dispenser">
+			<device-brand name="Sunpentown">
+				<device-model name="40882E" comments=" 1 liter constant hot water dispenser with motorized dispense and reboil features">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Water Kettle">
+			<device-brand name="Hamilton Beach">
+				<device-model name="K33" comments=" 1 liter constant hot water dispenser with motorized dispense and reboil features">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Rice Cooker">
+			<device-brand name="Aroma">
+				<device-model name="ARC-960SB" comments="tested S/N: M6707126">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Garbage Disposal">
+			<device-brand name="Insinkerator">
+				<device-model name="XXXXXXXX" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Trash Compactor">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Portable Electric Grill">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Heated Food Press">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Waffle Press">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Warming Drawer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Toaster Oven">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Toaster">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Multi Cooker / Croc Pot">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Deep Fryer / Multi Cooker / Roaster">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Air Fryer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Pressure Cooker">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Mixer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Blender">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Food Processor">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Food Grinder">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Food Grinder">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Microwave Oven">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Single Burner Resistive Cooktop">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Single Burner Induction Cooktop">
+			<device-brand name="Sunpentown">
+				<device-model name="MrInduction" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Mixer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Climate Control">
+		<device-type name="Portable HVAC System">
+			<device-brand name="Delonghi">
+				<device-model name="Penguino Model#AN140HPEWS" comments="Plug in portable HVAC unit with exhaust fan ducting and heat pump heating">
+					<state name="SoftOff"  type= "static" power="0.434" power_factor="0.3467" thd="145.3" comments="Plugged in only, not turned on" />
+					<state name="Standby"  type= "static" power="4.61" power_factor="0.628" thd="126.2" comments="Turned on, no fans or motors operating, active standby state" />
+					<state name="Active-FanatLowLevel"  type= "static" power="53.605" power_factor="0.8702" thd="3.81" comments="Fan in low mode, no heating or cooling activated" />
+					<state name="Active-FanatMedLevel"  type= "static" power="59.193" power_factor="0.9122" thd="3.66" comments="Fan in med mode, no heating or cooling activated" />
+					<state name="Active-FanatHighLevel"  type= "static" power="69.027" power_factor="0.992" thd="3.68" comments="Fan in high mode, no heating or cooling activated" />
+					<state name="Active-FanatHighLevelInletBlocked"  type= "static" power="52.975" power_factor="0.8650" thd="3.83" comments="Fan in high mode, no heating or cooling activated, inlet to recirculation fan is blocked" />
+					<state name="Active-ACOnFanHighLevel"  type= "static" power="52.975" power_factor="0.8650" thd="3.83" comments="Fan in high mode, cooling activated" />
+					<state name="Active-HeatOnFanHighLevel"  type= "static" power="1178.3" power_factor="0.989" thd="3.82" comments="Fan in high mode, heating activated" />
+					<state name="Active-DehumidifyOnFanHighLevel"  type= "static" power="1172" power_factor="0.989" thd="3.82" comments="Fan in high mode, dehumidify activated" />
+					<state name="Active-DehumidifyOnFanMedLevel"  type= "static" power="1138" power_factor="0.984" thd="3.81" comments="Fan in mid mode, dehumidify" />
+
+					
+				</device-model>
+			</device-brand>
+			<device-brand name="Presto">
+				<device-model name="Heat Dish" comments="IR Radiant Space Heater">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Holmes">
+				<device-model name="Blizzard" comments="Fan with Thermostatic Control">
+					<state name="ActiveHighSpeed" type= "static" power="39.374989" power_stdev="0.084849" power_median="39.374989" power_factor="0.56061" power_factor_stdev="0.001348" power_factor_median="0.560610" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="High speed fan operation" />
+					<state name="ActiveLowSpeed" type= "static" power="21.87917" power_stdev="0.721065" power_median="21.8800" power_factor="0.449355" power_factor_stdev="0.0006214" power_factor_median="0.44938" thdI="30.7612045" thd_stdevI="0.459563" thd_medianI="30.6715" comments="Low Speed Operation" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Placeholder">
+				<device-model name="Space Heater, Fan/Resistive type" comments="Placeholder of model type">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+				<device-model name="Humififier" comments="Placeholder of model type">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+				<device-model name="Dehumififier" comments="Placeholder of model type">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Computer Equipment">
+		<device-type name="Separated Desktop Computer">
+			<device-brand name="Dell">
+				<device-model name="Dell PC Intel i3" comments="Simlab desktop computer">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Computer Monitor">
+			<device-brand name="Dell">
+				<device-model name="17 inch Desktop PC monitor" comments="Simlab desktop computer">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Home Media Server">
+			<device-brand name="Western Digital">
+				<device-model name="MyCloud2" comments="Single HDD networked media server">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Laptop Computer">
+			<device-brand name="Dell">
+				<device-model name="17 inch Desktop PC monitor" comments="Simlab desktop computer">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Laptop Charger">
+			<device-brand name="Apple">
+				<device-model name="Magsave 60W" comments="Magsafe (1) 60 watt charger for Macbook computers">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Dell">
+				<device-model name="Example 1" comments="charger for Dell Latitde model XXX laptop computers">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Computer Speakers">
+			<device-brand name="Dell">
+				<device-model name="Example1" comments="USB powered from monitor, slaved from monitor power active control">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+				<device-model name="Example2" comments="Self powered computer speakers with subwoofer">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Multi Function Laser Printer">
+			<device-brand name="Brother">
+				<device-model name="Example1" comments="Small,Network enabled monochrome printer with scan, fax and copy capability">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+				<device-model name="Ricoh" comments="Large,Network enabled monochrome printer with scan, fax and copy capability">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Multi Function Inkjet Printer">
+			<device-brand name="Canon">
+				<device-model name="Canon" comments="Small,Network enabled color printer with scan, fax and copy capability">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+				<device-model name="Epson" comments="Large,Network enabled color printer with scan, fax and copy capability">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Luminaries">
+		<device-type name="Edison Base Smart Bulb">
+			<device-brand name="Phillips">
+				<device-model name="Hue" comments="LED Smart bulb with WiFi connectivity">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Pet Care">
+		<device-type name="Pet Fountain">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Personal Comfort">
+		<device-type name="Movable Base Beds">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Recliner / Massage Chair">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Aroma Lamp">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Water Bed Heater">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Blanket">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Razor">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Sleeping Noise Generator">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+
+	<device-class name="Security Devices">
+		<device-type name="Plug-in motion lights">
+			<device-brand name="ExampleBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Pool Equipment">
+		<device-type name="Pool Pump">
+			<device-brand name="ExampleBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Portable Electric Spa Pump">
+			<device-brand name="ExampleBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Portable Electric Spa Heater">
+			<device-brand name="ExampleBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Small Laundry Appliance">
+		<device-type name="Clothes Iron">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Device">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Clothes Press">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Device">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Clothes Steamer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Device">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediatly past bootup in On state, black screen, no content" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Mobile Computing">
+		<device-type name="USB Charger">
+			<device-brand name="Apple">
+				<device-model name="10 Watt USB Charger" comments="Button controlled, no screen">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Discrete Audio Systems">
+		<device-type name="Small Audio System">
+			<device-brand name="Panasonic">
+				<device-model name="SC-HC20DB" comments="small, discrete, no bluetooth connection - shelf music system">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Yamaha">
+				<device-model name="ModelXXXXX" comments="small, discrete, bedside unit with bluetooth connection">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Lasonic">
+				<device-model name="TRC-975" comments="Boombox radio,casette player - PLACEHOLDER">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Automotive">
+		<device-type name="EV Supply Equipment">
+			<device-brand name="General Motors">
+				<device-model name="XXXXXX" comments="J1772 type Level 1 EVSE Charger">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Battery Charger/Maintainer">
+			<device-brand name="Centec">
+				<device-model name="ExampleModel" comments="Placeholder">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Miscellaneous Equipment">
+		<device-type name="Robotic Cleaning System">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Hot Water Recirculators">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Placeholder Info">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Telecommunications">
+		<device-type name="Cable/DSL Modem">
+			<device-brand name="2Wire">
+				<device-model name="XXXXX" comments="DSL Model with WiFi Router/AP built in">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="IoT Hub">
+			<device-brand name="Insteon">
+				<device-model name="XXXXX" comments="Insteon system hub/gateway">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Discrete WiFi Router">
+			<device-brand name="Nighthawk">
+				<device-model name="R7000" comments="Wireless AC discrete router">
+					<state name="Active-BootupToRun" type= "static" power="4.921064" power_stdev="1.205385" power_median="4.3301" power_factor="0.214006" power_factor_stdev="0.029089" power_factor_median="0.19936" thdI="152.2832" thdI_stdev="12.95332" thdI_median="154.1" comments="Bootup to active operation over 2 minutes" />
+					<state name="Active-HighLoad" type= "static" power="11.55814" power_stdev="1.509254" power_median="11.905" power_factor="0.3305" power_factor_stdev="0.017544" power_factor_median="0.33486" thdI="161.2347" thd_stdevI="2.632157" thd_medianI="160.14" comments="Power usage in a high network traffic load state" />
+					<state name="Active-IdleNoLoad" type= "static" power="8.3764" power_stdev="0.2251" power_median="8.3377" power_factor="0.2914" power_factor_stdev="0.0033" power_factor_median="0.291" thdI="163.5618" thd_stdevI="3.8335" thd_medianI="163.0" comments="Power usage in idle state with no load" />
+					<state name="Active-" type= "static" power="8.8447" power_stdev="0.94774" power_median="8.5281" power_factor="0.297705" power_factor_stdev="0.011795" power_factor_median="0.294" thdI="163.1368" thd_stdevI="3.6839" thd_medianI="162.0" comments="Power usage in idle state with no load" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Mesh WiFi Router">
+			<device-brand name="Google">
+				<device-model name="Google WiFi - Master Configuration" comments="Wireless AC distributed router">
+					<state name="Active" type= "static" power="3.361979" power_stdev="0.129087" power_median="3.3056" power_factor="0.414238" power_factor_stdev="0.004424" power_factor_median="0.41204" thdI="157.1166" thdI_stdev="0.814913" thdI_median="157.08" comments="Device in active use with minimal activity" />
+					<state name="BootuptoActive" type= "static" power="3.360543" power_stdev="0.12951" power_median="3.3023" power_factor="0.414136" power_factor_stdev="0.004404" power_factor_median="0.41197" thdI="157.1337" thd_stdevI="0.806449" thd_medianI="157.08" comments="Power at bootup into general use" />
+					<state name="ActiveLoad" type= "static" power="3.978" power_stdev="0.742037" power_median="3.7006" power_factor="0.419198" power_factor_stdev="0.015187" power_factor_median="0.41451" thdI="156.4735" thd_stdevI="2.082121" thd_medianI="157.23" comments="Power load when under high network load" />
+				</device-model>
+				<device-model name="Google WiFi - Secondary Configuration" comments="Wireless AC distributed router">
+				</device-model>
+			</device-brand>
+			<device-brand name="EERO">
+				<device-model name="EERO WiFi Gen 2 - Master Configuration" comments="Wireless AC distributed router, master node">
+				<state name="PowerSupplyAlone"  type= "static" power="0" power_factor="0" thd="0" comments="PS4 in rest mode in steady state after 2 minutes of entering this state" />
+				<state name="SoftOff"  type= "static" power="0" power_factor="0" thd="0" comments="PS4 in rest mode in steady state after 2 minutes of entering this state" />
+				<state name="Active"  type= "static" power="0" power_factor="0" thd="0" comments="PS4 in rest mode in steady state after 2 minutes of entering this state" />
+				</device-model>
+				<device-model name="EERO WiFi Gen 2 WiFi - Secondary Configuration" comments="Wireless AC distributed router, connected to a master node">
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="Place-holder Power State - replace with updated data for this device" />
+					<state name="Active" type= "static" power="40.34" power_stdev="2.99" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Place-holder Power State - replace with updated data for this device" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+</data>
