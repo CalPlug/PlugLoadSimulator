@@ -29,11 +29,11 @@ q: Quit simulation
 
 def input_device_model(devices_data: {dict}, p_string: str)->list:
     if type(devices_data) == set:
-        z = zip(range(1, len(devices_data)+1), devices_data)
+        z = zip(range(1, len(devices_data)+1), sorted(devices_data))
         str_range = set(str(x) for x in range(1, len(devices_data)+1))
         inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string,
                         sorted(z)), valid=devices_data.union(str_range))
-        input_dict = dict(zip(range(1, len(devices_data)+1), devices_data))
+        input_dict = dict(zip(range(1, len(devices_data)+1), sorted(devices_data)))
         
         if not inp in devices_data:
             inp = input_dict[int(inp)]
@@ -42,14 +42,8 @@ def input_device_model(devices_data: {dict}, p_string: str)->list:
         return [inp]
     else:
         keys_set = set(devices_data.keys())
-        # keys_set = sorted(set(devices_data.keys()))
-        # print("KEY SET: ", keys_set)
-        # print("KEY SET SORTED: ", sorted(keys_set))
         z = zip(range(1, len(keys_set)+1), sorted(keys_set))
-        # print("Z: ", z)
-        # print("sorted Z: ", sorted(z))
         str_range = set(str(x) for x in range(1, len(devices_data)+1))
-        # print("STR_RANGE: ", str_range)
         inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string,
                         sorted(z)), valid=keys_set.union(str_range))
         
