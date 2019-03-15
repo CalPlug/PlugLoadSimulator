@@ -1,3 +1,3 @@
 sample_rate:10
-Mesh Router|Google|Google WiFi AC1200-primary,Active,000000000000000000000000000000
-Mesh Router|Google|Google WiFi AC1200-primary,SoftOff,111111111111111111111111111111
+Cable/DSL Modem|2Wire|XXXXX,Active,111111
+Cable/DSL Modem|2Wire|XXXXX,SoftOff,000000

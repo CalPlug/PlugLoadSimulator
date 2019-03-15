@@ -65,10 +65,10 @@ def input_at_interval(ig_list: ['InputGenerator'], time_interval: int):
         rlen = range(1, len(inp_gen.states())+1)
         str_rlen = set(str(x) for x in rlen)
         state = input_str('Which of the following states is \"{}\" in {}: '.format(inp_gen.dev_name,\
-                          sorted(zip(rlen, inp_gen.states()))), valid=inp_gen.states().union(str_rlen))
+                          sorted(zip(rlen, sorted(inp_gen.states())))), valid=inp_gen.states().union(str_rlen))
 
-        input_dict = dict(zip(rlen, inp_gen.states()))
-        if not state in inp_gen.states():
+        input_dict = dict(zip(rlen, sorted(inp_gen.states())))
+        if not state in sorted(inp_gen.states()):
             state = input_dict[int(state)]
 
         inp_gen.write_on_state(state, time_interval)
@@ -90,11 +90,11 @@ def run_sim_state(integration_period: int, input_generators: list):
             rlen = range(1, len(inp_gen.states())+1)
             str_rlen = set(str(x) for x in rlen)
             state = input_str('Which of the following states is \"{}\" in {}[enter 0 to end the simulation]: '.format(inp_gen.dev_name,\
-                                sorted(zip(rlen, inp_gen.states()))), valid=inp_gen.states().union(str_rlen))
+                                sorted(zip(rlen, sorted(inp_gen.states())))), valid=inp_gen.states().union(str_rlen))
             if state == '0':
                 return
-            input_dict = dict(zip(rlen, inp_gen.states()))
-            if not state in inp_gen.states():
+            input_dict = dict(zip(rlen, sorted(inp_gen.states())))
+            if not state in sorted(inp_gen.states()):
                 state = input_dict[int(state)]
             time_interval = input_int('How long is this time interval (in minutes)[enter 0 to end the simulation]: ')
             if time_interval == 0:
