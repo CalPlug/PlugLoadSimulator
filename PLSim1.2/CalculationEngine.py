@@ -51,7 +51,7 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
 
     # Total Power and Total Energy
     make_power_graph(total_power_array, integration_period, 'Time (hr)', 'Power (W)', 'Total Power Consumed','power',1, sub=(1,2,1))
-    make_power_graph(integral_array, integration_period, 'Time (hr)', 'Energy (W*hr)', 'Total Energy Used','Energy',1, sub=(1,2,2))
+    make_power_graph(integral_array, integration_period, 'Time (hr)', 'Energy (WHr)', 'Total Energy Used','Energy',1, sub=(1,2,2))
 
     # add up default power array
     graph_row = f'{1+len(ENABLED_LIST)}'
