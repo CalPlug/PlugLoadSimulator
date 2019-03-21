@@ -17,9 +17,11 @@ def make_graph(data: list, int_period, x_label, y_label, title, fig, sub)-> None
     '''
 
     if y_label == 'power':
-        y_label = 'Power (W)/(WHr)'
+        y_label = 'Power (W)'
     elif y_label == 'thdI':
         y_label = 'THDi(%)'
+    elif y_label == 'power_factor':
+        y_label = 'Power Factor(PF)'
     elif y_label.__contains__('_'):
         y_label = ' '.join([i.capitalize() for i in y_label.split('_')])
 
@@ -56,9 +58,11 @@ def make_power_graph(input_data: list, int_period, x_label, y_label, title, lege
     '''
 
     if y_label == 'power':
-        y_label = 'Power (W)/(WHr)'
+        y_label = 'Power (W)'
     elif y_label == 'thdI':
         y_label = 'THDi(%)'
+    elif y_label == 'power_factor':
+        y_label = 'Power Factor(PF)'
     elif y_label.__contains__('_'):
         y_label = ' '.join([i.capitalize() for i in y_label.split('_')])
 
@@ -81,23 +85,19 @@ def make_power_graph(input_data: list, int_period, x_label, y_label, title, lege
     # plot data
     # mean
     if legend_label == 'Energy':
-        plt.plot(time, data, 'k', label='Energy (WHr)')
+        plt.plot(time, data, 'k', label='Period Energy Use (WHr)')
     else:
         plt.plot(time, data,'k',label='Average Power (W)')
         # power spread
-        usage = make_integral_array(data,int_period)
         mean_array = data
         median = data
         median_array = np.zeros_like(data) + median
-        # usage
-        if fig == 2:
-            plt.plot(time,usage,label='Energy Usage(WHr)',linewidth=1)
         # median
         plt.plot(time, median_array,'--',label='Median Power Usage (W)',linewidth=1)
         # +1 std
         plt.plot(time, mean_array + np.std(data),'--',label='Average Power (W) + 1Std.Dev.',linewidth=1)
         # -1 std
-        plt.plot(time, mean_array - np.std(data),'--',label='Average Power (W) - 1Std.Dev.',linewidth=1)
+        plt.plot(time, mean_array - np.std(data),'--',label='Average Power (W)  -  1Std.Dev.',linewidth=1)
 
         plt.ylim(bottom=(min(mean_array - np.std(data))-abs(min(mean_array - np.std(data)))))
         plt.ylim(top=(max(mean_array + np.std(data)) + abs(max(mean_array + np.std(data)))))

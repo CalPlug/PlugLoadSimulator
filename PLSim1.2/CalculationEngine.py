@@ -54,11 +54,11 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
     make_power_graph(integral_array, integration_period, 'Time (hr)', 'Energy (WHr)', 'Total Energy Used','Energy',1, sub=(1,2,2))
 
     # add up default power array
-    graph_row = f'{1+len(ENABLED_LIST)}'
+    graph_row = f'{1+1+len(ENABLED_LIST)}'
     graph_col = f'{len(device_cate_map)}'
 
     counter = 0
-    for util in ['power']+ENABLED_LIST:
+    for util in ['power']+['energy']+ENABLED_LIST:
         for device_name in device_cate_map:
             counter += 1
             # to make sure only bottom graph has x label
@@ -70,6 +70,15 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
                                util, \
                                f'{device_name}', \
                                'power',\
+                               2, \
+                               sub=(graph_row,graph_col,int(f'{counter}')))
+                elif util == 'energy':
+                    make_power_graph(make_integral_array(device_cate_map[device_name]['power'], integration_period), \
+                               integration_period, \
+                               '', \
+                               'Energy (WHr)', \
+                               '', \
+                               'Energy',\
                                2, \
                                sub=(graph_row,graph_col,int(f'{counter}')))
                 else:
