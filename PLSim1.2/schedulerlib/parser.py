@@ -11,6 +11,7 @@
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from random import random
+from collections import OrderedDict
         
 def parse_data(xml: str)->ET:
     tree = ET.parse(xml)
@@ -77,6 +78,15 @@ def parse_groupings(tree: ET)->{dict: dict}:
             else:
                 to_return[tree.get('name')] = parse_groupings(child)
         return to_return
+
+def reorder_tree(unorderedDict: dict)->{dict: dict}:
+    to_return = OrderedDict()
+    order = sorted(unorderedDict)
+    for item in order:
+        to_return[item] = unorderedDict[item]
+    # print(to_return)
+    return to_return
+
 
 def search_data(tree: ET, search_info:list, device_name = '', override=False)->dict:
     if len(search_info) == 0:

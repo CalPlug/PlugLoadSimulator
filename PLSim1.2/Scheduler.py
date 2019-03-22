@@ -1,6 +1,6 @@
 from schedulerlib.input import make_input_generators, NameGenerator, input_int, input_str
 from schedulerlib.write import write_to_ifile, write_to_peramfile
-from schedulerlib.parser import parse_data,parse_groupings,search_data
+from schedulerlib.parser import parse_data,parse_groupings,search_data,reorder_tree
 from pprint import pprint
 import pickle
 import sys
@@ -11,7 +11,8 @@ from pathlib import Path
 #            a modified file path corresponding to this new file structure ***
 
 # input files
-INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
+#INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
+INPUT_XML = "simulationfiles/devicedatabases/xmls/DeviceList_xml.xml"
 
 # output files
 OUTPUT_PICKLE = 'simulationfiles/scheduleobjects/run_params' #this is the pickled object file passed with the selected device list onto the calculation engine
@@ -28,11 +29,11 @@ q: Quit simulation
 
 def input_device_model(devices_data: {dict}, p_string: str)->list:
     if type(devices_data) == set:
-        z = zip(range(1, len(devices_data)+1), devices_data)
+        z = zip(range(1, len(devices_data)+1), sorted(devices_data))
         str_range = set(str(x) for x in range(1, len(devices_data)+1))
         inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string,
                         sorted(z)), valid=devices_data.union(str_range))
-        input_dict = dict(zip(range(1, len(devices_data)+1), devices_data))
+        input_dict = dict(zip(range(1, len(devices_data)+1), sorted(devices_data)))
         
         if not inp in devices_data:
             inp = input_dict[int(inp)]
@@ -41,12 +42,12 @@ def input_device_model(devices_data: {dict}, p_string: str)->list:
         return [inp]
     else:
         keys_set = set(devices_data.keys())
-        z = zip(range(1, len(keys_set)+1), keys_set)
+        z = zip(range(1, len(keys_set)+1), sorted(keys_set))
         str_range = set(str(x) for x in range(1, len(devices_data)+1))
         inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string,
                         sorted(z)), valid=keys_set.union(str_range))
         
-        input_dict = dict(zip(range(1, len(keys_set)+1), keys_set))
+        input_dict = dict(zip(range(1, len(keys_set)+1), sorted(keys_set)))
         
         if not inp in keys_set:
             inp = input_dict[int(inp)]
@@ -64,10 +65,10 @@ def input_at_interval(ig_list: ['InputGenerator'], time_interval: int):
         rlen = range(1, len(inp_gen.states())+1)
         str_rlen = set(str(x) for x in rlen)
         state = input_str('Which of the following states is \"{}\" in {}: '.format(inp_gen.dev_name,\
-                          sorted(zip(rlen, inp_gen.states()))), valid=inp_gen.states().union(str_rlen))
+                          sorted(zip(rlen, sorted(inp_gen.states())))), valid=inp_gen.states().union(str_rlen))
 
-        input_dict = dict(zip(rlen, inp_gen.states()))
-        if not state in inp_gen.states():
+        input_dict = dict(zip(rlen, sorted(inp_gen.states())))
+        if not state in sorted(inp_gen.states()):
             state = input_dict[int(state)]
 
         inp_gen.write_on_state(state, time_interval)
@@ -89,11 +90,11 @@ def run_sim_state(integration_period: int, input_generators: list):
             rlen = range(1, len(inp_gen.states())+1)
             str_rlen = set(str(x) for x in rlen)
             state = input_str('Which of the following states is \"{}\" in {}[enter 0 to end the simulation]: '.format(inp_gen.dev_name,\
-                                sorted(zip(rlen, inp_gen.states()))), valid=inp_gen.states().union(str_rlen))
+                                sorted(zip(rlen, sorted(inp_gen.states())))), valid=inp_gen.states().union(str_rlen))
             if state == '0':
                 return
-            input_dict = dict(zip(rlen, inp_gen.states()))
-            if not state in inp_gen.states():
+            input_dict = dict(zip(rlen, sorted(inp_gen.states())))
+            if not state in sorted(inp_gen.states()):
                 state = input_dict[int(state)]
             time_interval = input_int('How long is this time interval (in minutes)[enter 0 to end the simulation]: ')
             if time_interval == 0:
@@ -129,6 +130,8 @@ if "__main__" == __name__:
     
     # All labels {class,type,brand,model} without any data
     devices_data = parse_groupings(tree)
+    # devices_data = reorder_tree(devices_data)
+    
 
     while True:
         inp = input_str(MENU_STR, valid={'a', 'd', 'p', 'r', 'q'}).lower()
