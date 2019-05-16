@@ -1,5 +1,6 @@
 from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph
 from enginelib.write import write_to_csv
+from enginelib.logger import Logger
 import pickle
 import numpy as np
 import sys
@@ -189,7 +190,7 @@ def AttributesCheck(ENABLED_LIST, device_cate_map):
 
 
 if __name__ == '__main__':
-
+    sys.stdout = Logger()
     #Error Handling: File Exist
     file_location = INPUT_PARAM
     exist_flag = Path(file_location)
