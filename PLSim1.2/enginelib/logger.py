@@ -1,5 +1,3 @@
-import sys
-
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
@@ -15,4 +13,3 @@ class Logger(object):
         #you might want to specify some extra behavior here.
         pass    
 
-sys.stdout = Logger()
