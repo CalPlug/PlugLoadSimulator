@@ -1,5 +1,9 @@
 import numpy as np
+import matplotlib
+matplotlib.use("TKAgg")
 import matplotlib.pyplot as plt
+
+num_graphs = 1
 
 def make_integral_array(power_array: list, integration_period: int):
     to_return = [0]
@@ -53,6 +57,7 @@ def make_graph(data: list, int_period, x_label, y_label, title, fig, sub)-> None
     plt.gca().yaxis.grid(True,linestyle=':',linewidth=0.2,color='k')
 
 def make_power_graph(input_data: list, int_period, x_label, y_label, title, legend_label, fig, sub) -> None:
+    global num_graphs
     ''' graphs the data from the list using each point as a y coordinate in the line graph
     x is a range from 0 to len(list) with the integration period int_period
     '''
@@ -109,6 +114,9 @@ def make_power_graph(input_data: list, int_period, x_label, y_label, title, lege
     plt.xlabel(x_label, fontsize=6)
     plt.ylabel(y_label, fontsize=6)
     plt.gca().yaxis.grid(True,linestyle=':',linewidth=0.2,color='k')
+
+    plt.savefig("./graphs/graph" + str(num_graphs) + ".png")
+    num_graphs += 1
 
 def show_graph():
     plt.show()
