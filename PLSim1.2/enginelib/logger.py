@@ -1,3 +1,5 @@
+import sys
+
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
