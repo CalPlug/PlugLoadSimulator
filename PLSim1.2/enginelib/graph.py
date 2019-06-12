@@ -107,6 +107,7 @@ def make_power_graph(input_data: list, int_period, x_label, y_label, title, lege
         plt.ylim(bottom=(min(mean_array - np.std(data))-abs(min(mean_array - np.std(data)))))
         plt.ylim(top=(max(mean_array + np.std(data)) + abs(max(mean_array + np.std(data)))))
 
+    #plot formatting
     plt.legend(loc = 'upper right',prop={'size': 6})
     plt.title(title, fontsize=7)
     plt.rc('xtick', labelsize=6)
@@ -115,7 +116,12 @@ def make_power_graph(input_data: list, int_period, x_label, y_label, title, lege
     plt.ylabel(y_label, fontsize=6)
     plt.gca().yaxis.grid(True,linestyle=':',linewidth=0.2,color='k')
 
-    plt.savefig("./graphs/graph" + str(num_graphs) + ".png")
+    #Save graph function below
+    #Tested formats: eps, pdf, pgf, png, ps, raw, rgba, svg, svgz
+    #Easiest formats are pdf and png, svg and eps saves lossless quality but need to convert
+    #IF WE HAVE THE COMPUTING POWER, SET DPI TO 1000/1200 for highest quality: WARNING, takes multiple minutes to run
+    plt.savefig("./graphs/graph" + str(num_graphs) + ".png", dpi = 300)
+    
     num_graphs += 1
 
 def show_graph():
