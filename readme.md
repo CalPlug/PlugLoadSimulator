@@ -8,16 +8,7 @@
 Copyright The Regents of the University of California, 2016 (v.1)  
 Developed with support from Southern California Edison / Edison International  
 Built with open source software and released into the public domain under GNU License for permissive use.  
-
-### Version 1.3 (6/14/19) Current Release
-Changes in this version:  
-	1) Reconfiguration of structure of codebase  
-	2) New features in Calculation Engine  
-	3) Easier usability for general users  
-	4) Easier way to develop for developers 
-	5) Graph output files from CalculationEngine saved into the graphs subdirectory, as .png 
-	6) In addition to all the output being printed on console is now logged into the file called logfile.log in the same directory, after the termination of the CalculationEngine
-	7) Improved resolution of CalculationEgine saved .jpg file
+	
 # ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project, accordingly if this is run in a new project each input and output file may need to have a modified file path corresponding to this new file structure ***
 
 # Input Files
@@ -28,6 +19,16 @@ OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the se
 OUTPUT_CONFIG = 'csvs/run_perams.cfg' #This is the list of parameters for the scheduler run, similar in content to the PICKLE file.  
 OUTPUT_CSV = 'csvs/test_group.csv'  #This is the generated schedule for device operation  
   
+### Version 1.3 (6/14/19) Current Release
+Changes in this version:  
+	1) Reconfiguration of structure of codebase  
+	2) New features in Calculation Engine  
+	3) Easier usability for general users  
+	4) Easier way to develop for developers 
+	5) Graph output files from CalculationEngine saved into the graphs subdirectory, as .png 
+	6) In addition to all the output being printed on console is now logged into the file called logfile.log in the same directory, 	after the termination of the CalculationEngine
+	7)Improved resolution of CalculationEgine saved .jpg file
+	
 ### Version 1.2 (11/27/18) Current Release  
 This version of the program can be found in folder PLSim_1.1. This version is built using plugloadsimDefault from Version 1.1 and is developed in the same Eclipse IDE setup.
 This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
