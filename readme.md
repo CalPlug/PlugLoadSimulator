@@ -8,8 +8,6 @@
 Copyright The Regents of the University of California, 2016 (v.1)  
 Developed with support from Southern California Edison / Edison International  
 Built with open source software and released into the public domain under GNU License for permissive use.  
-	
-# ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project, accordingly if this is run in a new project each input and output file may need to have a modified file path corresponding to this new file structure ***
 
 # Input Files
 INPUT_XML = "xmls/PLSim2Format.xml"  #This is the input power usage "database" format
@@ -29,7 +27,9 @@ Changes in this version:
 	6) In addition to all the output being printed on console is now logged into the file called logfile.log in the same directory, 	after the termination of the CalculationEngine<br/>
 	7) Improved resolution of CalculationEgine saved .jpg file<br/>
 	
-### Version 1.2 (11/27/18) Current Release  
+##### ***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project, accordingly if this is run in a new project each input and output file may need to have a modified file path corresponding to this new file structure ***
+
+### Version 1.2 (11/27/18)   
 This version of the program can be found in folder PLSim_1.1. This version is built using plugloadsimDefault from Version 1.1 and is developed in the same Eclipse IDE setup.
 This version is compliant with the PLSim 2 XML format (future version relative to this version), allowing it to use the same XML files without having issues being an older version.
 This version introduces object pickling, allowing for seperation of the simulator into two programs:  
