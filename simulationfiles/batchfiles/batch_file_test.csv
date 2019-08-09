@@ -1,0 +1,3 @@
+Run_Name,Device,Integration_Time_Sec,PeriodLength_DefinedUnits,Total_evaluated_states,State_1,Time_State_1,State_2,Time_State_2,State_2,Time_State_2,Default_State
+Demo1-4K_TV,Televisions(4K)|Samsung|Model UN 50JU6500F,60,1440,4,Active-Bootup,225,Active-StandardPictureExtraBrightSettingWithVideo,10,SoftOff,450,SoftOff
+Demo2-4K_TV,Televisions(4K)|Samsung|Model UN 50JU6500F,60,1440,4,Active-Bootup,125,Active-StandardPictureExtraBrightSettingWithVideo,28,SoftOff,420,SoftOff
