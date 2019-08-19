@@ -1,4 +1,4 @@
-
+from schedulerlib.input import  input_str
 from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph
 from enginelib.write import write_to_csv
 from enginelib.logger import Logger
@@ -7,6 +7,7 @@ import numpy as np
 import sys
 from pathlib import Path
 import csv
+import datetime
 
 #***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project. 
 #            Accordingly if this is run in a new project each input and output file may need to have 
@@ -126,17 +127,22 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict, prof
 def print_to_console(file_name, device_map, integral_array,integration_period,device_cate_map):
     # Each Device and state
     print("\nDevice Info:")
+    print(file_name)
     with open(file_name, 'r') as i_file:
         # ignore sample rate line
         i_file.readline()
         # parse device_name,state,sequence
         for line in i_file:
+            print(line)
             info = line.rstrip().split(',')
+            print(info)
             device, state, i_string = info[0], info[1], info[2]
             state_np = np.array(list(i_string), dtype=float)
+            print(state_np)
+            #exit()
             # total entered period and the whole day
-            day_p = sum(state_np)/86400*100
-            enter_p = sum(state_np)/len(state_np)*100
+            day_p = sum(state_np)/86400*100 if sum(state_np) != 0 else 0
+            enter_p =  sum(state_np)/len(state_np)*100 if sum(state_np) != 0 else 0
             energy = make_integral_array((state_np*device_map[device][state]['power']),integration_period)[-1]
             print(f'Device Name: {device:<50s}\t\tState: {state:<20s} Taken Entered Period: {enter_p:>7.3f}%\tTaken Whole Day Period: {day_p:>7.3f}%\tDaily Usage: {energy:>8.2f} Wh')
     # Total Usage
@@ -208,11 +214,12 @@ def AttributesCheck(ENABLED_LIST, device_cate_map):
 
 
 if __name__ == '__main__':
-    sys.stdout = Logger()
     #Error Handling: File Exist
 
-    batch_file = "simulationfiles/bstchfiles/batch_file_test.csv"
-    batch_csv_data = getCSVBatch(batch_file)
+    batch_path = "simulationfiles/batchfiles/"
+    batch_file_name = input_str('Please enter the name CSV file you would like to process [ex. batch_file1.csv ]: ') 
+    batch_csv_data = getCSVBatch(batch_path + batch_file_name)
+    sys.stdout = Logger()
     batchNum = len(batch_csv_data)
     bindex = 0
     while(bindex < batchNum):
@@ -231,6 +238,8 @@ if __name__ == '__main__':
             # open pickle file to get parameters
             with open('simulationfiles/scheduleobjects/' + str(batch_csv_data[bindex][0])+INPUT_PARAM, 'rb') as param_fd:
                 params = pickle.load(param_fd)
+                print(params)
+                #exit()
         except:
             print("Error: Unable to pickle objects")
             print("Program Quit") 
@@ -242,7 +251,7 @@ if __name__ == '__main__':
         analyze_data('simulationfiles/scheduleobjects/csvs/' + str(batch_csv_data[bindex][0])+INPUT_CSV, params['integeration_period'], params['device_map'], str(batch_csv_data[bindex][0]))
         bindex = bindex + 1
     print("FINISHED BATCH")
-    T_OUTPUT_FILE = "BATCH_DEVICE_USAGE.csv"
+    T_OUTPUT_FILE = batch_file_name[1:-4] + "-WH-output-{date:%Y-%m-%d_%H_%M_%S}.csv".format( date=datetime.datetime.now() )
     fout = open('simulationfiles/calculationoutputs/'+T_OUTPUT_FILE, 'wb')
     for x in range(0, len(USAGE_GLOBAL)):
         print(batch_csv_data[x][0])

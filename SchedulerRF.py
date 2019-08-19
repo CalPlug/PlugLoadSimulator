@@ -13,13 +13,13 @@ import csv
 
 # input files
 #INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
-INPUT_XML = 'simulationfiles/devicedatabases/xmls/DeviceListDB7.27.19.xml' #"simulationfiles/devicedatabases/xmls/DeviceList_xml.xml"
+INPUT_XML = 'simulationfiles/devicedatabases/xmls/DeviceListDB8.13.19_SS.xml' #"simulationfiles/devicedatabases/xmls/DeviceList_xml.xml"
 
 # output files
 OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the selected device list onto the calculation engine
 OUTPUT_CONFIG = 'run_perams.cfg' #This is the list of parameters for the scheduler run, similar in content to the PICKLE file.
 OUTPUT_CSV = 'test_group.csv' #This is the generated schedule for device operation
-batch_file = "simulationfiles/batchfiles/batch_file_test.csv"
+batch_path = "simulationfiles/batchfiles/"
 
 MENU_STR = '''Simulation Builder/Scheduler Main Menu:
 a: Add a device to simulation
@@ -89,16 +89,6 @@ def input_at_interval(ig_list: ['InputGenerator'], time_interval: int):
 
         inp_gen.write_on_state(state, time_interval)
 
-def run_sim(integration_period: int, input_generators: list):
-    '''runs the simulation that creates the input csv'''
-
-    while True:
-        print()
-        time_interval = input_int('How long is this time interval (in minutes)[enter 0 to end the simulation]: ')
-        if time_interval == 0:
-            return
-        num_periods_interval = int(60 / integration_period * time_interval)
-        input_at_interval(input_generators, num_periods_interval)
 
 def run_sim_state(integration_period: int, input_generators: list, batch_input: list, batch_input_index: int, numOfStates: int):
     sindex = 0
@@ -109,27 +99,21 @@ def run_sim_state(integration_period: int, input_generators: list, batch_input: 
             str_rlen = set(str(x) for x in rlen)
             print('Which of the following states is \"{}\" in {}[enter 0 to end the simulation]: '.format(inp_gen.dev_name,\
                                 sorted(zip(rlen, sorted(inp_gen.states())))))
+            if(sindex == numOfStates):
+                return 
             state = batch_input[batch_input_index]
             print("The State is: " + str(state))
             sindex = sindex + 1
-            if state == '0':
-                return
             input_dict = dict(zip(rlen, sorted(inp_gen.states())))
             if not state in sorted(inp_gen.states()):
                 state = input_dict[int(state)]
-            if(sindex < numOfStates):
+            if(sindex <= numOfStates):
                 print('How long is this time interval (in minutes)[enter 0 to end the simulation]: ')
-                time_interval = int(batch_input[batch_input_index+1])
+                time_interval = float(batch_input[batch_input_index+1]) #SANIYA: change back to int instead of float if you want to use whole numbers in CSV
                 interval_sum = time_interval + interval_sum
                 print("The Time interval is " + str(time_interval))
-            if(sindex == numOfStates):
-                time_inverval = 1440 - interval_sum
-                print("The Time interval is " + str(time_interval))
-                num_periods_interval = int(60 / integration_period * time_interval)
-                inp_gen.write_on_state(state, num_periods_interval)
-                return 
-            if time_interval == 0:
-                return
+            #if time_interval == -1:
+            #    return
             num_periods_interval = int(60 / integration_period * time_interval)
             inp_gen.write_on_state(state, num_periods_interval)
             batch_input_index = batch_input_index + 2
@@ -189,17 +173,18 @@ if "__main__" == __name__:
             device_map[name_gen.generate_name(key)] = value
         elif inp == 'b':
             # TODO: ASK FOR input filename and path
+            batch_file_name = input_str('Please enter the name CSV file you would like to process [ex. batch_file1.csv ]: ')
             print("DEVICE MAP")
             print(device_map)
             #exit()
-            batch_csv_data = getCSVBatch(batch_file)
+            batch_csv_data = getCSVBatch(batch_path + batch_file_name)
             batchNum = len(batch_csv_data)
             bindex = 0
             while(bindex < batchNum):
                 print("Entering " + str(bindex) + " Profile")
                 print(batch_csv_data)
                 print("_________________________________")
-                dev_key = input_device_model(devices_data, '', batch_csv_data[bindex], 1)
+                dev_key = input_device_model(devices_data, '', batch_csv_data[bindex], 2)
                 print("DEV KEY")
                 print(dev_key)
                 #exit()
@@ -214,7 +199,7 @@ if "__main__" == __name__:
                 #exit()
                 # Get Integration Period
                 print('Enter integration period for simulation calculation framework (whole seconds): ')
-                integration_period = int(batch_csv_data[bindex][5])
+                integration_period = int(batch_csv_data[bindex][6])
                 print(integration_period)
                 # Get Periods
                 run_sim_state(integration_period, input_generators, batch_csv_data[bindex], 8,  int(batch_csv_data[bindex][7]))
