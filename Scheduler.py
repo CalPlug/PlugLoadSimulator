@@ -7,6 +7,8 @@ import sys
 import os
 from pathlib import Path
 import csv
+import subprocess
+import runpy
 
 #***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project. 
 #            Accordingly if this is run in a new project each input and output file may need to have 
@@ -311,7 +313,12 @@ if "__main__" == __name__:
                 device_map = {}
                 bindex = bindex + 1
             # Quit the Program after Simulation
-            os.system("python CalculationEngineBATCH.py "+str(batch_file_name)) #TODO: Replace os.system with subprocess
+            #subprocess.call(['./CalculationEngineBATCH.py', str(batch_file_name)], shell=True)
+            sys.argv = ['', str(batch_file_name)]
+            runpy.run_path('./CalculationEngineBATCH.py', run_name='__main__')
+            #subprocess.call("python CalculationEngineBATCH.py " + str(batch_file_name), shell=True) 
+            #exec(open("./CalculationEngine.py " +str(batch_file_name)).read())
+            #os.system("python CalculationEngineBATCH.py "+str(batch_file_name)) #TODO: Replace os.system with subprocess
             #exit(0)
 
         elif inp == 'd':
@@ -352,7 +359,8 @@ if "__main__" == __name__:
 
         elif inp == 'e':
             print("Execute default Calc Engine")
-            os.system("python CalculationEngine.py") #TODO: Replace os.system with subprocess
+            exec(open("./CalculationEngine.py").read())
+            #os.system("python CalculationEngine.py") #TODO: Replace os.system with subprocess
             #exit(0)
         elif inp == 'q':
             exit(0)
