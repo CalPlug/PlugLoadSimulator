@@ -22,11 +22,13 @@ INPUT_PARAM = 'run_params' #this is the pickled object file passed as input into
 # Output files
 OUTPUT_CSV = 'graph_file_test.csv' #This is the generated device operation calculation outputs 
 #OUTPUT_CSV = 'simulationfiles/calculationoutputs/graph_file_test.csv' #This is the generated device operation calculation outputs 
-
+BATCH_PATH = "simulationfiles/batchfiles/"
 # List of Enabled Graphs
 ENABLED_LIST = ['power_factor','thdI']
 USAGE_GLOBAL = []
-def getCSVBatch(filename:str)->list:
+
+
+def get_csv_batch(filename:str)->list:
     list_of_profiles = []
     with open(filename) as f:
         reader = csv.reader(f,delimiter=',')
@@ -148,6 +150,7 @@ def print_to_console(file_name, device_map, integral_array,integration_period,de
     # Total Usage
     print('\nDaily Energy Usage:')
     for device_name in device_cate_map:
+        print(device_cate_map[device_name])
         power = make_integral_array(device_cate_map[device_name]['power'], integration_period)
         print(f"Device:\t\t{device_name:<50s} {power[-1]:>8.3f} Wh")
         USAGE_GLOBAL.append((f"Device:\t\t{device_name:<50s} {power[-1]:>8.3f} Wh"))
@@ -216,9 +219,8 @@ def AttributesCheck(ENABLED_LIST, device_cate_map):
 if __name__ == '__main__':
     #Error Handling: File Exist
 
-    batch_path = "simulationfiles/batchfiles/"
-    batch_file_name = input_str('Please enter the name CSV file you would like to process [ex. batch_file1.csv ]: ') 
-    batch_csv_data = getCSVBatch(batch_path + batch_file_name)
+    batch_file_name = str(sys.argv[1]) #input_str('Please enter the name CSV file you would like to process [ex. batch_file1.csv ]: ') 
+    batch_csv_data = get_csv_batch(BATCH_PATH + batch_file_name)
     sys.stdout = Logger()
     batchNum = len(batch_csv_data)
     bindex = 0
@@ -251,7 +253,7 @@ if __name__ == '__main__':
         analyze_data('simulationfiles/scheduleobjects/csvs/' + str(batch_csv_data[bindex][0])+INPUT_CSV, params['integeration_period'], params['device_map'], str(batch_csv_data[bindex][0]))
         bindex = bindex + 1
     print("FINISHED BATCH")
-    T_OUTPUT_FILE = batch_file_name[1:-4] + "-WH-output-{date:%Y-%m-%d_%H_%M_%S}.csv".format( date=datetime.datetime.now() )
+    T_OUTPUT_FILE = batch_file_name[0:-4] + "-WH-output-{date:%Y-%m-%d_%H_%M_%S}.csv".format( date=datetime.datetime.now() )
     fout = open('simulationfiles/calculationoutputs/'+T_OUTPUT_FILE, 'wb')
     for x in range(0, len(USAGE_GLOBAL)):
         print(batch_csv_data[x][0])
