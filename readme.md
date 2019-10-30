@@ -16,8 +16,18 @@ INPUT_XML = "xmls/PLSim2Format.xml"  #This is the input power usage "database" f
 OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the selected device list onto the calculation engine  
 OUTPUT_CONFIG = 'csvs/run_perams.cfg' #This is the list of parameters for the scheduler run, similar in content to the PICKLE file.  
 OUTPUT_CSV = 'csvs/test_group.csv'  #This is the generated schedule for device operation  
-  
-### Version 1.3 (6/14/19) Current Release
+
+### Version 1.4 (7/30/19)
+This version of the program can be run on command prompt (cmd) or terminal. Scheduler is able to take a formatted batch file (with new Scheduler menu option b) w/ Calculation Engine running in the background and generate csv outputs. 
+Batch File Option Directions:	
+	1) Save CSV batch file to PlugLoadSimulator\simulationfiles\batchfiles\
+	2) Run python Scheduler.py
+	3) Choose option 'b'
+	4) When  prompted type in the filename of the CSV batch file 
+	5) When program is finished locate the output file in PlugLoadSimulator\simulationfiles\calculationoutputs\ under the name 	
+	yourfilename-WH-Output-date_time.csv
+
+### Version 1.3 (6/14/19) 
 Changes in this version:  
 	1) Reconfiguration of structure of codebase  
 	2) New features in Calculation Engine  
