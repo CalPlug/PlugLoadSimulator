@@ -20,12 +20,12 @@ OUTPUT_CSV = 'csvs/test_group.csv'  #This is the generated schedule for device o
 ### Version 1.4 (7/30/19)
 This version of the program can be run on command prompt (cmd) or terminal. Scheduler is able to take a formatted batch file (with new Scheduler menu option b) w/ Calculation Engine running in the background and generate csv outputs. 
 Batch File Option Directions:	
-	1) Save CSV batch file to PlugLoadSimulator\simulationfiles\batchfiles\
-	2) Run python Scheduler.py
-	3) Choose option 'b'
-	4) When  prompted type in the filename of the CSV batch file 
-	5) When program is finished locate the output file in PlugLoadSimulator\simulationfiles\calculationoutputs\ under the name 	
-	yourfilename-WH-Output-date_time.csv
+1. Save CSV batch file to PlugLoadSimulator\simulationfiles\batchfiles\
+2. Run python Scheduler.py
+3. Choose option 'b'
+4. When  prompted type in the filename of the CSV batch file 
+5. When program is finished locate the output file in PlugLoadSimulator\simulationfiles\calculationoutputs\ under the name 
+yourfilename-WH-Output-date_time.csv
 
 ### Version 1.3 (6/14/19) 
 Changes in this version:  
