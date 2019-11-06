@@ -17,7 +17,7 @@ import runpy
 # input files
 #INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
 #INPUT_XML = 'simulationfiles/devicedatabases/xmls/DeviceListDB8.14.19_ss.xml' #"simulationfiles/devicedatabases/xmls/DeviceList_xml.xml"
-INPUT_XML = "simulationfiles/devicedatabases/xmls/DeviceListDB10.22.19.xml" #Most Recent Working XML Database
+INPUT_XML = "simulationfiles/devicedatabases/xmls/DeviceListDB10.22.19.xml"
 
 # output files
 OUTPUT_PICKLE = 'run_params' #this is the pickled object file passed with the selected device list onto the calculation engine
