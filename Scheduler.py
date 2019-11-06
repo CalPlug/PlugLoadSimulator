@@ -17,6 +17,7 @@ import runpy
 # input files
 #INPUT_XML = "simulationfiles/devicedatabases/xmls/PLSim2Format.xml" #This is the input power usage "database" format
 #INPUT_XML = 'simulationfiles/devicedatabases/xmls/DeviceListDB8.14.19_ss.xml' #"simulationfiles/devicedatabases/xmls/DeviceList_xml.xml"
+#INPUT_XML = "simulationfiles/devicedatabases/xmls/DeviceListDB7.27.19.xml"
 INPUT_XML = "simulationfiles/devicedatabases/xmls/DeviceListDB10.22.19.xml"
 
 # output files
