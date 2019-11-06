@@ -1,0 +1,1055 @@
+<data>
+	<!--Calit2/CalPlug Tested Device State Database, format compatible with CalPlug PLSIM 1.2 Utility -->
+	<!--California Plug Load Research Center(CalPlug) -  Project Administrators - Michael Klopfer, Ph.D., Saniya Syed, Prof. G.P. Li and Joy Pixley, Ph.D. -->
+	<!--Project sponsored by Southern California Edison (SCE) - 2019-->
+	<!--Data Version 0.4.1 (Pre-Release), August 20, 2019-->
+	
+	<!--GENERAL DATA FORMATTING NOTES--> 
+	<!--NOTE: Invalid fields or fields with no data are omitted or marked with a numeric value of "-1"-->
+	<!--NOTE: Validate XML formating using a consistancy checker if modifications are made, an online tool is: https://www.w3schools.com/xml/xml_validator.asp or use the XML Plugin Tool in Notepad++ if using this reccommended text editor-->
+	
+	<!--GENERAL DATA CODEBOOK FORMATTING NOTES-->
+	<!--NOTE: Devices are listed with operational states described in a hirearchical format :  -->
+	<!--NOTE: Device state presentations can be formatted in one of two ways (shown as example):  -->
+	<!--<state name="SoftOff" type= "static" power="0.115" power_stdev="0.002" power_median="0.115" power_factor="0.028" power_factor_stdev="0.002" power_factor_median="0.0025" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" /> -->
+	<!--OR -->
+	<!--NOTE: <state name="SoftOff" type= "static" power="0.01" power_factor="0.00" thd="-1" comments="Burst mode with low constant power, initial inrush was 11.64W over 2 seconds integration." />-->
+	<!--The former syntax is used to convey energy measurements for a given state where the median and standard deviation exists for all reported values.  The second approach is used when only the mean is available from test data. -->
+    <!--NOTE: State Name = "NAME", where name is the measured state, NAME formatted in a manner that gives relative congruency between multiple states.  For example, the following terms are defined here:   -->
+	<!--"SoftOff"  This state is typically the lowest device power state without flipping a mechanical switch for power -->
+	<!--"SoftOff-XXX"  This state is a set of states for some devices that exist immediatly when pwer is applied and before the soft-off state is reached as the lowest power state.  In some cases this could be a temporary wakeup for low level firmware updates or pre-booting.  Typically XXX is the state neame is entered in CamelCase with no spaces. -->
+	<!--"Active-XXXX"  States denoted with this marker are states determined to be during active use of a device, typically preceeded by a user request for activity, a user action during active use, or another active state. Typically XXX is the state neame is entered in CamelCase with no spaces. -->
+	<!--States denoted as "transient" are componets of static states, say the power when energy is applied to a heating element and the state when no heat is applied during a heating process (this process overall would be a static state). -->
+	<!--For states that occur during a period that lead to other states, say heating up a boiler prior to maintaining the temperature at a set-point, a time and average energy must be specified.  Place the time the state averages are measured across in the comments. -->
+
+<!--Begin Data -->
+
+	<device-class name="Entertainment Electronics"> <!--General Device Type Category-->
+		<device-type name="Televisions(4K)">  <!--General Type-->
+			<device-brand name="Samsung">  <!--Brand-->
+				<device-model name="Model UN 50JU6500F" comments="4K Smart TV, 37 inch">  <!--Model with basic typical specifications as a comment-->
+					<!--Each state of device operation including an identifier name, a type (type is a forward-facing distinguisher, only "static" is currently used, energy usage and noise parameters, and comments that describe the state or the behavior of the state-->
+					<state name="SoftOff" type= "static" power="0.115" power_stdev="0.002" power_median="0.115" power_factor="0.028" power_factor_stdev="0.002" power_factor_median="0.0025" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-BlankScreen" type= "static" power="160.56" power_stdev="1.12" power_median="161.25" power_factor="0.979" power_factor_stdev="0.01" power_factor_median="0.979" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV in active with blank, black, screen." />
+					<state name="Active-Bootup" type= "static" power="63.1" power_stdev="2.14" power_median="63.20" power_factor="0.793" power_factor_stdev="0.02" power_factor_median="0.790" thdI="25.14" thd_stdevI="2.10" thd_medianI="25.20" comments="TV in 30 second bootup." />
+					<state name="Active-StandardPictureModeBlueScreen" type= "static" power="164.27" power_stdev="3.15" power_median="162.32" power_factor="0.972" power_factor_stdev="0.02" power_factor_median="0.972" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV displaying static blue screen, no input" />
+					<state name="Active-StandardPictureStaticImage" type= "static" power="135.25" power_stdev="2.99" power_median="135.20" power_factor="0.972" power_factor_stdev="0.02" power_factor_median="0.972" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV displaying static image content" />
+					<state name="Active-StandardPictureExtraBrightSettingWithVideo" type= "static" power="156.21" power_stdev="3.79" power_median="157.21" power_factor="0.972" power_factor_stdev="0.02" power_factor_median="0.972" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV showing images with brightness up" />
+					<state name="Active-DynamicImageSettingVideo" type= "173.53" power_stdev="2.89" power_median="173.22" power_factor="0.972" power_factor_stdev="0.02" power_factor_median="0.972" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="Tv with default settings showing active video" />
+					<state name="Active-SMPTEBarsStaticImage" type= "static" power="153.53" power_stdev="2.99" power_median="153.21" power_factor="0.972" power_factor_stdev="0.02" power_factor_median="0.972" thdI="33.57" thd_stdevI="1.10" thd_medianI="33.26" comments="TV showing static SMPTE HD bars from generator in default settings" />
+				</device-model>
+				<device-model name="Model UN 55RU73XX" comments="4K Smart TV, curved screen, 55 inch">
+					<state name="SoftOff" type= "static" power="0.01" power_factor="0.00" thd="-1" comments="Burst mode with low constant power, initial inrush was 11.64W over 2 seconds integration." />
+					<state name="Active-DarkScreenDefaultSettingsMenu" type= "static" power="24.2" power_factor="0.87" thd="-1" comments="Default settings, menu for TV input selection, a common menu for this TV's operating system" />
+					<state name="Active-DefaultSettingsBlackScreenNoInput" type= "static" power="36.21" power_factor="0.78" thd="0.00" comments="Black screen with default settings" />
+					<state name="Active-DefaultSettingsVideoDisplay" type= "static" power="67.85" power_factor="0.84" thd="0.00" comments="Average energy usage during video display" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Vizio">
+				<device-model name="Model PQ65-F" comments="4K HDR LED LCD Smart TV, 65 inch">
+					<state name="SoftOff-InitialBootupFromPlugintoSoftOff" type= "static" power="23.20" power_stdev="3.14" power_median="23.20" power_factor="0.793" power_factor_stdev="0.02" power_factor_median="0.790" thdI="25.14" thd_stdevI="2.10" thd_medianI="25.20" comments="TV in 30 second bootup from plugin to softoff." />
+					<state name="Active-FullScreenCalibratedModeVideo" type= "static" power="169.47" power_stdev="1.22" power_median="169.50" power_factor="0.989" power_factor_stdev="0.025" power_factor_median="0.989" thdI="26.57" thdI_stdev="7.32" thdI_median="26.75" comments="TV Active Mode with video displayed - in calibrated image mode" />
+					<state name="Active-CalibratedModeVideoNoInputDialogBox" type= "static" power="56.46" power_stdev="0.29" power_median="56.45" power_factor="0.947" power_factor_stdev="0.02" power_factor_median="0.947" thdI="12.57" thdI_stdev="1.10" thdI_median="12.50" comments="TV Active Mode with no video showing no input dialog box" />
+					<state name="Active-StandardModeVideoNoInputDialogBox" type= "static" power="88.36" power_stdev="2.28" power_median="87.52" power_factor="0.977" power_factor_stdev="0.02" power_factor_median="0.977" thdI="12.02" thdI_stdev="1.14" thdI_median="12.50" comments="TV Active Mode with no video showing no input dialog box, Standard Video Mode" />
+					<state name="Active-FullScreenVividModeVideo" type= "static" power="244.83" power_stdev="7.21" power_median="241.50" power_factor="0.995" power_factor_stdev="0.0025" power_factor_median="0.991" thdI="6.9587" thdI_stdev="2.32" thdI_median="6.958" comments="TV Active Mode with video displayed - in vivid image mode" />
+					<state name="Active-BlankScreen" type= "static" power="68.2" power_stdev="0.12" power_median="68.35" power_factor="0.97" power_factor_stdev="0.02" power_factor_median="0.97" thdI="10.41" thdI_stdev="1.25" thdI_median="10.40" comments="TV in Active state but blank screen" />
+					<state name="Active-VividModeStatic Image" type= "static" power="243.4" power_stdev="1.12" power_median="243.10" power_factor="0.995" power_factor_stdev="0.002" power_factor_median="0.995" thdI="7.28" thdI_stdev="2.10" thdI_median="7.30" comments="TV in Active state, Vivid mode, static image" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Televisions(HD)">
+			<device-brand name="Samsung">
+				<device-model name="Model UN 32EH4050F" comments="HD TV, 32 inch">  
+					<state name="SoftOff" type= "static" power="0.1973" power_stdev="0.0012" power_median="0.1973" power_factor="0.0621" power_factor_stdev="0.002" power_factor_median="0.0621" thdI="44.72" thd_stdevI="0.46" thd_medianI="44.50" comments="TV immediately past boot-up in SoftOff state" />
+					<state name="Active-NoInput" type= "static" power="18.40" power_stdev="0.13" power_median="18.40" power_factor="0.65" power_factor_stdev="0.02" power_factor_median="0.65" thdI="107.32" thdI_stdev="2.95" thdI_median="106.5" comments="TV On, no input, dialog box visible." />
+					<state name="Active-BlankScreen" type= "static" power="26.50" power_stdev="1.89" power_median="26.55" power_factor="0.66" power_factor_stdev="0.02" power_factor_median="0.66" thdI="97.25" thd_stdevI="2.10" thd_medianI="96.35" comments="TV immediately past boot-up in On state, black screen, no content" />
+					<state name="Active-Bootup" type= "static" power="18.40" power_stdev="1.42" power_median="18.50" power_factor="0.62" power_factor_stdev="0.02" power_factor_median="0.66" thdI="97.25" thd_stdevI="2.10" thd_medianI="96.35" comments="TV during a 30 second bootup process." />
+					<state name="Active-ActiveVideo" type= "static" power="36.45" power_stdev="2.79" power_median="36.50" power_factor="0.686" power_factor_stdev="0.02" power_factor_median="0.68" thdI="97.30" thd_stdevI="2.10" thd_medianI="97.50" comments="TV on with active video input over HDMI" />
+					<state name="Active-StaticImage" type= "static" power="35.74" power_stdev="1.69" power_median="35.60" power_factor="0.686" power_factor_stdev="0.02" power_factor_median="0.68" thdI="97.30" thd_stdevI="2.10" thd_medianI="97.50" comments="TV on with active video input over HDMI with static image" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Visio">
+				<device-model name="Model E500i-A0" comments="HD TV, 50 inch, full 1080p, 10min no-signalpower off default enabled by default, along with ABC.">  
+					<state name="SoftOff" type= "static" power="0.300" power_stdev="0.004" power_median="0.300" power_factor="0.018" power_factor_stdev="0.0001" power_factor_median="0.018" thdI="13.770" thd_stdevI="1.734" thd_medianI="14.059" comments="TV immediately past boot-up in SoftOff state" />
+					<state name="SoftOff-BootuptoSoftOff" type= "static" power="0.543" power_stdev="0.876" power_median="0.298" power_factor="0.030" power_factor_stdev="0.045" power_factor_median="0.95" thdI="17.114" thdI_stdev="17.249" thdI_median="14.004" comments="TV On, no input, dialog box visible, by default PM turns off TV in this state after 10 min, only this setting is available.  ABC disabled in this evaluation" />
+					<state name="Active-NoInput" type= "static" power="76.48" power_stdev="0.05" power_median="76.48" power_factor="0.95" power_factor_stdev="0.001" power_factor_median="0.95" thdI="23.95" thdI_stdev="0.08" thdI_median="23.96" comments="TV On, no input, dialog box visible, by default PM turns off TV in this state after 10 min, only this setting is available.  ABC disabled in this evaluation" />
+					<state name="Active-Bootup" type= "static" power="71.366" power_stdev="36.131" power_median="86.403" power_factor="0.796" power_factor_stdev="0.314" power_factor_median="0.957" thdI="29.993" thd_stdevI="26.218" thd_medianI="21.524" comments="TV during a 30 second bootup process to video, no ABC." />
+					<state name="Active-ActiveVideoDefaultBrightnessNoABC" type= "static" power="79.306" power_stdev="0.876" power_median="79.491" power_factor="0.951" power_factor_stdev="0.001" power_factor_median="0.951" thdI="23.496" thd_stdevI="0.193" thd_medianI="23.498" comments="TV on with active video input over HDMI" />
+					<state name="Active-ActiveVideoDefaultBrightnessABCEnabled" type= "static" power="77.669" power_stdev="4.388" power_median="77.098" power_factor="0.941" power_factor_stdev="0.004" power_factor_median="0.949" thdI="23.755" thd_stdevI="0.921" thd_medianI="23.736" comments="TV on with active video input over HDMI, auto brightness control enabled" />
+					<state name="Active-ActiveVideoVividBrightnessNoABC" type= "static" power="111.537" power_stdev="9.367" power_median="113.330" power_factor="0.962" power_factor_stdev="0.048" power_factor_median="0.971" thdI="19.258" thd_stdevI="2.633" thd_medianI="18.834" comments="TV on with active video input over HDMI in vivid (highest) brigtness mode" />
+				</device-model>
+					<device-model name="Model E90i-A1" comments="HD TV, 32 inch, full 1080p">  
+					<state name="SoftOff" type= "static" power="0.263" power_stdev="0.004" power_median="0.264" power_factor="0.015" power_factor_stdev="0.0001" power_factor_median="0.017" thdI="7.452" thd_stdevI="1.512" thd_medianI="7.124" comments="TV immediately past boot-up in SoftOff state" />
+					<state name="SoftOff-BootuptoSoftOff" type= "static" power="0.821" power_stdev="2.06" power_median="0.271" power_factor="0.030" power_factor_stdev="0.045" power_factor_median="0.95" thdI="17.114" thdI_stdev="17.249" thdI_median="14.004" comments="TV On, no input, dialog box visible, by default PM turns off TV in this state after 10 min, only this setting is available.  ABC disabled in this evaluation" />
+					<state name="Active-NoInput" type= "static" power="59.726" power_stdev="0.122" power_median="59.699" power_factor="0.549" power_factor_stdev="0.002" power_factor_median="0.549" thdI="138.128" thdI_stdev="0.472" thdI_median="138.220" comments="TV On, no input, dialog box visible. ABC disabled in this evaluation" />
+					<state name="Active-BootupToNoInput" type= "static" power="40.030" power_stdev="23.7042" power_median="54.482" power_factor="0.495" power_factor_stdev="0.150" power_factor_median="0.568" thdI="109.125" thdI_stdev="53.092" thdI_median="131.370" comments="TV On, no input, dialog box visible. ABC disabled in this evaluation, 30 secondsaverage" />
+					<state name="Active-StandardVideoPlay" type= "static" power="32.14" power_stdev="14.25" power_median="30.25" power_factor="0.481" power_factor_stdev="0.153" power_factor_median="0.572" thdI="106.255" thdI_stdev="31.252" thdI_median="128.421" comments="TV On, video input, dialog box visible. ABC disabled in this evaluation" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Set Top Boxes">
+			<device-brand name="DirecTV/AT&amp;T"> <!--Note format for ampersand character-->		
+				<device-model name="Model HR34-700" comments="Satellite STB with DVR, Genie Type, 4 hours power save setting default">
+					<state name="SoftOff" type= "static" power="27.25" power_stdev="0.244" power_median="27.17" power_factor="0.00" power_factor_stdev= "0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="PLACEHOLDER" />
+					<state name="Active-Bootup" type= "static" power="27.96" power_stdev="0.3176" power_median="27.96" power_factor="0.64" power_factor_stdev="0.0002" power_factor_median="0.64" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Actively receiving sattelite content and displaying to TV, 1 hour averaged, not recording at any point during this period." />
+					<state name="Active-ShowingLiveContentNoRecording" type= "static" power="29.1564" power_stdev="0.31442" power_median="29.09" power_factor="0.63" power_factor_stdev="0.0002" power_factor_median="0.63" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Actively receiving sattelite content and displaying to TV, 1 hour averaged, not recording at any point during this period." />
+				</device-model>
+				<!--Omited following DirecTV models; consider adding: H20, H21, H24, H25, C41-100, C51-700, HR44-500, HR54 -->
+			</device-brand>
+		</device-type>
+		<device-type name="Sound Bar">
+			<device-brand name="Samsung">
+				<device-model name="Model HW-JW35/2A" comments="Surround sound sound bar - interfaced in testing setup with Samsung 4K TV via optical link. Has Bluetooth capability">
+					<state name="SoftOff" type= "static" power="3.6792" power_stdev="0.0637" power_median="3.683" power_factor="0.230" power_factor_stdev= "0.0028" power_factor_median="0.23" thdI="146.335" thdI_stdev="1.9675" thdI_median="146.555" comments="Sound bar in soft off with BT enabled (by default)" />
+					<state name="Active-Bootup" type= "static" power="4.4264" power_stdev="1.6767" power_median="3.7157" power_factor="0.2505" power_factor_stdev= "0.0488" power_factor_median="0.23076" thdI="146.335" thdI_stdev="1.9675" thdI_median="146.555" comments="average power during 60 second average during bootup to active but no sound state" />
+					<state name="Active-PowerOnBTonNoSound" type= "static" power="8.228" power_stdev="0.1038" power_median="8.16465" power_factor="0.362" power_factor_stdev= "0.0018" power_factor_median="0.3591" thdI="153.215" thdI_stdev="1.0891" thdI_median="153.45" comments="average power during 10 minutes of use with no sound playing (volume all the way down)" />
+					<state name="Active-PowerOnBTon20percentsound" type= "static" power="8.279" power_stdev="0.056835" power_median="8.26215" power_factor="0.361338" power_factor_stdev= "0.0011" power_factor_median="0.36102" thdI="153.408" thdI_stdev="1.10522" thdI_median="153.355" comments="average power during 10 minutes of use with 20 percent volume setting" />
+					<state name="Active-PowerOnBTon100percentsound" type= "static" power="13.90734" power_stdev="3.321857" power_median="13.4975" power_factor="0.416809" power_factor_stdev= "0.024908" power_factor_median="0.41622" thdI="154.8437" thdI_stdev="3.984144" thdI_median="155.02" comments="average power during 10 minutes of use with 100 percent volume setting" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="AV System">
+			<device-brand name="Sony">
+				<device-model name="Model STR-K670P" comments="Surround sound system with 5.1 audio with passive subwoofer powered by amplifier">
+					<state name="SoftOff" type= "static" power="0.1703" power_stdev="0.11" power_median="0.171" power_factor="0.5408" power_factor_stdev="0.002" power_factor_median="0.54" thdI="28.51" thdI_stdev="0.21" thdI_median="28.51" comments="Soft off state" />
+					<state name="Active-0PercentVolume" type= "static" power="29.823" power_stdev="0.31" power_median="29.825" power_factor="0.6262" power_factor_stdev="0.002" power_factor_median="0.620" thdI="31.821" thdI_stdev="0.20" thdI_median="31.8" comments="No input, volume at 0." />	
+					<state name="Active-10PercentVolume" type= "static" power="39.41" power_stdev="0.51" power_median="39.44" power_factor="0.6785" power_factor_stdev="0.003" power_factor_median="0.670" thdI="40.271" thdI_stdev="0.70" thdI_median="40.5" comments="Volume at 10 percent, 0db line input." />	
+					<state name="Active-50PercentVolume" type= "static" power="70.63" power_stdev="4.52" power_median="68.65" power_factor="0.736" power_factor_stdev="0.02" power_factor_median="0.730" thdI="52.43" thdI_stdev="1.90" thdI_median="52.4" comments="Volume at 50 percent, 0db line input." />							
+				</device-model>
+				<device-model name="Model STR-DE635" comments="Surround sound system with 5.1 audio">
+					<state name="SoftOff" type= "static" power="0.9748" power_stdev="0.03" power_median="0.98" power_factor="0.6502" power_factor_stdev="0.002" power_factor_median="0.651" thdI="26.05" thdI_stdev="0.40" thdI_median="26.10" comments="Tested in soft off state with no accessories connected" />
+					<state name="Active-0PercentVolume" type= "static" power="38.873" power_stdev="0.41" power_median="38.84" power_factor="0.7332" power_factor_stdev="0.03" power_factor_median="0.731" thdI="51.26" thdI_stdev="1.20" thdI_median="51.20" comments="On with volume knob at 0% and line level 0db AVG. input present" />	
+					<state name="Active-25PercentVolume" type= "static" power="57.25" power_stdev="2.53" power_median="52.21" power_factor="0.7293" power_factor_stdev="0.03" power_factor_median="0.723" thdI="68.21" thdI_stdev="2.20" thdI_median="65.22" comments="On with volume knob at 25% and line level 0db AVG. input present" />	
+					<state name="Active-50PercentVolume" type= "static" power="176.51" power_stdev="21.11" power_median="156.22" power_factor="0.7623" power_factor_stdev="0.10" power_factor_median="0.751" thdI="65.91" thdI_stdev="4.20" thdI_median="61.22" comments="On with volume knob at 50% and line level 0db AVG. input present" />	
+				</device-model>
+				<device-model name="Model Model SA-W303" comments="Self-powered stand alone subwoofer with low freq. analog line input">
+					<state name="HardOff" type= "static" power="0.0015" power_stdev="0.0002" power_median="0.0015" power_factor="0.6502" power_factor_stdev="0.002" power_factor_median="0.651" thdI="26.05" thdI_stdev="0.40" thdI_median="26.10" comments="Tested in hard off state.  No soft off capacity, needs to be turned on to link with stereo, can be connected by AC switch on stereo to power cycle using this as a master.  This configuration is common." />
+					<state name="Active-0PercentSubVolume" type= "static" power="13.53" power_stdev="0.04" power_median="13.50" power_factor="0.6579" power_factor_stdev="0.003" power_factor_median="0.6570" thdI="45.62" thdI_stdev="0.20" thdI_median="45.60" comments="On with volume knob at 0% and line level 0db AVG. input present" />	
+					<state name="Active-10PercentSubVolume" type= "static" power="16.25" power_stdev="1.33" power_median="16.01" power_factor="0.2451" power_factor_stdev="0.04" power_factor_median="0.723" thdI="68.21" thdI_stdev="2.20" thdI_median="65.22" comments="On with volume knob at 25% and line level 0db AVG. input present" />	
+					<state name="Active-50PercentSubVolume" type= "static" power="66.21" power_stdev="3.52" power_median="66.25" power_factor="0.6261" power_factor_stdev="0.10" power_factor_median="0.623" thdI="48.21" thdI_stdev="1.81" thdI_median="48.20" comments="On with volume knob at 50% and line level 0db AVG. input present" />	
+				</device-model>
+			</device-brand>
+			<device-brand name="Onkyo">
+				<device-model name="Model HT-R391" comments="Surround sound system with 5.1 audio, connected with sub and 4 total, 8 ohm speakers">
+					<state name="SoftOff" type= "static" power="0.01" power_stdev="0.02" power_median="0.013" power_factor="0.001" power_factor_stdev="0.00001" power_factor_median="0.001" thdI="55.24" thdI_stdev="6.84" thdI_median="55.32" comments="OSoft off, lowest power state, line level 0db AVG. input present, uses unpowered sub with 4 main 8 ohm channels" />	
+					<state name="Active-NoInput" type= "static" power="46.67" power_stdev="1.19" power_median="46.77" power_factor="0.72" power_factor_stdev="0.01" power_factor_median="0.72" thdI="77.93" thdI_stdev="0.78" thdI_median="78.03" comments="On with volume knob at 25%, no audio input, uses unpowered sub with 4 main 8 ohm channels, louder than typical listening level.  This is often a wasteful state" />	
+					<state name="Active-25PercentVolume" type= "static" power="61.30" power_stdev="0.34" power_median="61.33" power_factor="0.72" power_factor_stdev="0.001" power_factor_median="0.72" thdI="84.21" thdI_stdev="0.11" thdI_median="84.20" comments="On with volume knob at 25% and line level 0db AVG. input present, uses unpowered sub with 4 main 8 ohm channels" />	
+					<state name="Active-30PercentVolume" type= "static" power="56.53" power_stdev="2.27" power_median="61.33" power_factor="0.71" power_factor_stdev="0.001" power_factor_median="0.71" thdI="82.39" thdI_stdev="82.39" thdI_median="82.86" comments="On with volume knob at 30% and line level 0db AVG. input present, uses unpowered sub with 4 main 8 ohm channels, comfortable easy listening level" />	
+			`		<state name="Active-65PercentVolume" type= "static" power="205.33" power_stdev="21.32" power_median="206.83" power_factor="0.78" power_factor_stdev="0.01" power_factor_median="0.78" thdI="76.15" thdI_stdev="2.89" thdI_median="75.94" comments="On with volume knob at 65% and line level 0db AVG. input present, uses unpowered sub with 4 main 8 ohm channels, louder than comfortable easy listening level" />	
+					<state name="Active-70PercentVolume" type= "static" power="345.23" power_stdev="17.34" power_median="348.96" power_factor="0.822" power_factor_stdev="0.006" power_factor_median="0.824" thdI="64.488" thdI_stdev="2.518" thdI_median="64.146" comments="On with volume knob at 80% and line level 0db AVG. input present, uses unpowered sub with 4 main 8 ohm channels, louder than typical listening level." />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Blu-ray Player">
+			<device-brand name="Samsung">
+				<device-model name="Model BD-JS900" comments="Blu-ray Player with streaming capability">
+					<state name="SoftOff" type="static" power="0.302" power_stdev="0.00204" power_median="0.3022" power_factor="0.01993" power_factor_stdev="0.000136" power_factor_median="0.0198" thdI="76.90003" thdI_stdev="13.5846" thdI_median="76.8850" comments="Blu-ray in SoftOff state (lowest power state)" />
+					<state name="Active-OfftoOn" type="static" power="5.128" power_stdev="0.0625" power_median="5.1115" power_factor="0.2793" power_factor_stdev="0.0027" power_factor_median="0.2785" thdI="139.794" thd_stdevI="1.2085" thd_medianI="139.84" comments="Blu-ray immediately past boot-up in On state, black screen, no content, 2 minutes from startup to steady stae with physical media in drive" />
+					<state name="Active-DeviceMenu" type="static" power="3.9288" power_stdev="0.00221" power_median="3.9289" power_factor="0.225" power_factor_stdev="0.000155" power_factor_median="0.225" thdI="143.3918" thd_stdevI="1.57153" thd_medianI="143.39" comments="Blu-ray past boot-up in On state, after steady state at menu" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Sony">
+				<device-model name="Model BDP-S185" comments="Blu-ray Player with streaming capability"> <!--Device sample supplied by MJK-->
+					<state name="SoftOff" type= "static" power="0.2717" power_stdev="0.021" power_median="0.2717" power_factor="0.2021" power_factor_stdev="0.001" power_factor_median="0.021" thdI="86.25" thdI_stdev="7.25" thdI_median="88.24" comments="Soft Off with no DVD or BD loaded" />
+					<state name="Active-MainMenu" type= "static" power="4.20" power_stdev="0.12" power_median="4.25" power_factor="0.53" power_factor_stdev="0.02" power_factor_median="0.52" thdI="146.82" thdI_stdev="0.60" thdI_median="146.65" comments="Menu for app and DVD selection" />	
+					<state name="Active-DVDMenu" type= "static" power="5.014" power_stdev="0.121" power_median="5.020" power_factor="0.556" power_factor_stdev="0.02" power_factor_median="0.51" thdI="140.64" thdI_stdev="0.21" thdI_median="140.61" comments="Menu in DVD Play" />	
+					<state name="Active-DVDPlay" type= "static" power="5.02" power_stdev="0.11" power_median="5.20" power_factor="0.556" power_factor_stdev="0.02" power_factor_median="0.51" thdI="141.64" thdI_stdev="0.21" thdI_median="141.61" comments="DVD Play in BD" />
+					<state name="Active-AppPlay" type= "static" power="4.89" power_stdev="0.11" power_median="4.89" power_factor="0.554" power_factor_stdev="0.02" power_factor_median="0.51" thdI="141.64" thdI_stdev="0.21" thdI_median="141.61" comments="Play video in app" />
+					<state name="Active-Bootup" type= "static" power="0" power_stdev="0" power_median="0" power_factor="0" power_factor_stdev="0" power_factor_median="0" thdI="0" thdI_stdev="0" thdI_median="0" comments="this is a place holder state just to match the input to TV for the batch file tool - SS" />
+				</device-model>
+				 <!--Device sample Sony BDP-S480 Omited-->
+			</device-brand>
+			<device-brand name="Toshiba">
+				<device-model name="Model BDX 3300" comments="Blu-ray Player with streaming capability"> 
+					<state name="Standby" type= "static" power="0.5395" power_stdev="0.00998" power_median="0.537" power_factor="0.0239" power_factor_stdev="0.00044" power_factor_median="0.0238" thdI="70.1557" thdI_stdev="4.836" thdI_median="70.12" comments="Standby state" />	
+					<state name="Active-MenuStandby" type= "static" power="7.152" power_stdev="0.0321" power_median="7.125" power_factor="0.26" power_factor_stdev="0.0008" power_factor_median="0.263" thdI="153.354" thdI_stdev="1.739" thdI_median="152.905" comments="Holding at device menu" />	
+					<state name="Active-PlayDisc" type= "static" power="7.3597" power_stdev="0.0316" power_median="7.3525" power_factor="0.2634" power_factor_stdev="0.0008" power_factor_median="0.263" thdI="153.354" thdI_stdev="1.739" thdI_median="152.905" comments="Playing physical device" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="DVD Player">
+			<device-brand name="Sony">
+				<device-model name="Model DVP-SR510H" comments="DVD Player">
+					<state name="SoftOff" type= "static" power="0.41595" power_stdev="0.002622" power_median="0.416285" power_factor="0.023621" power_factor_stdev="0.000154" power_factor_median="0.02364" thdI="105.8016" thdI_stdev="11.51741" thdI_median="104.70" comments="SoftOffState, screen off turned off" />
+					<state name="Active-AtMainMenu" type= "static" power="4.1131" power_stdev="0.05423" power_median="4.114" power_factor="0.20757" power_factor_stdev="0.002261" power_factor_median="0.20755" thdI="151.5737" thdI_stdev="3.2355" thdI_median="151.90" comments="Main menu" />	
+					<state name="Active-AtDiscMenu" type= "static" power="4.8272" power_stdev="0.1317" power_median="4.8255" power_factor="0.236116" power_factor_stdev="00.00489" power_factor_median="0.23611" thdI="155.1749" thdI_stdev="2.651613" thdI_median="149.91" comments="Disc menu - playing disc" />	
+					<state name="Active-PlayingDisc" type= "static" power="4.77832" power_stdev="0.145399" power_median="4.7151" power_factor="0.234327" power_factor_stdev="0.005334" power_factor_median="0.23205" thdI="150.0543" thdI_stdev="2.69371" thdI_median="150.055" comments="Playing disc" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="DVD Player and VCR Combination">
+			<device-brand name="GoVideo">
+				<device-model name="Model VR3845" comments="DVD and VCR Combination Player">
+					<state name="SoftOff" type= "static" power="1.1717" power_stdev="0.021" power_median="1.150" power_factor="0.4350" power_factor_stdev="0.001" power_factor_median="0.430" thdI="211.3" thdI_stdev="6.20" thdI_median="210.52" comments="Combination player in SoftOff state" />
+					<state name="Active-DVDModeNoDiscLoaded" type= "static" power="18.942" power_stdev="0.530" power_median="18.940" power_factor="0.6643" power_factor_stdev="0.002" power_factor_median="0.6640" thdI="106.52" thdI_stdev="0.80" thdI_median="107.230" comments="Combination player in active state with no DVD loaded" />	
+					<state name="Active-DVDModeDiscLoaded" type= "static" power="22.86" power_stdev="0.450" power_median="22.86" power_factor="0.6741" power_factor_stdev="0.002" power_factor_median="0.670" thdI="103.212" thdI_stdev="0.80" thdI_median="105.230" comments="Combination player in active state with DVD loaded.  Player tends to keep disc spinning when disc is loaded and in DVD mode" />	
+					<state name="Active-DVDModeDiscPlaying" type= "static" power="24.43" power_stdev="0.420" power_median="23.86" power_factor="0.6811" power_factor_stdev="0.002" power_factor_median="0.680" thdI="103.2502" thdI_stdev="0.82" thdI_median="105.220" comments="Combination player in active state, playing DVD." />	
+					<state name="Active-DVDModeDiscMenu" type= "static" power="24.31" power_stdev="0.420" power_median="23.52" power_factor="0.6811" power_factor_stdev="0.002" power_factor_median="0.680" thdI="103.2502" thdI_stdev="0.82" thdI_median="105.220" comments="Combination player in active state, playing DVD.  Almost identical to playing." />	
+					<state name="Active-DVDModeDiscMenu" type= "static" power="24.31" power_stdev="0.420" power_median="23.52" power_factor="0.6811" power_factor_stdev="0.002" power_factor_median="0.680" thdI="103.2502" thdI_stdev="0.82" thdI_median="105.220" comments="Combination player in active state, playing DVD.  Almost identical to playing." />	
+					<state name="Active-ShuttingDowntoSoftOff" type= "static" power="6.25" power_stdev="0.051" power_median="6.24" power_factor="0.5677" power_factor_stdev="0.002" power_factor_median="0.56" thdI="140.232" thdI_stdev="0.92" thdI_median="142.310" comments="Combination player in active state, transition to Soft off, average over 60 seconds before soft off occurs, looks like it is already in this mode but different power draw continues for this period." />	
+					<state name="Active-VHSModeTapeLoaded" type= "static" power="19.79" power_stdev="0.235" power_median="19.75" power_factor="0.6515" power_factor_stdev="0.002" power_factor_median="0.650" thdI="109.21" thdI_stdev="0.64" thdI_median="109.32" comments="Combination player in active state, VHS Tape Loaded." />
+					<state name="Active-VHSModePlayTape" type= "static" power="20.75" power_stdev="0.335" power_median="20.75" power_factor="0.6574" power_factor_stdev="0.002" power_factor_median="0.657" thdI="107.22" thdI_stdev="0.72" thdI_median="107.20" comments="Combination player in active state, VHS Tape Playing." />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Video Game Console">
+			<device-brand name="Sony">
+				<device-model name="PlayStation 4 Model: CUH-1215A" comments="Sony PS4">
+					<state name="Active-ShuttingDown" type="static" power="77.179" power_stdev="14.42753" power_median="78.9615" power_factor="0.951442" power_factor_stdev="0.0151959" power_factor_median="0.95676" thdI="15.36555" thdI_stdev="1.66464" thdI_median="14.799" comments="PS4 in menu in prep to enter standby mode" />
+					<state name="Active-PhysicalDiscGameMenu" type="static" power="84.906932" power_stdev="1.7504482" power_median="85.4405" power_factor="0.9626331" power_factor_stdev="0.00151852" power_factor_median="0.9631" thdI="13.57833" thd_stdevI="0.32964" thd_medianI="13.4795" comments="PS4 in physical game menu after 2 minutes of entering" />
+					<state name="Standby-RestMode" type="static" power="10.70963" power_stdev="0.0310567" power_median="10.710" power_factor="0.482507" power_factor_stdev="0.000867" power_factor_median="0.48252" thdI="28.8286" thd_stdevI="0.21967" thd_medianI="28.752" comments="PS4 in rest mode in steady state after 2 minutes of entering this state" />
+					<state name="Active-Bootup" type="static" power="64.576632" power_stdev="12.92433" power_median="67.679" power_factor="0.915639" power_factor_stdev="0.1230361668" power_factor_median="0.94279" thdI="15.36555" thdI_stdev="3.3674021" thdI_median="17.3490" comments="PS4 boot-up measured from start of boot-up sequence for 2 minutes - by this time it was fully booted and power usage stabilized to Active menu usage" />
+					<state name="Active-GamePlay" type="static" power="69.47506" power_stdev="0.96126" power_median="69.419" power_factor="0.94555" power_factor_stdev="0.00133" power_factor_median="0.94546" thdI="17.0504" thdI_stdev="0.19604" thdI_median="17.079" comments="PS4 operating in game usage - likely not spinning physical media during test period" />
+					<state name="Active-MainSystemMenu" type="static" power="63.7444" power_stdev="0.32513" power_median="63.603" power_factor="0.93765" power_factor_stdev="0.00038741" power_factor_median="0.93749" thdI="17.66904" thdI_stdev="0.05699" thdI_median="17.6695" comments="PS4 operating and sitting at main menu" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Microsoft">
+				<device-model name="XBOXOne Model 1540" comments="Game console">
+					<state name="SoftOff" type= "static" power="0.3834" power_stdev="0.00158" power_median="0.383195" power_factor="0.00" power_factor_stdev="0.000103" power_factor_median="0.024997" thdI="37.569" thdI_stdev="4.70298" thdI_median="37.3575" comments="After device turned off from menu, soft off, lowest energy usage state" />
+					<state name="Active-MainMenu" type= "static" power="43.5608" power_stdev="4.014973" power_median="44.1455" power_factor="0.90459" power_factor_stdev="0.023554" power_factor_median="0.908920" thdI="0.00" thdI_stdev="8.3648" thdI_median="0.3897" comments="Main menu, no game play" />				
+				    <state name="Active-GamePlay" type= "static" power="97.861" power_stdev="12.80" power_median="104.02" power_factor="0.97" power_factor_stdev="0.006" power_factor_median="0.976" thdI="9.537" thdI_stdev="0.3579" thdI_median="9.667" comments="Gameplay from disc loaded to HDD" />				
+					<state name="Standby" type= "static" power="0.40028" power_stdev="0.002" power_median="0.39999" power_factor="0.0259" power_factor_stdev="0.00013" power_factor_median="0.0258855" thdI="38.03864" thdI_stdev="4.6448" thdI_median="38.541" comments="Standby Mode" />				
+				
+				</device-model>
+				<!--Device sample Microsoft: XBOX360 Model: 1439" comments="Game consolewith wireless controllers, internal 160GB HDD, Omited-->
+			</device-brand>
+		</device-type>
+		<device-type name="Streaming Devices">
+			<device-brand name="Asus">
+				<device-model name="Nexus" comments="Android based HD network streaming content player">
+					<state name="Active-Bootup" type= "static" power="4.0356" power_stdev="1.447" power_median="4.24" power_factor="0.56" power_factor_stdev="0.017" power_factor_median="0.56" thdI="132.51" thdI_stdev="2.36" thdI_median="133.12" comments="First 2 minutes of bootup" />
+					<state name="SoftOff" type= "static" power="0.33" power_stdev="0.12" power_median="0.39" power_factor="0.64" power_factor_stdev="0.38" power_factor_median="0.87" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="TV in SoftOff state (lowest power state)" />
+					<state name="Active-Idle" type= "static" power="2.227" power_stdev="0.085" power_median="2.21" power_factor="0.5318" power_factor_stdev="0.013" power_factor_median="0.54" thdI="136.232" thd_stdevI="2.51" thd_medianI="135.89" comments="Active and in menu without running apps" />
+					<state name="Active-PlayingfromApp" type= "static" power="3.1182" power_stdev="0.6408" power_median="2.87" power_factor="0.533" power_factor_stdev="0.0173" power_factor_median="0.0.53" thdI="124.321" thd_stdevI="3.51" thd_medianI="125.121" comments="Active and running Netflix App to play content" />
+				<!--To Add: Power Supply Alone-->
+				<!--To Add: Standby State-->
+				</device-model>
+			</device-brand>
+			<device-brand name="Apple">
+				<device-model name="AppleTV-4K(16GB)" comments="4K network streaming content player. This device will provide HDMI CEC commands for TV control auto off, has 15 min default power off and 5 min inactivity screensaver">
+					<state name="Bootup" type= "static" power="3.21" power_stdev="0.21" power_median="3.24" power_factor="0.546" power_factor_stdev="0.002" power_factor_median="0.54" thdI="130.21" thdI_stdev=".87" thdI_median="130.54" comments="Average for 1 minute during bootup" />
+					<state name="SoftOff" type= "static" power="0.2256" power_stdev="0.0212" power_median="0.223" power_factor="0.162" power_factor_stdev="0.001" power_factor_median="0.161" thdI="131.21" thdI_stdev="0.001" thdI_median="131.10" comments="SoftOff/Standby" />		
+					<state name="Active-Idle" type= "static" power="2.783" power_stdev="0.42" power_median="1.89" power_factor="0.553" power_factor_stdev="0.002" power_factor_median="0.553" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="SoftOff/Standby" />	
+					<state name="Active-AppRunning" type= "static" power="2.943" power_stdev="1.12" power_median="2.9" power_factor="0.542" power_factor_stdev="0.003" power_factor_median="0.543" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="SoftOff/Standby" />
+				    <state name="Active-AppLoading" type= "static" power="5.28" power_stdev="1.21" power_median="4.89" power_factor="0.541" power_factor_stdev="0.003" power_factor_median="0.542" thdI="136.21" thdI_stdev="0.921" thdI_median="136.51" comments="average taken for 20 seconds during the load of the Hulu App, similar to other tested apps." />
+					<state name="Active-PausedVideo" type= "static" power="2.9067" power_stdev="0.423" power_median="2.89" power_factor="0.542" power_factor_stdev="0.003" power_factor_median="0.543" thdI="136.20" thdI_stdev="0.932" thdI_median="136.21" comments="average taken for 20 seconds during pausing of active video playing in the Hulu App." />
+				</device-model>
+				<device-model name="AppleTV" comments="HD network streaming content player">
+					<state name="SoftOff" type= "static" power="1.064071" power_stdev="0.008725" power_median="1.0636" power_factor="0.04421" power_factor_stdev="0.0442" power_factor_median="0.044" thdI="108.88" thdI_stdev="5.75" thdI_median="108.81" comments="SoftOff steady state" />
+					<state name="SoftOff-BootupintoSoftOff" type= "static" power="2.287487" power_stdev="1.4502" power_median="41.10" power_factor="0.87" power_factor_stdev="0.02" power_factor_median="0.88" thdI="127.5936" thd_stdevI="19.2425" thd_medianI="128.100" comments="First minute of bootup into SoftOff" />
+					<state name="Active-AtMenu" type= "static" power="2.3159" power_stdev="0.866817" power_median="2.13625" power_factor="0.092946" power_factor_stdev="0.030659" power_factor_median="0.087168" thdI="138.1193" thd_stdevI="8.453707" thd_medianI="137.32" comments="Menu after the bootup process" />
+					<state name="Active-RunApp" type= "static" power="2.534641" power_stdev="0.703679" power_median="2.27475" power_factor="0.102269" power_factor_stdev="0.030659" power_factor_median="0.087168" thdI="138.1193" thd_stdevI="8.453707" thd_medianI="137.32" comments="Menu after the boot-up process" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Smart Speakers">
+			<device-brand name="Amazon">
+				<device-model name="Echo" comments="Amazon Echo (Alexa) Smart Speaker">
+					<state name="Active-Idle"  type= "static" power="1.76" power_factor="0.573" thd="-1" comments="Device in Sleep/Standby" />
+					<state name="Active-Communicating"  type= "static" power="2.43" power_factor="0.58" thd="-1" comments="actively talking" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Google">
+				<device-model name="Google Home" comments="Google large format Smart Speaker">
+					<state name="Active-Idle"  type= "static" power="2.12" power_factor="0.462" thd="-1" comments="Device in Sleep/Standby" />
+					<state name="Active-Communicating"  type= "static" power="2.42" power_factor="0.532" thd="-1" comments="actively talking with user averaged over a 15 second period of text reading" />		
+				</device-model>
+			</device-brand>
+			<device-brand name="Sonos">
+				<device-model name="Model One, A100" comments="Sonos combined function smart speaker">
+					<state name="Active-NoSound" type= "static" power="3.18417" power_stdev="0.14668" power_median="3.1603" power_factor="0.145464" power_factor_stdev="0.04958" power_factor_median="0.1447" thdI="88.164" thdI_stdev="2.851523" thdI_median="87.764" comments="Active state with no sound output, connected via Wifi, bootup period is only 5 seconds, this state is ignored" />
+					<state name="Active-Play20PercentVolume" type= "static" power="8.0078" power_stdev="3.0035" power_median="7.4513" power_factor="0.2824" power_factor_stdev="0.060946" power_factor_median="0.28163" thdI="127.0172" thdI_stdev="12.0126" thdI_median="128.89" comments="Active play from WiFi source, comfortable listening volume." />				
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Kitchen Appliance">
+		<device-type name="Pod Coffee Maker">
+			<device-brand name="Keurig">
+				<device-model name="B60" comments="Button controlled, with a screen, autopower off feature not tested, assumed as 2 hrs">
+					<state name="SoftOff" type= "static" power="5.9896" power_stdev="0.04" power_median="5.98" power_factor="0.67" power_factor_stdev="0.001" power_factor_median="0.67" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Device in soft off prior to brewing" />
+					<state name="Active-WarmupfromColdandHold" type= "static" power="1322.6331322.633" power_stdev="340.998" power_median="7.58" power_factor="0.715" power_factor_stdev="0.1450" power_factor_median="0.721" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="heatup period over 120 seconds, completes with an entry into the HOLDing state, medaured period is start of HOLD and 120 seconds long" />						
+					<state name="Active-Idle" type= "transient" power="7.3797" power_stdev="0.41042" power_median="6.78" power_factor="0.74" power_factor_stdev="0.02" power_factor_median="0.74" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Transient state, idle between heating cycles" />						
+					<state name="Active-Heating" type= "transient" power="1328.935" power_stdev="2.5863" power_median="1328.03" power_factor="0.99" power_factor_stdev="0.001" power_factor_median="0.99" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Transient state, active heating state" />
+					<state name="Active-Standby" type= "static" power="40.5870" power_stdev="113.2789" power_median="7.38" power_factor="0.7164" power_factor_stdev="0.795" power_factor_median="0.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot standby cycling" />						
+					<state name="Active-DispenseandRebrewLargeCup" type= "static" power="760.235" power_stdev="573.4879" power_median="1265.32" power_factor="0.733" power_factor_stdev="0.139" power_factor_median="0.74" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot dispense, 60 sec averaged period time" />						
+					<state name="Active-DispenseandRebrewMedCup" type= "static" power="747.887" power_stdev="564.6195" power_median="1035.19" power_factor="0.793" power_factor_stdev="0.139" power_factor_median="0.74" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot dispense, 60 sec averaged period time" />						
+					<state name="Active-DispenseandRebrewSmallCup" type= "static" power="549.75" power_stdev="546.54" power_median="299.979" power_factor="0.711" power_factor_stdev="0.139" power_factor_median="0.74" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot dispense, 60 sec averaged period time" />						
+				</device-model>
+				<device-model name="K40" comments="Button controlled, with no screen, button for AutoOff setting, by default this is feature is not enabled on startup, autopower off feature not tested, assumed as 2 hrs">
+					<state name="SoftOff" type= "static" power="3.6248" power_stdev="0.121061" power_median="3.61" power_factor="0.5413" power_factor_stdev="0.008" power_factor_median="0.54" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Device in soft off prior to brewing" />
+					<state name="Active-WarmupfromColdandHold" type= "static" power="1198.34" power_stdev="111.48" power_median="113.00" power_factor="0.9854" power_factor_stdev="0.054" power_factor_median="1.00" thdI="3.93" thdI_stdev="5.4663" thdI_median="3.108" comments="heatup period over 120 seconds, completes with an entry into the HOLDing state, medaured period is start of HOLD and 120 seconds long" />						
+					<state name="Active-Idle" type= "transient" power="4.1802" power_stdev="0.0094" power_median="4.18" power_factor="0.5957" power_factor_stdev="0.005" power_factor_median="0.60" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Transient state, idle between heating cycles" />						
+					<state name="Active-Intermediateheating" type= "transient" power="382.7067" power_stdev="283.5433" power_median="504.46" power_factor="0.682" power_factor_stdev="0.2661" power_factor_median="0.75" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot standby cycling,intermediate heating - aprox. 6 second intermediate heating" />						
+					<state name="Active-Heating" type= "transient" power="1246.065" power_stdev="6.6617" power_median="1247.25" power_factor="0.99" power_factor_stdev="0.001" power_factor_median="0.99" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Transient state, active heating state" />
+					<state name="Active-Standby" type= "static" power="40.936" power_stdev="116.26" power_median="3.95" power_factor="0.567" power_factor_stdev="0.0447" power_factor_median="0.57" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot standby cycling, this is the HOLDing state." />						
+					<state name="Active-DispenseandRebrewSmallCup" type= "static" power="310.987" power_stdev="401.1392" power_median="110.5" power_factor="0.548" power_factor_stdev="0.245" power_factor_median="0.54" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot dispense, 60 sec averaged period time" />						
+					<state name="Active-DispenseandRebrewMedCup" type= "static" power="390.93" power_stdev="443.1063" power_median="405.8" power_factor="0.6166" power_factor_stdev="0.248" power_factor_median="0.56" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot dispense, 60 sec averaged period time" />						
+					<state name="Active-DispenseandRebrewLargeCup" type= "static" power="549.75" power_stdev="546.54" power_median="299.979" power_factor="0.711" power_factor_stdev="0.139" power_factor_median="0.74" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Hot dispense, 60 sec averaged period time" />						
+				</device-model>
+			</device-brand>
+			<device-brand name="DeLonghi">
+				<device-model name="DeLonghi EN520B Lattissima Plus" comments="Nespresso-type pod coffee maker with onboard milk steamer, autoshutoff on default and shuts off after 9 minutes (tested as 9.75 from initial power on with no usage)">
+					<state name="SoftOff" type= "static" power="0.02" power_stdev="0.004" power_median="0.02" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Device in soft off prior to brewing" />
+					<state name="Active-WarmupfromColdandHold" type= "static" power="821.701" power_stdev="340.998" power_median="1077.29" power_factor="0.715" power_factor_stdev="0.406" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="heatup period over 120 seconds, completes with an entry into the HOLDing state, medaured period is start of HOLD and 120 seconds long" />						
+					<state name="Active-BrewSmallCup" type= "static" power="448.112" power_stdev="550.32" power_median="9.55" power_factor="0.45" power_factor_stdev="0.425" power_factor_median="0.69" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Brewing coffee from holding state, over a 60 second period" />						
+					<state name="Active-SteamedSmallMilk" type= "static" power="517.05" power_stdev="472.688" power_median="564.41" power_factor="0.512" power_factor_stdev="0.433" power_factor_median="0.485" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Steammed milk over 98 second period" />						
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Drip Coffee Maker">
+			<device-brand name="Cuisinart">
+				<device-model name="DCC-450BK" comments="4 cup drip coffee maker, small form factor, staninless steel carafe">
+					<state name="SoftOff" type= "static" power="0.748" power_stdev="0.025" power_median="0.742" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="SoftOff State, lowest power state of the device with the mechanical power switch off" />
+					<state name="Active-Brew4CupsfromCold" type= "static" power="514.23" power_stdev="3.611" power_median="515.11" power_factor="1.00" power_factor_stdev="1.00" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Brewing state, for 4 cups, this occurred for 6:59 minutes" />	
+					<state name="Active-HoldCaraffeHot" type= "static" power="29.58" power_stdev="118.39" power_median="0.781" power_factor="0.0" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="holding state for caraffe, cycling between transient states of 0.781W, and 517.23W" />
+					<state name="Active-WarmupfromColdandHold-PLACEHOLDER" type= "static" power="0" power_stdev="0" power_median="0" power_factor="0" power_factor_stdev="0" power_factor_median="0" thdI="0" thdI_stdev="0" thdI_median="0" comments="THIS IS JUST A PLACE HOLDER FOR THE INPUT TOOL TO WORK" />
+				</device-model>
+			</device-brand>
+			<device-brand name="HausMaid">
+				<device-model name="DCC-4500BK" comments="Single cup brewing coffee maker, with autooff">
+					<state name="SoftOff" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Off and post-Autooff state" />
+					<state name="Active-BrewSingleCupFromCold" type= "static" power="499.4" power_stdev="45.25" power_median="495.25" power_factor="1.00" power_factor_stdev="0.012" power_factor_median="1.0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Brew singlr cup of coffee fro start to finish, a 30 second period will run before autooff happens if no water is in place.  Brew time active is 2:54 before turning off after 30 more seconds" />	
+					<state name="Active-PostBrewSingleCup" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Period of 30 seconds post brewing before autooff" />
+					</device-model>
+			</device-brand>
+			<device-brand name="Aroma">
+				<device-model name="Aroma Elite 4 Cup" comments="Four-cup brewing coffee maker, with autooff after 1 hour, forced setting">
+					<state name="SoftOff" type= "static" power="0.539" power_stdev="0.011" power_median="0.537" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Off and post-Autooff state" />
+					<state name="Active-HoldCaraffeHot" type= "static" power="28.852" power_stdev="128.497" power_median="0.652" power_factor="1.00" power_factor_stdev="0.012" power_factor_median="1.0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Brew singlr cup of coffee fro start to finish, a 30 second period will run before autooff happens if no water is in place.  Brew time active is 2:54 before turning off after 30 more seconds" />	
+					<state name="Active-Brew4CupsFromCold" type= "static" power="614.725" power_stdev="38.93" power_median="617.51" power_factor="1" power_factor_stdev="0.001" power_factor_median="1" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="hold state of operation, two transient states of 0.652W and 0.529W" />
+					</device-model>
+			</device-brand>
+			<device-brand name="Andis">
+				<device-model name="Andis Commercial ADC-3" comments="4 cup drip coffee maker, small form factor, glass carafe, shutoff with 60 minutes">
+					<state name="HardOff" type= "static" power="0.00" power_stdev="0.001" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Hard power switch" />
+					<state name="Active-Brew" type= "static" power="629.3" power_stdev="0.001" power_median="625.50" power_factor="1.00" power_factor_stdev="0.00" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Transient state between 629.3W to 0.768W, will click to shutoff in 1:10min, then move to hold if water runs out;  " />	
+					<state name="Active-Brew4CupsfromCold" type= "static" power="345.38" power_stdev="310.92" power_median="625.3" power_factor="1.00" power_factor_stdev="0.001" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="brew cup and hold for a total of 9 min, hold with keephot " />
+					<state name="Active-HoldCaraffeHot" type= "static" power="14.73" power_stdev="92.718" power_median="0.678" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Holding caraffe ho, will run for 1 hour with autooff enabled." />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Hot Pot Water Dispenser">
+			<device-brand name="Sunpentown">
+				<device-model name="40882E" comments="3 liter constant hot water dispenser with motorized dispense and reboil features, keeps hot after inital heatup, note dispense is an extra 3.32W during action, this is considered a transient action, aprix 1 cup dispensed in 7 seconds">
+					<state name="Active-InitialBoil" type= "static" power="663.857" power_stdev="75.94128" power_median="672.23" power_factor="1.00" power_factor_stdev="0.001" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Initial boil from cold state, full tank, takes, 27.2 minutes. Note: the major source of the change in power is due to increased resistance with temperature" />
+					<state name="Active-TempHold" type= "static" power="43.913" power_stdev="37.264" power_median="75.31" power_factor="0.5313" power_factor_stdev="0.4543" power_factor_median="0.92" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="composite cycle of reheating, averaged over a period of 16647 seconds, 3L total water volume" />	
+					<state name="Active-Reboil" type= "static" power="608.7087" power_stdev="205.375" power_median="679.8" power_factor="0.9029" power_factor_stdev="0.2898" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="composite cycle of reboil, period of 202 seconds used to provide average, length of measuable cycle" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Water Kettle">
+			<device-brand name="Hamilton Beach">
+				<device-model name="K33" comments=" 1 liter automatic kettle with auto shutoff post boil.  Does not use keep hot feature">
+					<state name="Inactive-Off" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Post Boil Auto Shutoff" />
+					<state name="Active" type= "static" power="1120.21" power_stdev="3.43" power_median="1119.20" power_factor="1.00" power_factor_stdev="0.001" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Active boil until temperature meadiated auto shutoff" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Rice Cooker">
+			<device-brand name="Aroma">
+				<device-model name="ARC-960SB" comments="Tested device S/N: M6707126 - Note: This device is a fuzzy logic rice cooker, it is highly dependant on operational conditions, see state notes, and quantities of cooked goods for scenario.">
+					<state name="SoftOff" type= "static" power="0.78" power_stdev="0.15" power_median="0.79" power_factor="0.69" power_factor_stdev="0.13" power_factor_median="0.69" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Soft-off state, lowest operational state when device is plugged in, this is essentially the same state as Standby, except this state is measured before any cooking operations" />
+					<state name="Active-PreHeatingCycleOneCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle from heatup to start of temp hold (Keep Warm), 14 min in length, period to reach boiling for cooking to start, tested with 1 cup rice, 1.5 cups water" />	
+					<state name="Active-CookingCycleOneCupWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 32 minutes and 30 seconds from cycle start, 17:30 from end of preheat cycle, tested with 1 cup rice, 1.5 cups water" />	
+					<state name="Active-PreKeepWarmOneCupWhiteRice" type= "static" power="8.14" power_stdev="12.52" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 36 minutes when cooking temperature reduces to start of steady state keep warm." />	
+					<state name="Active-PreHeatingCycleTwoCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 36 minutes and 30 seconds from cycle start, after 21 min of preheat, cook begins in this cycle from end of preheat cycle, tested with 2 cups rice, 3 cups water" />					
+					<state name="Active-CookingCycleOneTwoWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 36 minutes and 30 seconds from cycle start, after 21 min of preheat, cook begins in this cycle from end of preheat cycle, tested with 2 cups rice, 3 cups water" />	
+					<state name="Active-PreKeepWarmTwoCupWhiteRice" type= "static" power="4.42" power_stdev="6.35" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 51 minutes when cooking temperature reduces to start of steady state keep warm." />
+					<state name="Active-PreHeatingCycleThreeCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle from heatup to start of cook at 212F, 32 min in length until start of cook, wntire period of heatup and cooking lasts 40 min, 30 sec. same equiv. as 3 cups rice, 4.5 cups water" />	
+					<state name="Active-CookingCycleThreeWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 40 minutes and 30 seconds from cycle start, 20:30 from end of preheat cycle, tested with 3 cups rice, 4.5 cups water- same equiv. as 2 cup for power use, but with different timing" />	
+					<state name="Active-PreKeepWarmThreeWhiteRice" type= "static" power="2.54" power_stdev="7.35" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 76 minutes when cooking temperature reduces to start of steady state keep warm." />	
+					<state name="Active-PreHeatingCycleOneAndAHalfCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle from heatup to start of cook at 212F, 32 min in length until start of cook, wntire period of heatup and cooking lasts 40 min, 30 sec. same equiv. as 3 cups rice, 4.5 cups water" />	
+					<state name="Active-CookingCycleOneAndAHalfWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 40 minutes and 30 seconds from cycle start, 20:30 from end of preheat cycle, tested with 3 cups rice, 4.5 cups water- same equiv. as 2 cup for power use, but with different timing" />	
+					<state name="Active-PreKeepWarmOneAndAHalfWhiteRice" type= "static" power="6.433" power_stdev="7.35" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 76 minutes when cooking temperature reduces to start of steady state keep warm." />	
+					<state name="Active-PreHeatingCycleTwoThridsCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle from heatup to start of cook at 212F, 32 min in length until start of cook, wntire period of heatup and cooking lasts 40 min, 30 sec. same equiv. as 3 cups rice, 4.5 cups water" />	
+					<state name="Active-CookingCycleTwoThridsWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 40 minutes and 30 seconds from cycle start, 20:30 from end of preheat cycle, tested with 3 cups rice, 4.5 cups water- same equiv. as 2 cup for power use, but with different timing" />	
+					<state name="Active-PreKeepWarmTwoThridsWhiteRice" type= "static" power="8.766" power_stdev="7.35" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 76 minutes when cooking temperature reduces to start of steady state keep warm." />	
+					<state name="Active-PreHeatingCycleHalfCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle from heatup to start of cook at 212F, 32 min in length until start of cook, wntire period of heatup and cooking lasts 40 min, 30 sec. same equiv. as 3 cups rice, 4.5 cups water" />	
+					<state name="Active-CookingCycleHalfWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 40 minutes and 30 seconds from cycle start, 20:30 from end of preheat cycle, tested with 3 cups rice, 4.5 cups water- same equiv. as 2 cup for power use, but with different timing" />	
+					<state name="Active-PreKeepWarmHalfWhiteRice" type= "static" power="9.233" power_stdev="7.35" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 76 minutes when cooking temperature reduces to start of steady state keep warm." />	
+					<state name="Active-PreHeatingCycleOneThridsCupWhiteRice" type= "static" power="406.22" power_stdev="276.421" power_median="594.7" power_factor="0.683" power_factor_stdev="0.4635" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle from heatup to start of cook at 212F, 32 min in length until start of cook, wntire period of heatup and cooking lasts 40 min, 30 sec. same equiv. as 3 cups rice, 4.5 cups water" />	
+					<state name="Active-CookingCycleOneThridsWhiteRice" type= "static" power="435.36" power_stdev="262.48" power_median="596.59" power_factor="0.737" power_factor_stdev="0.4348" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Single cycle total of 40 minutes and 30 seconds from cycle start, 20:30 from end of preheat cycle, tested with 3 cups rice, 4.5 cups water- same equiv. as 2 cup for power use, but with different timing" />	
+					<state name="Active-PreKeepWarmOneThridsWhiteRice" type= "static" power="9.70" power_stdev="7.35" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period with passive cooling for 76 minutes when cooking temperature reduces to start of steady state keep warm." />	
+					<state name="Active-KeepWarmSteadyState" type= "static" power="17.99" power_stdev="4.52" power_median="0.82" power_factor="0.029" power_factor_stdev="0.17" power_factor_median="0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Extended cycle from end of cool down after end of cooking phase to continual keep warm phase (hold at 150 degF), this was measured over a 3 hour period at steady state." />	
+					<state name="Active-Steam" type= "static" power="488.10" power_stdev="232.1684" power_median="600.71" power_factor="0.8185" power_factor_stdev="0.379" power_factor_median="1.0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Steam cook cycle, tested with no food.  Using reccommened water load of 1.5 cups of water, ends with initiation of Off, not keep warm mode.  Tested with no food load.  33 min, 30 seconds length for heatup and cook, hold at 212F for period after a 30 second startup delay before applyication of heat after selecting option." />	
+					<state name="Active-Heating" type= "transient" power="591.28" power_stdev="4.25" power_median="556.12" power_factor="1.00" power_factor_stdev="0.001" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Period when heat is applied during cooking, the value drops with temperature, maxes at about 605W" />	
+					<state name="Active-ActiveStandby" type= "transient" power="0.78" power_stdev="0.15" power_median="0.79" power_factor="0.69" power_factor_stdev="0.13" power_factor_median="0.69" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="After operations complete, lowest operational state when device is plugged in, de-facto state when heat is not applied, this appears to be essentially soft-off" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Garbage Disposal">
+			<device-brand name="Insinkerator">
+				<device-model name="Half Horsepower Badger 500" comments="Half HP Garbage Disposal">
+				<state name="HardOff" type= "static" power="0.00" power_stdev="0.001" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Hard power switch turned off feeding disposal" />
+				<state name="Active" type= "static" power="222.1" power_stdev="0.00" power_median="235.5" power_factor="0.35" power_factor_stdev="0.07" power_factor_median="0.37" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="No Load Power usage, initial startup with food+water was 253W" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Trash Compactor">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Portable Electric Grill">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+			    </device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Heated Food Press">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+			    </device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Waffle Press">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+         		</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Warming Drawer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Toaster Oven">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Toaster">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Multi Cooker / Croc Pot">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Deep Fryer / Multi Cooker / Roaster">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Air Fryer">
+			<device-brand name="PlaceholderBrand">
+				</device-brand>
+		</device-type>
+		<device-type name="Electric Pressure Cooker">
+			<device-brand name="PlaceholderBrand">
+				</device-brand>
+		</device-type>
+		<device-type name="Electric Mixer">
+			<device-brand name="Kitchen Aid">
+				<device-model name="K4SSWH" comments="4.5 Qt Stand Mixer lift bowl">
+					<state name="SoftOff" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Hard off, mechanical switch off" />
+					<state name="ActiveSpeed2Load" type= "static" power="45.4946" power_stdev="18.52478" power_median="35.77" power_factor="0.3497" power_factor_stdev="0.0459" power_factor_median="0.33" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Position for speed setting, 2, mixing frosting with normal beater" />
+					<state name="ActiveSpeed2NoLoad" type= "static" power="33.505" power_stdev="1.02367" power_median="35.77" power_factor="0.3175" power_factor_stdev="0.005" power_factor_median="0.32" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Position for speed setting, 2, normal beater in empty bowl" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Immersion Blender">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Food Processor">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Food Grinder">
+			<device-brand name="PlaceholderBrand">
+			</device-brand>
+		</device-type>
+		<device-type name="Microwave Oven">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Single Burner Resistive Cooktop">
+			<device-brand name="BlackandDecker">
+				<device-model name="Buffet Range SB1001B" comments="Thermostatically controlled cooktop with dial selection for delivered heat">
+					<state name="HardOff" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="Hard Off" />
+					<state name="Active-ElementHeating" type= "transient" power="809.24" power_stdev="5.26" power_median="807.468" power_factor="1.00" power_factor_stdev="0.00" power_factor_median="1.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="State when power is applied to the heating element under thermostatic control" />
+					<state name="Active-NoElementHeating" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="State when power is not applied to the heating element under thermostatic control" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+		<device-type name="Single Burner Induction Cooktop">
+			<device-brand name="Sunpentown">
+				<device-model name="MrInduction Model SR-1851" comments="Single burner induction cooktop Example Device, SN: 03000888, device with no pot will power down to 'Active-StandbyState' after 60 seconds.">
+					<state name="SoftOff" type= "static" power="3.186" power_stdev="0.006" power_median="3.186" power_factor="0.03" power_factor_stdev="0.0006001" power_factor_median="0.03" thdI="2.663" thdI_stdev="0.0425" thdI_median="2.666" comments="Device plugged in but not powered on" />
+				    <state name="Active-StandbyState" type= "static" power="3.185" power_stdev="0.006" power_median="3.186" power_factor="0.03" power_factor_stdev="0.0006001" power_factor_median="0.03" thdI="2.663" thdI_stdev="0.0425" thdI_median="2.666" comments="Device plugged in and powered on, but not providing heat, this is a 'standby mode'" />
+					<state name="Active-StandbyStatePotOnLow" type= "static" power="234.65" power_stdev="5.659" power_median="233.430" power_factor="0.87" power_factor_stdev="0.0053" power_factor_median="0.869" thdI="3.817" thdI_stdev="0.5586" thdI_median="4.06" comments="Device plugged in and powered on, but not providing heat, this is an active mode of operation, on Low heat level" />
+					<state name="Active-StandbyStatePotOnMed" type= "static" power="558.82" power_stdev="24.94" power_median="553.93" power_factor="0.975" power_factor_stdev="0.0023" power_factor_median="0.975" thdI="4.461" thdI_stdev="0.24745" thdI_median="4.534" comments="Device plugged in and powered on, but not providing heat, this is an active mode of operation, on Med. heat level" />
+					<state name="Active-StandbyStatePotOnHigh" type= "static" power="911.18" power_stdev="44.746" power_median="911.175" power_factor="0.99" power_factor_stdev="0.004" power_factor_median="0.9914" thdI="4.544" thdI_stdev="0.945" thdI_median="4.934" comments="Device plugged in and powered on, but not providing heat, this is an active mode of operation, on High heat level" />
+				</device-model>	
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Climate Control">
+		<device-type name="Portable HVAC System">
+			<device-brand name="Delonghi">
+				<device-model name="Penguino Model#AN140HPEWS" comments="Plug in portable HVAC unit with exhaust fan ducting and heat pump heating">
+					<state name="SoftOff" type= "static" power="0.434" power_factor="0.3467" thd="145.3" comments="Plugged in only, not turned on" />
+					<state name="Standby" type= "static" power="4.61" power_factor="0.628" thd="126.2" comments="Turned on, no fans or motors operating, active standby state" />
+					<state name="Active-FanatLowLevel" type= "static" power="53.605" power_factor="0.8702" thd="3.81" comments="Fan in low mode, no heating or cooling activated" />
+					<state name="Active-FanatMedLevel" type= "static" power="59.193" power_factor="0.9122" thd="3.66" comments="Fan in med mode, no heating or cooling activated" />
+					<state name="Active-FanatHighLevel" type= "static" power="69.027" power_factor="0.992" thd="3.68" comments="Fan in high mode, no heating or cooling activated" />
+					<state name="Active-FanatHighLevelInletBlocked" type= "static" power="52.975" power_factor="0.8650" thd="3.83" comments="Fan in high mode, no heating or cooling activated, inlet to recirculation fan is blocked" />
+					<state name="Active-ACOnFanHighLevel" type= "static" power="52.975" power_factor="0.8650" thd="3.83" comments="Fan in high mode, cooling activated" />
+					<state name="Active-HeatOnFanHighLevel" type= "static" power="1178.3" power_factor="0.989" thd="3.82" comments="Fan in high mode, heating activated" />
+					<state name="Active-DehumidifyOnFanHighLevel" type= "static" power="1172" power_factor="0.989" thd="3.82" comments="Fan in high mode, dehumidify activated" />
+					<state name="Active-DehumidifyOnFanMedLevel" type= "static" power="1138" power_factor="0.984" thd="3.81" comments="Fan in mid mode, dehumidify" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Presto">
+				<device-model name="Heat Dish" comments="IR Radiant Space Heater">
+				<state name="SwitchOff" type= "static" power="0.19" power_stdev="0.10" power_median="0.18" power_factor="0.23" power_factor_stdev="0.01" power_factor_median="0.23" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Switch in Off Position" />
+				<state name="ActiveHeatOnState" type= "transient" power="848.4" power_stdev="7.10" power_median="847.5" power_factor="1.00"  power_factor_stdev="0.001" power_factor_median="1.0" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Max load during cycling when active" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Holmes">
+				<device-model name="Blizzard Model HAOF951THD" comments="Fan with Thermostatic Control">
+					<state name="ActiveHighSpeed" type= "static" power="39.374989" power_stdev="0.084849" power_median="39.374989" power_factor="0.56061" power_factor_stdev="0.001348" power_factor_median="0.560610" thdI="26.57" thdI_stdev="10.95" thdI_median="33.07" comments="High speed fan operation" />
+					<state name="ActiveLowSpeed" type= "static" power="21.87917" power_stdev="0.721065" power_median="21.8800" power_factor="0.449355" power_factor_stdev="0.0006214" power_factor_median="0.44938" thdI="30.7612045" thd_stdevI="0.459563" thd_medianI="30.6715" comments="Low Speed Operation" />
+					<state name="SoftOff" type= "static" power="1.00705" power_factor="0.4375" thd="20.0633" comments="Device in soft off, lowest power state when plugged in, this state is the same as the thermostatic hold" />
+				</device-model>
+				<device-model name="Thermostatic controlled Fanand space/under-desk heater/Bathroom Heater, Model HFH436WGL" comments="Fan with Thermostatic Control and Heating">
+					<state name="SoftOff" type= "static" power="1.6177" power_factor="0.14405" thd="16.468" comments="Device in Soft-off position" />
+					<state name="Active-FanHighSpeed" type= "static" power="40.441" power_stdev="0.1569" power_median="40.398" power_factor="0.5564" power_factor_stdev="0.000706" power_factor_median="0.55632" thdI="10.373" thd_stdevI="0.14423" thd_medianI="10.325" comments="High speed fan operation" />
+					<state name="Active-FanLowSpeed" type= "static" power="21.7934" power_stdev="0.05676" power_median="21.7935" power_factor="0.4484" power_factor_stdev="0.000484" power_factor_median="0.44829" thdI="30.583" thd_stdevI="0.5439" thd_medianI="30.626" comments="Low speed fan operation" />
+					<state name="Active-FanWithHeater" type= "static" power="422.7271" power_stdev="615.15767" power_median="23.9785" power_factor="0.95814" power_factor_stdev="0.036041" power_factor_median="0.93035" thdI="16.2737" thd_stdevI="11.0383" thd_medianI="23.106" comments="High speed fan operation with heat" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Vornado">
+				<device-model name="SoleAire" comments="Under-desk fan and heater for feet, no onboard timer or power management">
+					<state name="HardOff" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thd_stdevI="0.00" thd_medianI="0.00" comments="Hard off Switch" />
+					<state name="Active-FanOnly" type= "static" power="27.152" power_stdev="0.0345" power_median="27.154" power_factor="0.942" power_factor_stdev="0.0001" power_factor_median="0.942215" thdI="2.881" thdI_stdev="0.0697" thdI_median="2.8827" comments="Fan operation" />
+					<state name="Active-HighHeat" type= "static" power="212.359" power_stdev="0.0562" power_median="212.35" power_factor="0.9996" power_factor_stdev="0.000004" power_factor_median="0.99970" thdI="30.7612045" thd_stdevI="0.459563" thd_medianI="30.6715" comments="Low Heat Operation" />
+					<state name="Active-LowHeat" type= "static" power="145.148" power_stdev="0.09096" power_median="145.140" power_factor="0.9985" power_factor_stdev="0.0000023" power_factor_median="0.9985" thdI="0.5173" thd_stdevI="0.027198" thd_medianI="0.51939" comments="High Heat Operation" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Sharper Image">
+				<device-model name="Ionic Breeze" comments="Ionic flow air purifier. HI/MED/LO settings only, will get dusty and need maintanance, not sure impact on energy from this, to investigate">
+					<state name="Standby-SoftOff" type= "static" power="1.03" power_stdev="0.06" power_median="1.02" power_factor="0.7219" power_factor_stdev="0.023" power_factor_median="0.722" thdI="26.07" thdI_stdev="0.12" thdI_median="26.10" comments="standby, soft-off, clean plates" />
+					<state name="Active-HISetting" type= "static" power="4.72" power_stdev="0.06145" power_median="4.70" power_factor="0.5902" power_factor_stdev="0.0010" power_factor_median="0.560610" thdI="110.25" thdI_stdev="1.10" thdI_median="110.00" comments="HI power setting, clean plates" />
+					<state name="Active-MEDSetting" type= "static" power="4.23" power_stdev="0.0642" power_median="4.20" power_factor="0.5901" power_factor_stdev="0.0010" power_factor_median="0.560610" thdI="114.32" thdI_stdev="1.23" thdI_median="114.30" comments="MED power setting, clean plates" />
+					<state name="Active-LOSetting" type= "static" power="4.33" power_stdev="0.0612" power_median="4.30" power_factor="0.5901" power_factor_stdev="0.00108" power_factor_median="0.560610" thdI="116.75" thdI_stdev="1.52" thdI_median="119.20" comments="LO power setting, clean plates" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Placeholder">
+				<device-model name="Humififier" comments="Placeholder of model type - Placeholder Entry">
+					<state name="PlaceHolderState" type= "static" power="0.00" power_factor="0.00" thd="0.00" comments="PLACEHOLDER" />
+				</device-model>
+				<device-model name="Dehumififier" comments="Placeholder of model type">	
+					<state name="PlaceHolderState" type= "static" power="0.00" power_factor="0.00" thd="0.00" comments="PLACEHOLDER" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Computer Equipment">
+		<device-type name="Separated Desktop Computer">
+			<device-brand name="Dell">
+					<device-model name="Intel i3 Workstation Example" comments="SimLabDell Desktop Computer">
+						<state name="SoftOff"  type= "static" power="1.747" power_factor="0.542" thd="-1" comments="Computer in Soft-off state" />
+						<state name="Active-Idle"  type= "static" power="46.2" power_factor="0.542" thd="-1" comments="Computer in idle in Windows 10"/>
+						<state name="Active-MidLoad"  type= "static" power="60.2" power_factor="0.542" thd="-1" comments="Computer under average working load running tasks" />
+						<state name="Active-HighLoad" type="static" power="75.4" power_factor="0.54" thd="-1" comments="Running benchmark software, load averaged" />
+						<state name="Sleep"  type= "static" power="2.27" power_factor="0.293" thd="-1" comments="Computer in Sleep/Standby" />
+					</device-model>
+			</device-brand>
+			<device-brand name="Generic">
+					<device-model name="Inteli5 Workstation Example" comments="Jean Klopfers desktop PC, Intel i5, Windows 10">
+						<state name="SoftOff"  type= "static" power="0.680" power_factor="0.483" thd="-1" comments="Computer in Soft-off state" />
+						<state name="Active-Idle"  type= "static" power="46.25" power_factor="0.654" thd="-1" comments="Computer in idle in Windows 10"/>
+						<state name="Active-MidLoad"  type= "static" power="58.54" power_factor="0.542" thd="-1" comments="Computer under average working load running tasks" />
+						<state name="Active-HighLoad" type="static" power="68.24" power_factor="0.645" thd="-1" comments="Running benchmark software, load averaged" />
+						<state name="Sleep"  type= "static" power="1.87" power_factor="0.352" thd="-1" comments="Computer in Sleep/Standby" />
+					</device-model>
+					<device-model name="AMD-A10 Workstation Example" comments="John Klopfers desktop PC, Intel i5, Windows 10">
+						<state name="SoftOff"  type= "static" power="1.23" power_factor="0.450" thd="-1" comments="Computer in Soft-off state" />
+						<state name="Active-Idle"  type= "static" power="108.21" power_factor="0.589" thd="-1" comments="Computer in idle in Windows 10"/>
+						<state name="Active-MidLoad"  type= "static" power="116.98" power_factor="0.510" thd="-1" comments="Computer under average working load running tasks" />
+						<state name="Active-HighLoad" type="static" power="121.02" power_factor="0.498" thd="-1" comments="Running benchmark software, load averaged" />
+						<state name="Sleep" type= "static" power="0.289" power_factor="0.326" thd="-1" comments="Computer in Sleep/Standby" />
+					</device-model>
+				<device-model name="Mikes Home Desktop PC" comments="AMD Quad Core Phenom II 820 at 2.8GHz, Nvidea GT610 with 8GB RAM">
+					<state name="SoftOff" type= "static" power="1.904" power_stdev="0.02" power_median="1.902" power_factor="0.3511" power_factor_stdev="0.004" power_factor_median="0.351" thdI="132.1" thdI_stdev="4.42" thdI_median="132.2" comments="Soft Off state with rear power switch turned on." />	
+					<state name="Standby" type= "static" power="2.6359" power_stdev="0.02" power_median="2.64" power_factor="0.3962" power_factor_stdev="0.004" power_factor_median=".3962" thdI="152.21" thdI_stdev="8.42" thdI_median="153.5" comments="InStandby state." />	
+					<state name="Active-Bootup" type= "static" power="148.89" power_stdev="4.63" power_median="146.85" power_factor="0.7106" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="91.6" thdI_stdev="4.42" thdI_median="91.2" comments="during bootup for about 30 seconds." />	
+					<state name="Active-DeepIdle" type= "static" power="86.71" power_stdev="6.21" power_median="88.24" power_factor="0.6793" power_factor_stdev="0.015" power_factor_median="0.6793" thdI="101.34" thdI_stdev="4.42" thdI_median="102.2" comments="At desktop during idle operation, large change in power usage." />	
+					<state name="Active-SemiIdle" type= "static" power="111.2" power_stdev="12.51" power_median="146.85" power_factor="0.7165" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="91.6" thdI_stdev="4.42" thdI_median="91.2" comments="At desktop during idle operation, large change in power usage." />	
+					<state name="Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="During basic use playing video." />
+					<state name="Active-Benchmark" type= "static" power="162.5" power_stdev="19.51" power_median="162.15" power_factor="0.7165" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="91.6" thdI_stdev="4.42" thdI_median="91.2" comments="Running Novabench to provide a load down scenario." />					
+					<state name="7.5_NoSleep_Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="7.5_Sleep10_Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="7.5_Sleep30_Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="30_NoSleep_Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="30_Sleep10_Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="30_Sleep30_Active-ActiveUse" type= "static" power="123.2" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="37.5_NoSleep_Active-ActiveUse" type= "static" power="120.92972972973" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="37.5_Sleep10_Active-ActiveUse" type= "static" power="120.92972972973" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="37.5_Sleep30_Active-ActiveUse" type= "static" power="120.92972972973" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="75_NoSleep_Active-ActiveUse" type= "static" power="116.734666666667" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="75_Sleep10_Active-ActiveUse" type= "static" power="105.524786666667" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="75_Sleep30_Active-ActiveUse" type= "static" power="116.734666666667" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="90_NoSleep_Active-ActiveUse" type= "static" power="116.478888888889" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="90_Sleep10_Active-ActiveUse" type= "static" power="107.137322222222" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="90_Sleep30_Active-ActiveUse" type= "static" power="116.478888888889" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="180_NoSleep_Active-ActiveUse" type= "static" power="115.118333333333" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="180_Sleep10_Active-ActiveUse" type= "static" power="101.105983333333" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="180_Sleep30_Active-ActiveUse" type= "static" power="115.118333333333" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="300_NoSleep_Active-ActiveUse" type= "static" power="110.253" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="300_Sleep10_Active-ActiveUse" type= "static" power="85.03077" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="300_Sleep30_Active-ActiveUse" type= "static" power="101.84559" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="720_NoSleep_Active-ActiveUse" type= "static" power="110.897222222222" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="720_Sleep10_Active-ActiveUse" type= "static" power="87.5433055555556" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+					<state name="720_Sleep30_Active-ActiveUse" type= "static" power="103.891047222222" power_stdev="9.51" power_median="123.85" power_factor="0.7065" power_factor_stdev="0.025" power_factor_median="0.7106" thdI="94.6" thdI_stdev="4.42" thdI_median="94.2" comments="NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS, During basic use playing video." />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Computer Monitor">
+			<device-brand name="Dell">
+				<device-model name="17 inch Desktop PC monitor" comments="Simlab desktop computer">
+					<state name="HardOff" type= "static" power="0" power_factor="-1" thd="-1" comments="Plugged in only, not turned on, hard power switch in off position" />
+					<state name="SoftOff" type= "static" power="0.12" power_factor="-1" thd="-1" comments="Plugged in, hard power switch in on position, soft power switch off(no LED indicator on)" />
+					<state name="Sleep" type= "static" power="0.27" power_factor="-1" thd="-1" comments="Plugged in, hard power switch in on position, soft power switch ON, in power save mode" />
+					<state name="Active-ImageDisplayed" type= "static" power="9.0" power_factor="0.608" thd="-1" comments="Plugged in, hard power switch in on position, soft power switch ON, in power save mode" />
+				</device-model>
+			</device-brand>
+			<device-brand name="Hyundai">
+				<device-model name="Model L70S" comments="17 inch Desktop PC monitor">
+					<state name="SoftOff" type= "static" power="0.729" power_stdev="0.007" power_median="0.730" power_factor="0.1931" power_factor_stdev="0.004" power_factor_median="0.1930" thdI="64.60" thdI_stdev="0.62" thdI_median="64.50" comments="Monitor with power button pressed and no lights.  In Soft Off State." />	
+					<state name="Active-EnteringStandby" type= "transient" power="1.47" power_stdev="0.021" power_median="1.45" power_factor="0.1882" power_factor_stdev="0.003" power_factor_median="0.1852" thdI="64.60" thdI_stdev="2.17" thdI_median="64.50" comments="Aprox. 5 second transient state when entering standby." />
+					<state name="Active-Standby" type= "static" power="0.7053" power_stdev="0.004" power_median="0.710" power_factor="0.1887" power_factor_stdev="0.002" power_factor_median="0.1800" thdI="59.9" thdI_stdev="0.22" thdI_median="59.8" comments="Monitor with amber standby light on." />	
+					<state name="Active-DesktopImage" type= "static" power="24.647" power_stdev="1.02" power_median="24.2" power_factor="0.6488" power_factor_stdev="0.021" power_factor_median="0.6480" thdI="103.5" thdI_stdev="1.852" thdI_median="103.5" comments="Monitor with multiple content bright and dark.  Little difference in power use based on visual content." />	
+					</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Home Media Server">
+			<device-brand name="Western Digital">
+				<device-model name="MyCloud" comments="Single HDD networked media server">
+					<state name="Active-Bootup" type= "static" power="7.942" power_stdev="0.41" power_median="7.82" power_factor="0.586" power_factor_stdev="0.003" power_factor_median="0.58" thdI="124.32" thdI_stdev="0.00" thdI_median="0.00" comments="PLACEHOLDER" />
+					<state name="Active-Idle" type= "static" power="8.224" power_stdev="0.006" power_median="8.22" power_factor="0.5986" power_factor_stdev="0.006" power_factor_median="0.598" thdI="124.65" thdI_stdev="4.52" thdI_median="125.32" comments="Drive in active operation but with no requests to it over a period of 10 minutes." />	
+					<state name="Active-HeavyTransfer" type= "static" power="10.614" power_stdev="0.036" power_median="10.62" power_factor="0.602" power_factor_stdev="0.008" power_factor_median="0.601" thdI="121.3" thdI_stdev="3.67" thdI_median="121.5" comments="Active heavy file transfer active." />
+					<state name="Active-PowerSave" type= "static" power="4.12" power_stdev="0.046" power_median="4.12" power_factor="0.589" power_factor_stdev="0.008" power_factor_median="0.590" thdI="122.3" thdI_stdev="2.67" thdI_median="122.3" comments="Active drive in sleep mode." />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Laptop Computer">
+			<device-brand name="Apple">
+				<device-model name="Macbook Pro A1278 Mid2010" comments="Apple Laptop Computer, intel Core2Duo, tested with 60W Magsafe Adapter unless otherwise noted">
+					<state name="SoftOff" type= "static" power="0.7168" power_stdev="0.08" power_median="0.7100" power_factor="0.3106" power_factor_stdev="0.001" power_factor_median="0.311" thdI="97.21" thdI_stdev="6.21" thdI_median="97.40" comments="Computer in off, power charger in place" />
+					<state name="Active-Bootup" type= "static" power="29.1134" power_stdev="6.429" power_median="31.3085" power_factor="0.50936" power_factor_stdev="0.0166" power_factor_median="0.516" thdI="127.05" thdI_stdev="3.76" thdI_median="125.83" comments="Bootup to logins creen, 30 seconds average in length" />
+					<state name="Active-IdleAtDesktop" type= "static" power="30.671" power_stdev="0.35" power_median="30.60" power_factor="0.5582" power_factor_stdev="0.005" power_factor_median="0.5582" thdI="130.2" thdI_stdev="1.82" thdI_median="130.24" comments="Login and at desktop" />
+					<state name="Active-ActiveUsePlayVideo" type= "static" power="38.49" power_stdev="2.15" power_median="37.25" power_factor="0.5785" power_factor_stdev="0.005" power_factor_median="0.5785" thdI="129.61" thdI_stdev="2.12" thdI_median="130.10" comments="Login and at desktop, playing video in browser" />
+					<state name="Active-ActiveUse" type= "static" power="34.21" power_stdev="1.75" power_median="37.25" power_factor="0.5785" power_factor_stdev="0.005" power_factor_median="0.5785" thdI="132.51" thdI_stdev="2.23" thdI_median="131.20" comments="Login and at desktop, running word processor" />			
+					<state name="Active-DisplaySleep" type= "static" power="28.739" power_stdev="5.222" power_median="30.741" power_factor="0.49935" power_factor_stdev="0.02218" power_factor_median="0.505" thdI="130.737" thdI_stdev="4.307" thdI_median="129.44" comments="active with the display in sleep, idle for 30 seconds before testing" />			
+				</device-model>
+				<device-model name="Macbook Pro A1278 Mid2012" comments="Apple Laptop Computer, Intel i5, mid 2015 (2012 design) constructed, tested with 60W Magsafe Adapter unless otherwise noted">
+					<state name="SoftOff" type= "static" power="0.3318" power_stdev="0.004" power_median="0.3323" power_factor="0.1533" power_factor_stdev="0.00152" power_factor_median="0.15345" thdI="39.21" thdI_stdev="1.3748" thdI_median="38.913" comments="Computer in off, power charger in place" />
+					<state name="Standby" type= "static" power="1.03" power_stdev="0.0803" power_median="0.9972" power_factor="0.306" power_factor_stdev="0.00838" power_factor_median="0.3029" thdI="87.23" thdI_stdev="5.549" thdI_median="85.666" comments="Standby, lid shut,charger in place" />
+					<state name="Active-IdleAtDesktop" type= "static" power="15.387" power_stdev="5.483" power_median="17.546" power_factor="0.4964" power_factor_stdev="0.0114" power_factor_median="0.4983" thdI="132.52" thdI_stdev="3.87" thdI_median="132.55" comments="Active but idle use, at desktop" />	
+					<state name="Active-Bootup" type= "static" power="21.17718" power_stdev="6.3926" power_median="20.3927" power_factor="0.4956" power_factor_stdev="0.013551" power_factor_median="0.49606" thdI="127.894" thdI_stdev="17.544" thdI_median="130.82" comments="Bootup, average over 30 seconds presented." />	
+					<state name="Active-ActiveatDesktopDisplaySleep" type= "static" power="10.82399" power_stdev="5.36626" power_median="7.8356" power_factor="0.4831" power_factor_stdev="0.016157" power_factor_median="0.48538" thdI="136.2646" thdI_stdev="3.676" thdI_median="136.51" comments="Active but idle use, at desktop, display sleep" />	
+					<state name="Active-ActiveUseHeavy" type= "static" power="27.998" power_stdev="1.957" power_median="28.372" power_factor="0.5131" power_factor_stdev="0.00449" power_factor_median="0.5156" thdI="125.97" thdI_stdev="1.534" thdI_median="125.78" comments="Heavy active use, playing video" />	
+					<state name="Active-ActiveAtDesktop" type= "static" power="17.14" power_stdev="6.67745" power_median="14.715" power_factor="0.4876" power_factor_stdev="0.0143" power_factor_median="0.486" thdI="133.992" thdI_stdev="5.488" thdI_median="132.98" comments="Active but idle use, at desktop" />
+				</device-model>
+				<device-model name="Macbook Air A1502" comments="Apple Laptop Computer, tested with 60W Magsafe Adapter unless otherwise noted">
+					<state name="SoftOff" type= "static" power="0.7125" power_stdev="0.081" power_median="0.7310" power_factor="0.32" power_factor_stdev="0.001" power_factor_median="0.321" thdI="97.21" thdI_stdev="6.21" thdI_median="97.40" comments="Computer in off, power charger in place" />
+					<state name="Standby" type= "static" power="2.51" power_stdev="0.12" power_median="2.51" power_factor="0.4415" power_factor_stdev="0.01" power_factor_median="0.4415" thdI="201.5" thdI_stdev="0.02" thdI_median="201.2" comments="Standby, lid shut,charger in place" />
+					<state name="Active-IdleAtDesktop" type= "static" power="11.52" power_stdev="1.24" power_median="11.32" power_factor="0.554" power_factor_stdev="0.012" power_factor_median="0.55" thdI="137.9" thdI_stdev="4.21" thdI_median="139.2" comments="Active but idle use, at desktop" />	
+					<state name="Active-ActiveAtDesktop" type= "static" power="31.25" power_stdev="3.21" power_median="11.32" power_factor="0.554" power_factor_stdev="0.012" power_factor_median="0.55" thdI="137.9" thdI_stdev="4.21" thdI_median="139.2" comments="Active but idle use, at desktop" />
+				</device-model>
+			</device-brand>
+			<device-brand name="HP">
+				<device-model name="Probook4530s" comments="HP Laptop Computer">
+					<state name="SoftOff" type= "static" power="0.30987" power_stdev="0.00354" power_median="0.30914" power_factor="0.14752" power_factor_stdev="0.0014" power_factor_median="0.14715" thdI="36.724" thdI_stdev="0.5896" thdI_median="36.655" comments="Computer in off, power charger in place" />
+					<state name="Active-Bootup" type= "static" power="25.264" power_stdev="9.72" power_median="24.093" power_factor="0.5259" power_factor_stdev="0.0183" power_factor_median="0.530" thdI="127.21" thdI_stdev="5.33" thdI_median="125.91" comments="Computer booting up, 30 seconds total represented as average" />
+					<state name="Active-IdleAtDesktop" type= "static" power="14.033" power_stdev="0.7573" power_median="13.76" power_factor="0.511" power_factor_stdev="0.004" power_factor_median="0.5093" thdI="133.306" thdI_stdev="0.977" thdI_median="133.64" comments="Login and at desktop, no user input after 30 seconds of idle, 60 seconds averaged" />
+					<state name="Active-ActiveUsePlayVideo" type= "static" power="34.82" power_stdev="5.05" power_median="36.633" power_factor="0.5492" power_factor_stdev="0.0085" power_factor_median="0.55031" thdI="120.891" thdI_stdev="2.3825" thdI_median="120.250" comments="Login and at desktop, playing video in browser" />
+					<state name="Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor" />			
+					<state name="Standby" type= "static" power="0.6743" power_stdev="0.0047" power_median="0.67470" power_factor="0.25745" power_factor_stdev="0.00277" power_factor_median="0.25636" thdI="90.079" thdI_stdev="35.718" thdI_median="66.609" comments="Standbywithpower adapter in place" />			
+					<state name="7.5_NoSleep_Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="7.5_Sleep10_Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="7.5_Sleep30_Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="30_NoSleep_Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="30_Sleep10_Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="30_Sleep30_Active-ActiveUse" type= "static" power="24.81" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="37.5_NoSleep_Active-ActiveUse" type= "static" power="22.7711081081081" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="37.5_Sleep10_Active-ActiveUse" type= "static" power="22.7711081081081" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="37.5_Sleep30_Active-ActiveUse" type= "static" power="22.7711081081081" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="75_NoSleep_Active-ActiveUse" type= "static" power="21.9361333333333" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="75_Sleep10_Active-ActiveUse" type= "static" power="20.1549733333333" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="75_Sleep30_Active-ActiveUse" type= "static" power="21.9361333333333" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="90_NoSleep_Active-ActiveUse" type= "static" power="21.2176666666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="90_Sleep10_Active-ActiveUse" type= "static" power="19.7333666666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="90_Sleep30_Active-ActiveUse" type= "static" power="21.2176666666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="180_NoSleep_Active-ActiveUse" type= "static" power="21.2176666666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="180_Sleep10_Active-ActiveUse" type= "static" power="18.9912166666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="180_Sleep30_Active-ActiveUse" type= "static" power="21.2176666666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="300_NoSleep_Active-ActiveUse" type= "static" power="19.7807333333333" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="300_Sleep10_Active-ActiveUse" type= "static" power="15.7731233333333" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="300_Sleep30_Active-ActiveUse" type= "static" power="18.4448633333333" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="720_NoSleep_Active-ActiveUse" type= "static" power="19.8705416666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="720_Sleep10_Active-ActiveUse" type= "static" power="16.1597916666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+					<state name="720_Sleep30_Active-ActiveUse" type= "static" power="18.7573166666667" power_stdev="3.953" power_median="23.809" power_factor="0.4939" power_factor_stdev="0.0116" power_factor_median="0.49135" thdI="134.22" thdI_stdev="2.626" thdI_median="134.80" comments="Login and at desktop, running word processor, NEW POWER BASED ON ACTIVE USE AND ACTIVE IDLE ACCORDING TO TIME USED - ONLY  POWER UPDATED AS OF NOW!! -SS" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Laptop Charger">
+			<device-brand name="Apple">
+				<device-model name="Magsafe 60W" comments="Magsafe (1) 60 watt charger for Macbook computers">
+					<state name="ChargerUnplugged" type= "static" power="0.0053" power_stdev="0.0003" power_median="0.0053" power_factor="0.0029" power_factor_stdev="0.0008" power_factor_median="0.0029" thdI="30.93" thdI_stdev="0.15" thdI_median="30.93" comments="Charger Alone" />				
+				</device-model>
+					<device-model name="Magsafe2 60W" comments="Magsafe (2) 60 watt charger for Macbook computers">
+					<state name="ChargerUnplugged" type= "static" power="0.0051" power_stdev="0.0002" power_median="0.0052" power_factor="0.0037" power_factor_stdev="0.0008" power_factor_median="0.0029" thdI="35.21" thdI_stdev="0.12" thdI_median="34.93" comments="Charger Alone" />				
+				</device-model>
+					<device-model name="Magsafe 80W" comments="Magsafe (1) 80 watt charger for Macbook computers">
+					<state name="ChargerUnplugged" type= "static" power="0.5101" power_stdev="0.00377" power_median="0.51099" power_factor="0.26137" power_factor_stdev="0.00127" power_factor_median="0.26170" thdI="70.536" thdI_stdev="2.0939" thdI_median="70.7975" comments="Charger Alone" />				
+				</device-model>
+			</device-brand>
+			<device-brand name="HP">
+				<device-model name="Probook4530s Adapter" comments="Specific adapter for this laptop">
+					<state name="ChargerUnplugged" type= "static" power="0.1467" power_stdev="0.00489" power_median="0.1454" power_factor="0.07585" power_factor_stdev="0.00246" power_factor_median="0.075156" thdI="24.292" thdI_stdev="0.6393" thdI_median="23.972" comments="Charger Alone" />				
+				</device-model>
+			</device-brand>
+			</device-type>
+		<device-type name="Computer Speakers">
+			<device-brand name="Logitech">
+				<device-model name="R20" comments="Powered desktop speakers with subwoofer and analog audio input, 2.1 sound">
+					<state name="HardOff" type= "static" power="3.4225" power_stdev="0.001" power_median="0.00032" power_factor="0.375" power_factor_stdev="0.00004" power_factor_median="0.3745" thdI="41.15" thdI_stdev="0.0417" thdI_median="41.1350" comment="Speakers plugged inb with mechanical power switch in off position" />
+					<state name="Active-NoSound0PercentVolume" type= "static" power="4.776" power_stdev="0.007" power_median="4.775" power_factor="0.488" power_factor_stdev="0.00052" power_factor_median="0.4874" thdI="38.143" thdI_stdev="0.0609" thdI_median="38.1375" comments="Speakers on with no audio input, dial position for volume does not seem to have an effect on energy usage except at very high settings with small increase.  A 0% volume is used as this reference case.  This is likely a representative wasteful state." />	
+				</device-model>
+			</device-brand>
+			<device-brand name="Altec Lansing">
+				<device-model name="Model ACS33" comments="120V powered 2ch computer speakers with integrated subwoofer">
+					<state name="SwitchOff" type= "static" power="3.024" power_stdev=".0032" power_median="3.03" power_factor="0.2673" power_factor_stdev="0.002" power_factor_median="0.27" thdI="41.652" thdI_stdev="0.42" thdI_median="41.78" comments="Speakers with rotary control switch in off position" />
+					<state name="Active-0PercentVolume" type= "static" power="4.364" power_stdev="0.04" power_median="4.35" power_factor="0.3672" power_factor_stdev="0.0007" power_factor_median="0.3681" thdI="32.146" thdI_stdev="0.21" thdI_median="32.245" comments="On with volume knob at 0% and line level 0db AVG. input present" />	
+					<state name="Active-10PercentVolume" type= "static" power="4.68" power_stdev="0.04" power_median="4.35" power_factor="0.3672" power_factor_stdev="0.0007" power_factor_median="0.3681" thdI="32.146" thdI_stdev="0.21" thdI_median="32.245" comments="On with volume knob at 10 percent and input present at line level 0db AVG." />	
+					<state name="Active-50PercentVolume" type= "static" power="5.87" power_stdev="0.42" power_median="5.62" power_factor="0.463" power_factor_stdev="0.005" power_factor_median="0.461" thdI="27.242" thdI_stdev="2.31" thdI_median="28.45" comments="On with volume knob at 70 percent and input present at line level 0db AVG." />	
+					</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Laser Printer">
+			<device-brand name="HP">
+				<device-model name="LaserJet 600 M601" comments="Monochrome laser printer (Data from CalPlug 2017 Report)">
+					<state name="Active-PowerSave"  type= "static" power="6.14" power_factor="-1" thd="-1" comments="Steady state energy usage after power save begins, state continues indef." />
+					<state name="Active-Print1Page"  type= "static" power="20.51" power_factor="-1" thd="-1" comments="Print and energy usage during an integration period of 30.07 minutes averaged, after this power save begins again" />
+					<state name="Active-Bootup"  type= "static" power="28.22" power_factor="-1" thd="-1" comments="Bootup to entry of power management" />
+				</device-model>
+				<device-model name="LaserJet CP1025nw" comments="Small,Network enabled color Laser printer (Data from CalPlug 2017 Report)">
+					<state name="Active-PowerSave"  type= "static" power="3.47" power_factor="-1" thd="-1" comments="Steady state energy usage after power save begins, state continues indef." />
+					<state name="Active-Print1Page"  type= "static" power="20.52" power_factor="-1" thd="-1" comments="Print and energy usage during an integration period of 15.82 minutes averaged, after this power save begins again" />
+					<state name="Active-Bootup"  type= "static" power="2.722" power_factor="-1" thd="-1" comments="Bootup to entry of power management" />
+				</device-model>
+			</device-brand>
+				<device-brand name="Ricoh">
+				<device-model name="Ricoh MP C6004" comments="Large,Network enabled color printer with scan and fax capabilities (Data from CalPlug 2017 Report)">
+					<state name="Active-PowerSave"  type= "static" power="36.85" power_factor="-1" thd="-1" comments="Steady state energy usage after power save begins, state continues indef." />
+					<state name="Active-Print1Page"  type= "static" power="48.84" power_factor="-1" thd="-1" comments="Print and energy usage during an integration period of 75 min minutes averaged, after this power save begins again" />
+					<state name="Active-Bootup"  type= "static" power="36.60" power_factor="-1" thd="-1" comments="Bootup to entry of power management" />				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Multi Function Inkjet Printer">
+			<device-brand name="Canon">
+				<device-model name="Pixma MX 410" comments="Desktop Multifunction color inkjet printer (Data from CalPlug 2017 Report)">
+					<state name="Active-PowerSave"  type= "static" power="3.29" power_factor="-1" thd="-1" comments="Steady state energy usage after power save begins, state continues indef." />
+					<state name="Active-Print1Page"  type= "static" power="5.52" power_factor="-1" thd="-1" comments="Print and energy usage during an integration period of 7.51 minutes averaged, after this power save begins again" />
+					<state name="Active-Bootup"  type= "static" power="2.51" power_factor="-1" thd="-1" comments="Bootup to entry of power management" />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="IoT Bulbs">
+		<device-type name="Edison Base Smart Bulb - Zigbee Connected">
+			<device-brand name="Cree">
+				<device-model name="Zigbee Connected Smart Bulb" comments="LED Smart bulb with Zigbee connectivity">
+					<state name="Standby" type= "static" power="0.29413" power_stdev="0.000633" power_median="0.29411" power_factor="0.430195" power_factor_stdev="0.000273" power_factor_median="0.43016" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Bulb in off state, connected to zigbee" />
+					<state name="Active-On" type= "static" power="10.66854" power_stdev="0.077429" power_median="10.664" power_factor="1.00" power_factor_stdev="0.00" power_factor_median="1.00" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Bulb in full on state" />	
+				</device-model>
+			</device-brand>
+			<device-brand name="FEIT Electric">
+				<device-model name="Zigbee Connected Smart Bulb - Homebrite Smart LED" comments="LED Smart bulb with Zigbee connectivity">
+					<state name="Standby" type= "static" power="0.3592" power_stdev="0.012339" power_median="0.36634" power_factor="0.7694" power_factor_stdev="0.0002" power_factor_median="0.76944" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Bulb in off state, connected to zigbee" />
+					<state name="Active-On" type= "static" power="9.2504" power_stdev="0.01" power_median="9.25515" power_factor="0.99" power_factor_stdev="0.00012" power_factor_median="0.9899" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Bulb in full on state" />	
+				    <state name="Active-Default" type= "static" power="9.314636" power_stdev="0.0076" power_median="9.315" power_factor="0.9897" power_factor_stdev="0.000177" power_factor_median="0.9897" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Bulb on but in default(non-pairred) state" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="LED Luminary">
+			<device-brand name="WestElm">
+				<device-model name="Bedside Lamp Model W2954" comments="LED Bedside Lamp with built in USB Charger">
+					<state name="SoftOff-SwitchOff" type= "static" power="0.703" power_stdev="0.061" power_median="0.714" power_factor="0.0256" power_factor_stdev="0.001" power_factor_median="0.0256" thdI="232.5" thdI_stdev="0.480" thdI_median="231.9" comments="LED lamp with USB" />
+					<state name="Active-SwitchedOn" type= "static" power="5.38" power_stdev="0.041" power_median="5.36" power_factor="0.730" power_factor_stdev="0.001" power_factor_median="0.731" thdI="88.61" thdI_stdev="0.12" thdI_median="88.75" comments="Lamp On" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Pet Care">
+		<device-type name="Pet Fountain">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Personal Comfort">
+		<device-type name="Movable Base Beds">
+			<device-brand name="Ergopedic">
+				<device-model name="Base Model" comments="Two section movable base bed">
+					<state name="SoftOff" type= "static" power="0.0703" power_stdev="0.01" power_median="0.0.07" power_factor="0.0256" power_factor_stdev="0.001" power_factor_median="0.0025" thdI="32.5" thdI_stdev="0.25" thdI_median="32.25" comments="Inactive, no motion activated" />
+					<state name="Active-RaiseBedFoot" type= "static" power="14.25" power_stdev="4.96" power_median="13.21" power_factor="0.57" power_factor_stdev="0.02" power_factor_median="0.54" thdI="125.1" thd_stdevI="2.45" thd_medianI="125.2" comments="Raising bed foot control" />
+					<state name="Active-RaiseBedHead" type= "static" power="25.21" power_stdev="9.91" power_median="23.24" power_factor="0.60" power_factor_stdev="0.02" power_factor_median="0.60" thdI="121.4" thd_stdevI="3.65" thd_medianI="122.2" comments="Raising bed head control" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Heating Blanked">
+			<device-brand name="Ergopedic">
+				<device-model name="Base Model" comments="Two section movable base bed">
+					<state name="SoftOff" type= "static" power="0.0703" power_stdev="0.01" power_median="0.0.07" power_factor="0.0256" power_factor_stdev="0.001" power_factor_median="0.0025" thdI="32.5" thdI_stdev="0.25" thdI_median="32.25" comments="Inactive, no motion activated" />
+					<state name="Active-RaiseBedFoot" type= "static" power="14.25" power_stdev="4.96" power_median="13.21" power_factor="0.57" power_factor_stdev="0.02" power_factor_median="0.54" thdI="125.1" thd_stdevI="2.45" thd_medianI="125.2" comments="Raising bed foot control" />
+					<state name="Active-RaiseBedHead" type= "static" power="25.21" power_stdev="9.91" power_median="23.24" power_factor="0.60" power_factor_stdev="0.02" power_factor_median="0.60" thdI="121.4" thd_stdevI="3.65" thd_medianI="122.2" comments="Raising bed head control" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Recliner / Massage Chair">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Aroma Lamp">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Water Bed Heater">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Blanket"> <!--Sample provided by Saniya Syed, CalPlug-->
+			<device-brand name="PlaceholderBrand">
+				<state name="Active-HeatActive" type= "transient" power="217.7414" power_stdev="3.90" power_median="217.71" power_factor="0" power_factor_stdev="0.00" power_factor_median="0.01" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Static SoftOff state, based on control dial position" />
+				<state name="Active-HeatInctive" type= "transient" power="0.98" power_stdev="0.02" power_median="0.98" power_factor="0" power_factor_stdev="0.00" power_factor_median="0.01" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Static SoftOff state, based on control dial position" />
+				<state name="SoftOff" type= "static" power="0.98" power_stdev="0.02" power_median="0.98" power_factor="0" power_factor_stdev="0.00" power_factor_median="0.01" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Static SoftOff state, based on control dial position" />
+				<state name="Active-LowHeatSetting " type= "static" power="101.87" power_stdev="7.2185" power_median="100.36" power_factor="0.99" power_factor_stdev="0.01" power_factor_median="0.99" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Heating state 1" />	
+				<state name="Active-L2HeatSetting " type= "static" power="101.87" power_stdev="7.2185" power_median="100.36" power_factor="0.99" power_factor_stdev="0.01" power_factor_median="0.99" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="Heating state 1" />	
+			</device-brand>
+		</device-type>
+		<device-type name="Electric Razor">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Sleeping Noise Generator">
+			<device-brand name="Avantek">
+				<device-model name="WN-1B" comments="White Noise Generator with multiple sounds and volume control">
+					<state name="PlugOnly-InitialPlugin"  type= "static" power="0.913" power_factor="0.462" thd="180.38" comments="Transition State for 30 seconds upon plugging in" />	
+					<state name="PlugOnly-SteadyState"  type= "static" power="0.2800" power_factor="0.462" thd="180.38" comments="Steady state draw, USB PS adapter only." />	
+					<state name="SoftOff"  type= "static" power="0.341" power_factor="0.451" thd="175.25" comments="Steady state draw, device SoftOffState." />
+					<state name="Active-10PercentVolume"  type= "static" power="0.8907" power_factor="0.5699" thd="133.21" comments="Steady state draw, device 10 Percent Volume." />
+					<state name="Active-100PercentVolume"  type= "static" power="0.964" power_factor="0.5763" thd="133.02" comments="Steady state draw, device Full Volume." />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Security Devices">
+		<device-type name="Plug-in motion lights">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Pool Equipment">
+		<device-type name="Pool Pump">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Portable Electric Spa Pump">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Portable Electric Spa Heater">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Small Laundry Appliance">
+		<device-type name="Clothes Iron">
+			<device-brand name="Black and Decker">
+				<device-model name="F67E,Type 5" comments="Example Clothes Iron">
+					<state name="HardOff" type= "static" power="0.00" power_stdev="0.00" power_median="0.00" power_factor="0.00" power_factor_stdev="0.00" power_factor_median="0.00" thdI="0.00" thdI_stdev="0.00" thdI_median="0.00" comments="HardOff State" />
+					<state name="Active-HeatingActive" type= "transient" power="435.23" power_stdev="3.67" power_median="430.14" power_factor="1.00" power_factor_stdev="0.00" power_factor_median="1.000" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="State During Active Heating" />		
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Clothes Press">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Clothes Steamer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Mobile Computing">
+		<device-type name="USB Charger">
+			<device-brand name="Apple">
+				<device-model name="10 Watt USB Charger" comments="USB Charger">
+					<state name="UnPlugged" type= "static" power="0.051" power_stdev="0.001" power_median="0.501" power_factor="-1" power_factor_stdev="-1" power_factor_median="-1" thdI="-1" thdI_stdev="-1" thdI_median="-1" comments="USB adapter plugged in, this device appears to use a burst mode, this value is averaged over 5 minutes of being plugged in." />
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Discrete Audio Systems">
+		<device-type name="Small Audio System">
+			<device-brand name="Panasonic">
+				<device-model name="SC-HC20DB" comments="small, discrete, no bluetooth connection - shelf music system">
+					<state name="SoftOff" type= "static" power="0.158" power_stdev="0.008" power_median="0.150" power_factor="0.1360" power_factor_stdev="0.002" power_factor_median="0.1360" thdI="56.87" thdI_stdev="1.36" thdI_median="55.62" comments="Plugged in in SoftOff (lowest power mode)" />
+					<state name="Active-MenuAuxInputSelected" type= "static" power="2.4973" power_stdev="0.034" power_median="2.50" power_factor="0.5360" power_factor_stdev="0.0041" power_factor_median="0.536" thdI="149.07" thdI_stdev="1.21" thdI_median="149.00" comments="At the standby menu with AUX selected and no input" />	
+					<state name="Active-MenuCDInputSelected" type= "static" power="2.751" power_stdev="0.024" power_median="2.70" power_factor="0.5320" power_factor_stdev="0.0021" power_factor_median="0.531" thdI="152.85" thdI_stdev="1.45" thdI_median="153.10" comments="At the standby menu with CD selected and no input" />	
+					<state name="Active-CDPlay10PercentVolume" type= "static" power="4.10" power_stdev="0.234" power_median="4.05" power_factor="0.57" power_factor_stdev="0.0042" power_factor_median="0.57" thdI="137.3" thdI_stdev="1.78" thdI_median="138.21" comments="Play CD at 10 Percent Volume" />
+					<state name="Active-AUXPlay10PercentVolume" type= "static" power="2.506" power_stdev="0.234" power_median="4.05" power_factor="0.532" power_factor_stdev="0.0022" power_factor_median="0.54" thdI="154.52" thdI_stdev="1.62" thdI_median="155.21" comments="Play AUX at 10 Percent Volume, 0db line input level" />	
+					<state name="Active-AUXPlay50PercentVolume" type= "static" power="5.21" power_stdev="0.592" power_median="5.15" power_factor="0.59" power_factor_stdev="0.0012" power_factor_median="0.56" thdI="118.2" thdI_stdev="3.62" thdI_median="119.21" comments="Play AUX at 50 Percent Volume, 0db line input level" />	
+				</device-model>
+			</device-brand>
+			<device-brand name="Yamaha">
+				<device-model name="TSX-B235" comments="small, discrete, bedside unit with bluetooth connection">
+					<state name="SoftOff" type= "static" power="0.317354" power_stdev="0.09291" power_median="0.284945" power_factor="0.02378" power_factor_stdev="0.006848" power_factor_median="0.021402" thdI="20.8544" thdI_stdev="7.319813" thdI_median="19.0635" comments="SoftOff, post initial bootup, lowest energy state" />
+					<state name="Active-StandbyNoSoundOutput" type= "static" power="4.9165" power_stdev="0.005296" power_median="4.9165" power_factor="0.2831" power_factor_stdev="0.001167" power_factor_median="0.28298" thdI="138.3025" thdI_stdev="0.99028" thdI_median="138.165" comments="Booted, no sound output" />
+					<state name="Active-Bootup" type= "static" power="0.9315" power_stdev="1.3752" power_median="0.30484" power_factor="0.63782" power_factor_stdev="0.08509" power_factor_median="0.02423" thdI="38.131" thdI_stdev="41.4597" thdI_median="20.5665" comments="Bootup perid for 30 seconds from soft off to active state" />	
+					<state name="Active-20PercentVolumeBluetooth" type= "static" power="5.8078" power_stdev="0.8730" power_median="5.5409" power_factor="0.304123" power_factor_stdev="0.026648" power_factor_median="0.2979" thdI="141.2315" thdI_stdev="4.4861" thdI_median="140.84" comments="Play bluetooth sourced audio at 20 percent volume, comfortable listening level" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Automotive">
+		<device-type name="EV Supply Equipment">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Battery Charger/Maintainer">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Miscellaneous Equipment">
+		<device-type name="Robotic Cleaning System">
+			<device-brand name="iRobot">
+				<device-model name="Roomba Home Base" comments="Home base for iRobot Roomba Model 4110, using homebase external power supply model 10556 EPS">
+					<state name="BaseWithoutCharge" type= "static" power="1.3387" power_stdev="0.001647" power_median="1.339" power_factor="0.076118" power_factor_stdev="0.000119" power_factor_median="0.076128" thdI="151.673" thdI_stdev="8.406" thdI_median="151.29" comments="Device plugged in, not charging." />
+					<state name="StartFullCharge" type= "static" power="24.7284" power_stdev="13.985" power_median="33.8385" power_factor="0.4401" power_factor_stdev="0.170" power_factor_median="0.551" thdI="131.7194" thdI_stdev="17.9052" thdI_median="120.255" comments="Start of charging from full discharge, period averaged over 300 seconds, inital charge transient state is 34.9W for start of charge." />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Hot Water Recirculators">
+			<device-brand name="PlaceholderBrand">
+				<device-model name="PlaceholderModel" comments="Example Model">
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+	<device-class name="Telecommunications">
+		<device-type name="Cable/DSL Modem">
+			<device-brand name="2Wire">
+				<device-model name="Model 3600HGV" comments="DSL Model with WiFi Router/AP built in, Wifi Disabled, Ethernet Connected to external router">
+					<state name="Active-Bootup" type= "static" power="8.10" power_stdev="0.87" power_median="8.20" power_factor="0.5850" power_factor_stdev="0.04" power_factor_median="0.58" thdI="127.25" thdI_stdev="1.75" thdI_median="127.20" comments="Average measurements bootup for 2 minutes, start and connect" />
+					<state name="Active-Idle" type= "static" power="7.471" power_stdev="0.02" power_median="7.45" power_factor="0.5850" power_factor_stdev="0.003" power_factor_median="0.60" thdI="129.10" thdI_stdev="2.31" thdI_median="129.80" comments="Average idle and low operational energy usage" />	
+					<state name="Active-HighLoad" type= "static" power="7.62" power_stdev="0.03" power_median="7.60" power_factor="0.5921" power_factor_stdev="0.003" power_factor_median="0.60" thdI="127.25" thdI_stdev="2.50" thdI_median="127.50" comments="Speed Test applied by two devices on the Ethernet interface (no WiFi) connected to this device" />	
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="IoT Hub">
+			<device-brand name="Insteon">
+				<device-model name="Insteon/Smarthome Hub, Model 2245-222, 2443" comments="Insteon system hub/gateway">
+					<state name="ActiveUsageLowLoad" type= "static" power="1.46" power_factor="-1" thd="-1" comments="Average steady state power consumption when active, low load" />
+					<state name="ActiveUsageHighLoad" type= "static" power="2.05" power_factor="-1" thd="-1" comments="Average steady state power consumption when active, high load" />
+				</device-model>
+			</device-brand>
+		<device-brand name="Digi">
+				<device-model name="ConnectPort X2e Wifi SE; X2e Wifi SE" comments="System hub/gateway">
+					<state name="ActiveUsage" type= "static" power="1.059" power_factor="-1" thd="-1" comments="Average steady state power consumption when active" />
+				</device-model>
+		</device-brand>
+		</device-type>
+		<device-type name="Smart Plug">
+			<device-brand name="Insteon">
+				<device-model name="iMeter Solo 2423A1" comments="Insteon smart plug device">
+					<state name="ActiveUsage" type= "static" power="0.754" power_factor="-1" thd="-1" comments="Average steady state power consumption when active, switched off" />					
+				</device-model>
+				<device-model name="SynchroLinc" comments="Insteon smart plug device">
+					<state name="ActiveUsage" type= "static" power="0.850" power_factor="-1" thd="-1" comments="Average steady state power consumption when active, switched off" />					
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Discrete WiFi Router">
+			<device-brand name="Nighthawk">
+				<device-model name="R7000" comments="Wireless AC discrete router">
+					<state name="Active-BootupToRun" type= "static" power="4.921064" power_stdev="1.205385" power_median="4.3301" power_factor="0.214006" power_factor_stdev="0.029089" power_factor_median="0.19936" thdI="152.2832" thdI_stdev="12.95332" thdI_median="154.1" comments="Bootup to active operation over 2 minutes" />
+					<state name="Active-HighLoadWireless" type= "static" power="11.55814" power_stdev="1.509254" power_median="11.905" power_factor="0.3305" power_factor_stdev="0.017544" power_factor_median="0.33486" thdI="161.2347" thd_stdevI="2.632157" thd_medianI="160.14" comments="Power usage in a high network traffic load state" />
+					<state name="Active-IdleNoLoad" type= "static" power="8.3764" power_stdev="0.2251" power_median="8.3377" power_factor="0.2914" power_factor_stdev="0.0033" power_factor_median="0.291" thdI="163.5618" thd_stdevI="3.8335" thd_medianI="163.0" comments="Power usage in idle state with no load" />
+					<state name="Active-" type= "static" power="8.8447" power_stdev="0.94774" power_median="8.5281" power_factor="0.297705" power_factor_stdev="0.011795" power_factor_median="0.294" thdI="163.1368" thd_stdevI="3.6839" thd_medianI="162.0" comments="Power usage in idle state with no load" />
+				</device-model>
+			</device-brand>
+		</device-type>
+		<device-type name="Mesh WiFi Router">
+			<device-brand name="Google">
+				<device-model name="Google WiFi - Master Configuration" comments="Wireless AC distributed router, acting as primary unit">
+					<state name="Active-AverageNetworkTraffic" type= "static" power="3.361979" power_stdev="0.129087" power_median="3.3056" power_factor="0.414238" power_factor_stdev="0.004424" power_factor_median="0.41204" thdI="157.1166" thdI_stdev="0.814913" thdI_median="157.08" comments="Device in active use with minimal activity" />
+					<state name="Active-BootuptoActive" type= "static" power="3.360543" power_stdev="0.12951" power_median="3.3023" power_factor="0.414136" power_factor_stdev="0.004404" power_factor_median="0.41197" thdI="157.1337" thd_stdevI="0.806449" thd_medianI="157.08" comments="Power at bootup into general use" />
+					<state name="Active-ActiveLoad" type= "static" power="3.978" power_stdev="0.742037" power_median="3.7006" power_factor="0.419198" power_factor_stdev="0.015187" power_factor_median="0.41451" thdI="156.4735" thd_stdevI="2.082121" thd_medianI="157.23" comments="Power load when under high network load" />
+				</device-model>
+				<device-model name="Google WiFi - Secondary Configuration" comments="Wireless AC distributed router, acting as a connected device to a primary unit">
+				</device-model>
+			</device-brand>
+			<device-brand name="EERO">
+				<device-model name="EERO WiFi Gen 2 - Master Configuration" comments="Wireless AC distributed router, master node">
+				<state name="Active-Bootup" type= "static" power="2.921" power_stdev="0.352" power_median="2.90" power_factor="0.566" power_factor_stdev="0.003" power_factor_median="0.56" thdI="127.88" thdI_stdev="3.21" thdI_median="132.60" comments="Device booting up while connected to wired network for the primary device, average over 60 seconds, bootup is aproximately 20 seconds in length." />
+				<state name="Active-SteadyStateDisconnected" type= "static" power="3.89" power_stdev="0.11" power_median="3.84" power_factor="0.552" power_factor_stdev="0.002" power_factor_median="0.552" thdI="133.82" thdI_stdev="0.645" thdI_median="133.50" comments="Device booted to steady state but not joined to network" />
+				<state name="Active-AverageUseLoad" type= "static" power="5.31" power_stdev="0.08" power_median="5.28" power_factor="0.592" power_factor_stdev="0.002" power_factor_median="0.589" thdI="122.17" thdI_stdev="0.765" thdI_median="122.80" comments="Device operating on averaged network traffic sampled over a period of 1 hour." />
+				<state name="Active-HeavyLoad" type= "static" power="5.41" power_stdev="0.58" power_median="5.52" power_factor="0.592" power_factor_stdev="0.002" power_factor_median="0.571" thdI="118.79" thdI_stdev="0.92" thdI_median="117.86" comments="Device connected and under heavy upload, speedtest.net" />
+				</device-model>
+				<device-model name="EERO WiFi Gen 2 WiFi - Secondary Configuration" comments="Wireless AC distributed router, connected to a master node">
+				<state name="Active-Bootup"  type= "static" power="3.350" power_factor="0.574" thd="126.28" comments="Avege characteristics for 60 seonds during bootup" />
+				<state name="Active-SteadyStateDisconnected"  type= "static" power="4.050" power_factor="0.591" thd="124.21" comments="Booted, not connected to network." />
+				<state name="Active-AverageUseLoad"  type= "static" power="4.82" power_factor="0.523" thd="123.25" comments="Average network traffic sampled over 1 hour of time" />	
+				<state name="Active-HeavyLoad"  type= "static" power="5.83" power_factor="0.58" thd="126.28" comments="Test of heavy load provided by a 20 second period average when accessing speedtest.net" />					
+				</device-model>
+			</device-brand>
+		</device-type>
+	</device-class>
+</data>
