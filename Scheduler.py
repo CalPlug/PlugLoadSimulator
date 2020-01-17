@@ -345,9 +345,9 @@ if "__main__" == __name__:
                 pickle.dump({'integeration_period':integration_period,'device_map':device_map}, fd)
 
             # write info file
-            write_to_ifile(OUTPUT_CSV, integration_period, input_generators)
+            write_to_ifile('simulationfiles/scheduleobjects/csvs/' + OUTPUT_CSV, integration_period, input_generators)
             # write copy of the pickle file
-            write_to_peramfile(OUTPUT_CONFIG, integration_period, device_map)
+            write_to_peramfile('simulationfiles/scheduleobjects/csvs/' + OUTPUT_CONFIG, integration_period, device_map)
             
             print ("CSV File Input Gen:")
             print(input_generators)
