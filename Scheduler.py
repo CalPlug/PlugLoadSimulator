@@ -43,7 +43,8 @@ def input_device_model(devices_data: {dict}, p_string: str)->list:
     if type(devices_data) == set:
         z = zip(range(1, len(devices_data)+1), sorted(devices_data))
         str_range = set(str(x) for x in range(1, len(devices_data)+1))
-        inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string, sorted(z)), valid=devices_data.union(str_range))
+        inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string,
+                        sorted(z)), valid=devices_data.union(str_range))
         input_dict = dict(zip(range(1, len(devices_data)+1), sorted(devices_data)))
         
         if not inp in devices_data:
@@ -55,14 +56,15 @@ def input_device_model(devices_data: {dict}, p_string: str)->list:
         keys_set = set(devices_data.keys())
         z = zip(range(1, len(keys_set)+1), sorted(keys_set))
         str_range = set(str(x) for x in range(1, len(devices_data)+1))
-        inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string, sorted(z)), valid=keys_set.union(str_range))
+        inp = input_str('Which type of {} device do you want to choose? {}: '.format(p_string,
+                        sorted(z)), valid=keys_set.union(str_range))
         
         input_dict = dict(zip(range(1, len(keys_set)+1), sorted(keys_set)))
         
         if not inp in keys_set:
             inp = input_dict[int(inp)]
             
-        p_string += '{}'.format(inp)
+        p_string += '{}:'.format(inp)
         to_return = [inp]
         print('selected: {}'.format(inp))
         to_return.extend(input_device_model(devices_data[inp], p_string))
@@ -359,9 +361,11 @@ if "__main__" == __name__:
 
         elif inp == 'e':
             print("Execute default Calc Engine")
-            exec(open("./CalculationEngine.py").read())
+            # exec(open("./CalculationEngine.py").read())
+            runpy.run_path('./CalculationEngine.py', run_name='__main__')
             #os.system("python CalculationEngine.py") #TODO: Replace os.system with subprocess
-            #exit(0)
+            exit(0)
+            
         elif inp == 'q':
             exit(0)
 
