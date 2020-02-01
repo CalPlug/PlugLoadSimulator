@@ -1,5 +1,5 @@
 from schedulerlib.input import  input_str
-from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph
+from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph,save_graph,reset
 from enginelib.write import write_to_csv
 from enginelib.logger import Logger
 import pickle
@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 import csv
 import datetime
+import os
 
 #***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project. 
 #            Accordingly if this is run in a new project each input and output file may need to have 
@@ -20,7 +21,8 @@ INPUT_CSV = 'test_group.csv' #This is the input CSV file generated from schedule
 INPUT_PARAM = 'run_params' #this is the pickled object file passed as input into the calculation engine
 
 # Output files
-OUTPUT_CSV = 'graph_file_test.csv' #This is the generated device operation calculation outputs 
+OUTPUT_CSV = 'graph_file_test.csv' #This is the generated device operation calculation outputs
+OUTPUT_TIME = "-{date:%Y-%m-%d_%H_%M_%S}".format( date=datetime.datetime.now())
 #OUTPUT_CSV = 'simulationfiles/calculationoutputs/graph_file_test.csv' #This is the generated device operation calculation outputs 
 BATCH_PATH = "simulationfiles/batchfiles/"
 # List of Enabled Graphs
@@ -41,7 +43,9 @@ def get_csv_batch(filename:str)->list:
     #exit()
     return list_of_profiles
 
-def analyze_data(file_name: str, integration_period: int, device_map: dict, profile_id: str):
+def analyze_data(file_name: str, integration_period: int, device_map: dict, profile_id: str, batch_file_name: str):
+
+    OUTPUT_FOLDER = 'simulationfiles/calculationoutputs/' + batch_file_name.split('.')[0] + OUTPUT_TIME
 
     #Error Handling: File Exist
     file_location = file_name
@@ -58,7 +62,7 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict, prof
     except:
         print("Error: Unable to parse CSV file")
         print("Program Quit")
-        sys.exit(1);
+        sys.exit(1)
 
     # Total Power Array
     total_power_array = None
@@ -84,7 +88,7 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict, prof
             counter += 1
             # to make sure only bottom graph has x label
             if counter <= int(graph_row)*int(graph_col)-len(device_cate_map):
-                '''if util == 'power':
+                if util == 'power':
                     make_power_graph(device_cate_map[device_name][util], \
                                integration_period, \
                                '', \
@@ -118,13 +122,18 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict, prof
                             '', \
                             2, \
                             sub=(graph_row,graph_col,int(f'{counter}')))
-            '''
+            
     # write to csv
-    write_to_csv('simulationfiles/calculationoutputs/'+profile_id+OUTPUT_CSV,integration_period,device_cate_map)
+    
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.mkdir(OUTPUT_FOLDER)
+    write_to_csv(OUTPUT_FOLDER + '/' + profile_id+OUTPUT_CSV,integration_period,device_cate_map)
     # print to console
     print_to_console(file_name, device_map, integral_array, integration_period, device_cate_map)
     # show graphs
     #show_graph()
+    save_graph(OUTPUT_FOLDER, profile_id, batch_file_name, True)
+    reset()
 
 def print_to_console(file_name, device_map, integral_array,integration_period,device_cate_map):
     # Each Device and state
@@ -245,16 +254,18 @@ if __name__ == '__main__':
         except:
             print("Error: Unable to pickle objects")
             print("Program Quit") 
-            sys.exit(1);
+            sys.exit(1)
 
         ENABLED_LIST = AttributesCheck(ENABLED_LIST, params['device_map'])
         
-        
-        analyze_data('simulationfiles/scheduleobjects/csvs/' + str(batch_csv_data[bindex][0])+INPUT_CSV, params['integeration_period'], params['device_map'], str(batch_csv_data[bindex][0]))
+        analyze_data('simulationfiles/scheduleobjects/csvs/' + str(batch_csv_data[bindex][0])+INPUT_CSV, params['integeration_period'], params['device_map'], str(batch_csv_data[bindex][0]),batch_file_name.split('.')[0])
         bindex = bindex + 1
     print("FINISHED BATCH")
-    T_OUTPUT_FILE = batch_file_name[0:-4] + "-WH-output-{date:%Y-%m-%d_%H_%M_%S}.csv".format( date=datetime.datetime.now() )
-    fout = open('simulationfiles/calculationoutputs/'+T_OUTPUT_FILE, 'wb')
+    T_OUTPUT_FILE = batch_file_name[0:-4] + "-WH-output-{date:%Y-%m-%d_%H_%M_%S}.csv".format( date=datetime.datetime.now())
+    OUTPUT_FOLDER = 'simulationfiles/calculationoutputs/' + batch_file_name.split('.')[0] + OUTPUT_TIME
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.mkdir(OUTPUT_FOLDER)
+    fout = open(OUTPUT_FOLDER+ '/' + T_OUTPUT_FILE, 'wb')
     for x in range(0, len(USAGE_GLOBAL)):
         print(batch_csv_data[x][0])
         print(USAGE_GLOBAL[x])
