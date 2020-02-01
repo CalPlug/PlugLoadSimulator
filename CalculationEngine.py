@@ -1,4 +1,4 @@
-from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph
+from enginelib.graph import make_integral_array,make_graph,make_power_graph,show_graph,save_graph,reset
 from enginelib.write import write_to_csv
 from enginelib.logger import Logger
 import pickle
@@ -6,6 +6,8 @@ import numpy as np
 import sys
 from io import StringIO #this line may be needed if not present in your python setup
 from pathlib import Path
+import datetime
+import os
 
 #***NOTICE:: Run through project "PLSim 1.2" as the set relative location within the entire project. 
 #            Accordingly if this is run in a new project each input and output file may need to have 
@@ -16,14 +18,14 @@ INPUT_CSV = 'simulationfiles/scheduleobjects/csvs/test_group.csv' #This is the i
 INPUT_PARAM = 'simulationfiles/scheduleobjects/run_params' #this is the pickled object file passed as input into the calculation engine
 
 # Output files
-OUTPUT_CSV = 'simulationfiles/calculationoutputs/graph_file_test.csv' #This is the generated device operation calculation outputs 
-
+OUTPUT_CSV = 'graph_file_test.csv' #This is the generated device operation calculation outputs 
+OUTPUT_FOLDER = "simulationfiles/calculationoutputs/Single_run-{date:%Y-%m-%d_%H_%M_%S}".format( date=datetime.datetime.now())
 # List of Enabled Graphs
 ENABLED_LIST = ['power_factor','thdI']
 
 
 def analyze_data(file_name: str, integration_period: int, device_map: dict):
-
+    pass
     #Error Handling: File Exist
     file_location = file_name
     exist_flag = Path(file_location)
@@ -35,11 +37,13 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
     #Error Handling: File Parsing
     try:
         # {device_name:{cate:[np array of value]}}
+        # print(file_name)
+        # print(device_map)
         device_cate_map = parse_inputfile(file_name, device_map)
     except:
         print("Error: Unable to parse CSV file")
         print("Program Quit")
-        sys.exit(1);
+        sys.exit(1)
 
     # Total Power Array
     total_power_array = None
@@ -64,6 +68,7 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
         for device_name in device_cate_map:
             counter += 1
             # to make sure only bottom graph has x label
+
             if counter <= int(graph_row)*int(graph_col)-len(device_cate_map):
                 if util == 'power':
                     make_power_graph(device_cate_map[device_name][util], \
@@ -100,13 +105,17 @@ def analyze_data(file_name: str, integration_period: int, device_map: dict):
                             2, \
                             sub=(graph_row,graph_col,int(f'{counter}')))
 
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.mkdir(OUTPUT_FOLDER)
     # write to csv
-    write_to_csv(OUTPUT_CSV,integration_period,device_cate_map)
+    write_to_csv(OUTPUT_FOLDER + '/' + OUTPUT_CSV,integration_period,device_cate_map)
     # print to console
     print_to_console(file_name, device_map, integral_array, integration_period, device_cate_map)
     # show graphs
+    save_graph(OUTPUT_FOLDER, "", file_name, False)
     show_graph()
-
+    reset()
+    
 def print_to_console(file_name, device_map, integral_array,integration_period,device_cate_map):
     # Each Device and state
     print("\nDevice Info:")
@@ -191,7 +200,7 @@ def AttributesCheck(ENABLED_LIST, device_cate_map):
 
 
 if __name__ == '__main__':
-    sys.stdout = Logger()
+    # sys.stdout = Logger() #TODO: Check uncommented for error in multiple runs of single run
     #Error Handling: File Exist
     file_location = INPUT_PARAM
     exist_flag = Path(file_location)
@@ -208,10 +217,8 @@ if __name__ == '__main__':
     except:
         print("Error: Unable to pickle objects")
         print("Program Quit") 
-        sys.exit(1);
+        sys.exit(1)
 
     ENABLED_LIST = AttributesCheck(ENABLED_LIST, params['device_map'])
     
-    
     analyze_data(INPUT_CSV, params['integeration_period'], params['device_map'])
-        
