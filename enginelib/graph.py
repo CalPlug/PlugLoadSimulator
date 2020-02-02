@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib
 matplotlib.use("TKAgg")
 import matplotlib.pyplot as plt
+import os
+
+import datetime
 
 num_graphs = 1
 
@@ -126,9 +129,27 @@ def make_power_graph(input_data: list, int_period, x_label, y_label, title, lege
     #Tested formats: eps, pdf, pgf, png, ps, raw, rgba, svg, svgz
     #Easiest formats are pdf and png, svg and eps saves lossless quality but need to convert
     #IF WE HAVE THE COMPUTING POWER, SET DPI TO 1000/1200 for highest quality: WARNING, takes multiple minutes to run
-    plt.savefig("./graphs/graph" + str(num_graphs) + ".png", dpi = 300)
+    # plt.savefig("./graphs/graph" + str(num_graphs) + ".png", dpi = 300)
     
     num_graphs += 1
 
 def show_graph():
     plt.show()
+
+def save_graph(output_folder, profile_id, file_name, isbatch):
+    num = 1
+    figs = [plt.figure(n) for n in plt.get_fignums()]
+
+    if isbatch:
+        file_path = output_folder + '/' + profile_id + "graph" + str(num) + ".png"
+    else:
+        file_path = output_folder + "/graph" + str(num) + ".png"
+    
+    for fig in figs:
+        fig.savefig(file_path, dpi=300)
+        num += 1
+    
+    # print("**************************", output_folder,"**************************")
+
+def reset():
+    plt.clf()
