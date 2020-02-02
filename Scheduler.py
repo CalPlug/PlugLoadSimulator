@@ -364,7 +364,7 @@ if "__main__" == __name__:
             # exec(open("./CalculationEngine.py").read())
             runpy.run_path('./CalculationEngine.py', run_name='__main__')
             #os.system("python CalculationEngine.py") #TODO: Replace os.system with subprocess
-            exit(0)
+            #exit(0)
             
         elif inp == 'q':
             exit(0)
