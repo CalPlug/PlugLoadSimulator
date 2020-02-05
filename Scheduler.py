@@ -211,14 +211,16 @@ def batch_run_sim_state(integration_period: int, input_generators: list, batch_i
 
 def get_csv_batch(filename:str)->list:
     list_of_profiles = []
-    with open(filename) as f:
-        reader = csv.reader(f,delimiter=',')
-        for row in reader:
-            print(row)
-            list_of_profiles.append(row)
-    print(list_of_profiles)
-    return list_of_profiles
-
+    try:
+        with open(filename) as f:
+            reader = csv.reader(f,delimiter=',')
+            for row in reader:
+                print(row)
+                list_of_profiles.append(row)
+        print(list_of_profiles)
+        return list_of_profiles
+    except:
+        raise FileNotFoundError("Cannot find this file. Please enter an existing csv file")
 
 #-------- END Functions for batch input ----------#
 
@@ -268,60 +270,64 @@ if "__main__" == __name__:
             print("DEVICE MAP")
             print(device_map)
             #exit()
-            batch_csv_data = get_csv_batch(BATCH_PATH + batch_file_name)
-            batchNum = len(batch_csv_data)
-            bindex = 0
-            while(bindex < batchNum):
-                print("Entering " + str(bindex) + " Profile")
-                print(batch_csv_data)
-                print("_________________________________")
-                dev_key = batch_input_device_model(devices_data, '', batch_csv_data[bindex], 2)
-                print("DEV KEY")
-                print(dev_key)
-                #exit()
-                # key -> "type+brand+model", value -> power and etc
-                key,value = search_data(tree, dev_key)
-                # name_gen.generate_name checks DUPLICATES and add a number at the end if DUPLICATED
-                device_map[name_gen.generate_name(key)] = value
-                print("______End Profile"+ str(bindex) + "_______")
-                #bindex = bindex + 1
-                input_generators = make_input_generators(device_map)
-                print(input_generators)
-                #exit()
-                # Get Integration Period
-                print('Enter integration period for simulation calculation framework (whole seconds): ')
-                integration_period = int(batch_csv_data[bindex][6])
-                print(integration_period)
-                # Get Periods
-                batch_run_sim_state(integration_period, input_generators, batch_csv_data[bindex], 8,  int(batch_csv_data[bindex][7]))
-                # run_sim(integration_period, input_generators)
+            try:
+                batch_csv_data = get_csv_batch(BATCH_PATH + batch_file_name)
+                batchNum = len(batch_csv_data)
+                bindex = 0
+                while(bindex < batchNum):
+                    print("Entering " + str(bindex) + " Profile")
+                    print(batch_csv_data)
+                    print("_________________________________")
+                    dev_key = batch_input_device_model(devices_data, '', batch_csv_data[bindex], 2)
+                    print("DEV KEY")
+                    print(dev_key)
+                    #exit()
+                    # key -> "type+brand+model", value -> power and etc
+                    key,value = search_data(tree, dev_key)
+                    # name_gen.generate_name checks DUPLICATES and add a number at the end if DUPLICATED
+                    device_map[name_gen.generate_name(key)] = value
+                    print("______End Profile"+ str(bindex) + "_______")
+                    #bindex = bindex + 1
+                    input_generators = make_input_generators(device_map)
+                    print(input_generators)
+                    #exit()
+                    # Get Integration Period
+                    print('Enter integration period for simulation calculation framework (whole seconds): ')
+                    integration_period = int(batch_csv_data[bindex][6])
+                    print(integration_period)
+                    # Get Periods
+                    batch_run_sim_state(integration_period, input_generators, batch_csv_data[bindex], 8,  int(batch_csv_data[bindex][7]))
+                    # run_sim(integration_period, input_generators)
 
-                # pickle run_perams
-                with open(('simulationfiles/scheduleobjects/'+str(batch_csv_data[bindex][0])+ OUTPUT_PICKLE),'wb') as fd:
-                    pickle.dump({'integeration_period':integration_period,'device_map':device_map}, fd)
+                    # pickle run_perams
+                    with open(('simulationfiles/scheduleobjects/'+str(batch_csv_data[bindex][0])+ OUTPUT_PICKLE),'wb') as fd:
+                        pickle.dump({'integeration_period':integration_period,'device_map':device_map}, fd)
 
-                # write info file
-                write_to_ifile('simulationfiles/scheduleobjects/csvs/'+str(batch_csv_data[bindex][0])+OUTPUT_CSV, integration_period, input_generators)
-                # write copy of the pickle file
-                write_to_peramfile('simulationfiles/scheduleobjects/csvs/'+str(batch_csv_data[bindex][0]) +OUTPUT_CONFIG, integration_period, device_map)
-                
-                print("CSV File Input Gen:")
-                print(input_generators)
-                print("Integration Period:")
-                print(integration_period)
-                print("Device Map:")
-                print(device_map)
-                #exit()
-                device_map = {}
-                bindex = bindex + 1
-            # Quit the Program after Simulation
-            #subprocess.call(['./CalculationEngineBATCH.py', str(batch_file_name)], shell=True)
-            sys.argv = ['', str(batch_file_name)]
-            runpy.run_path('./CalculationEngineBATCH.py', run_name='__main__')
-            #subprocess.call("python CalculationEngineBATCH.py " + str(batch_file_name), shell=True) 
-            #exec(open("./CalculationEngine.py " +str(batch_file_name)).read())
-            #os.system("python CalculationEngineBATCH.py "+str(batch_file_name)) #TODO: Replace os.system with subprocess
-            #exit(0)
+                    # write info file
+                    write_to_ifile('simulationfiles/scheduleobjects/csvs/'+str(batch_csv_data[bindex][0])+OUTPUT_CSV, integration_period, input_generators)
+                    # write copy of the pickle file
+                    write_to_peramfile('simulationfiles/scheduleobjects/csvs/'+str(batch_csv_data[bindex][0]) +OUTPUT_CONFIG, integration_period, device_map)
+
+                    print("CSV File Input Gen:")
+                    print(input_generators)
+                    print("Integration Period:")
+                    print(integration_period)
+                    print("Device Map:")
+                    print(device_map)
+                    #exit()
+                    device_map = {}
+                    bindex = bindex + 1
+                # Quit the Program after Simulation
+                #subprocess.call(['./CalculationEngineBATCH.py', str(batch_file_name)], shell=True)
+                sys.argv = ['', str(batch_file_name)]
+                runpy.run_path('./CalculationEngineBATCH.py', run_name='__main__')
+                #subprocess.call("python CalculationEngineBATCH.py " + str(batch_file_name), shell=True)
+                #exec(open("./CalculationEngine.py " +str(batch_file_name)).read())
+                #os.system("python CalculationEngineBATCH.py "+str(batch_file_name)) #TODO: Replace os.system with subprocess
+                #exit(0)
+            except FileNotFoundError:
+                print("Given csv file cannot be found. Please make sure it exists and enter again")
+
 
         elif inp == 'd':
             valid = set(device_map.keys())
@@ -333,31 +339,34 @@ if "__main__" == __name__:
         elif inp == 'p':
             pprint(device_map)
         elif inp == 'r':
-            input_generators = make_input_generators(device_map)
-            # Get Integration Period
-            integration_period = input_int('Enter integration period for simulation calculation framework (whole seconds): ')
-            # Get Periods
-            run_sim_state(integration_period, input_generators)
-            # run_sim(integration_period, input_generators)
+            if device_map == {}:
+                print("No device added. Cannot run.")
+            else:
+                input_generators = make_input_generators(device_map)
+                # Get Integration Period
+                integration_period = input_int('Enter integration period for simulation calculation framework (whole seconds): ')
+                # Get Periods
+                run_sim_state(integration_period, input_generators)
+                # run_sim(integration_period, input_generators)
 
-            # pickle run_perams
-            with open('simulationfiles/scheduleobjects/' + OUTPUT_PICKLE,'wb') as fd:
-                pickle.dump({'integeration_period':integration_period,'device_map':device_map}, fd)
+                # pickle run_perams
+                with open('simulationfiles/scheduleobjects/' + OUTPUT_PICKLE,'wb') as fd:
+                    pickle.dump({'integeration_period':integration_period,'device_map':device_map}, fd)
 
-            # write info file
-            write_to_ifile('simulationfiles/scheduleobjects/csvs/' + OUTPUT_CSV, integration_period, input_generators)
-            # write copy of the pickle file
-            write_to_peramfile('simulationfiles/scheduleobjects/csvs/' + OUTPUT_CONFIG, integration_period, device_map)
-            
-            print ("CSV File Input Gen:")
-            print(input_generators)
-            print ("Integration Period:")
-            print(integration_period)
-            print ("Device Map:")
-            print(device_map)
+                # write info file
+                write_to_ifile('simulationfiles/scheduleobjects/csvs/' + OUTPUT_CSV, integration_period, input_generators)
+                # write copy of the pickle file
+                write_to_peramfile('simulationfiles/scheduleobjects/csvs/' + OUTPUT_CONFIG, integration_period, device_map)
 
-            # Quit the Program after Simulation
-            #exit(0)
+                print ("CSV File Input Gen:")
+                print(input_generators)
+                print ("Integration Period:")
+                print(integration_period)
+                print ("Device Map:")
+                print(device_map)
+
+                # Quit the Program after Simulation
+                #exit(0)
 
         elif inp == 'e':
             print("Execute default Calc Engine")
