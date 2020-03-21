@@ -10,8 +10,10 @@ class Logger(object):
         self.log.write(message)  
 
     def flush(self):
+        self.terminal.flush() #added to flush out stdin 
+        self.log.flush()
         #this flush method is needed for python 3 compatibility.
         #this handles the flush command by doing nothing.
         #you might want to specify some extra behavior here.
-        pass    
+          
 
