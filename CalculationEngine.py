@@ -200,7 +200,7 @@ def AttributesCheck(ENABLED_LIST, device_cate_map):
 
 
 if __name__ == '__main__':
-    # sys.stdout = Logger() #TODO: Check uncommented for error in multiple runs of single run
+    sys.stdout = Logger() #TODO: Check uncommented for error in multiple runs of single run
     #Error Handling: File Exist
     file_location = INPUT_PARAM
     exist_flag = Path(file_location)
